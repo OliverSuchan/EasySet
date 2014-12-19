@@ -1,4 +1,4 @@
-#include "packetadministration.h"
+#include "../include/packetadministration.h"
 
 PacketAdministration::PacketAdministration(QObject *p_parent) :
     QObject(p_parent)

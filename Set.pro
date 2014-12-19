@@ -13,15 +13,17 @@ TEMPLATE = app
 
 CONFIG += c++11
 
-SOURCES += main.cpp\
-        mainwindow.cpp \
-    server.cpp \
-    client.cpp \
-    packetadministration.cpp
+SOURCES +=\
+    src/client.cpp \
+    src/main.cpp \
+    src/mainwindow.cpp \
+    src/packetadministration.cpp \
+    src/server.cpp
 
-HEADERS  += mainwindow.h \
-    server.h \
-    client.h \
-    packetadministration.h
+HEADERS  += \
+    include/client.h \
+    include/mainwindow.h \
+    include/packetadministration.h \
+    include/server.h
 
 FORMS    += mainwindow.ui
