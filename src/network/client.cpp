@@ -1,4 +1,4 @@
-#include "../include/client.h"
+#include "client.h"
 
 Client::Client(QHostAddress ip, QObject *parent) :
     QTcpSocket(parent)

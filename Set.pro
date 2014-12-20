@@ -13,17 +13,20 @@ TEMPLATE = app
 
 CONFIG += c++11
 
+INCLUDEPATH +=  include/network \
+                src/network
+
 SOURCES +=\
-    src/client.cpp \
-    src/main.cpp \
-    src/mainwindow.cpp \
-    src/packetadministration.cpp \
-    src/server.cpp
+    src/network/client.cpp \
+    src/network/main.cpp \
+    src/network/mainwindow.cpp \
+    src/network/packetadministration.cpp \
+    src/network/server.cpp
 
 HEADERS  += \
-    include/client.h \
-    include/mainwindow.h \
-    include/packetadministration.h \
-    include/server.h
+    include/network/client.h \
+    include/network/mainwindow.h \
+    include/network/packetadministration.h \
+    include/network/server.h
 
 FORMS    += mainwindow.ui

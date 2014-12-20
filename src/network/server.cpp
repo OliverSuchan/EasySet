@@ -1,4 +1,4 @@
-#include "../include/server.h"
+#include "server.h"
 
 Server::Server(QObject *parent) :
     QTcpServer(parent)

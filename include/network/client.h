@@ -3,7 +3,7 @@
 
 #include <QHostAddress>
 #include <QTcpSocket>
-#include "../include/packetadministration.h"
+#include "packetadministration.h"
 
 class Client : public QTcpSocket
 {
