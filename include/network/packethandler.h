@@ -4,10 +4,11 @@
 #include <iostream>
 #include <iterator>
 #include <algorithm>
+#include <bitset>
 #include <QByteArray>
 #include <QObject>
 
-class PacketAdministration : public QObject
+class PacketHandler : public QObject
 {
     Q_OBJECT
 
@@ -22,7 +23,7 @@ private:
     void processPacket(QByteArray);
 
 public:
-    PacketAdministration(QObject* p_parent = 0);
+    PacketHandler(QObject* p_parent = 0);
     void processPackets(QByteArray p_packets);
     QByteArray makeFSPacket(void* p_field);
     QByteArray makeClickPacket(void* p_card);
@@ -30,7 +31,7 @@ public:
 
 signals:
     void readScore(short p_score);
-    void readField(void* p_field);
+    void readField(QByteArray p_field);
     void readClick(void* p_card);
 
 };

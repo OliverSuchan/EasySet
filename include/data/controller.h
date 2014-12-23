@@ -2,6 +2,7 @@
 #define CONTROLLER_H
 
 #include <vector>
+#include "server.h"
 #include "window.h"
 #include "stdlib.h"
 #include "time.h"
@@ -13,7 +14,7 @@ class Controller;
 /**
  * @brief Steuerklasse zum Aufbau des Spiels
  */
-class Controller
+class Controller : public Server
 {
 
 private:
@@ -42,12 +43,14 @@ private:
      */
     short decklength;
 
+    void sendFSPacket(QTcpSocket *p_client);
+
 
 public:
     /**
      * @brief Konstruktor zum Erzeugen der Steuer-Klasse
      */
-    Controller();
+    Controller(QObject *p_parent = 0);
 
     /**
      * @brief Zeigt alle Karten an

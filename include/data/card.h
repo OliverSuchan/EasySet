@@ -7,7 +7,7 @@ class Card;
 
 /**
  * @brief Die Klasse Card ist das digitale pendant zu den analogen Karten<BR>
- *        im Spiel Set.
+ *        zum Spiel Set.
  */
 class Card
 {
@@ -57,7 +57,7 @@ public:
     /**
      * @brief Überladener Plus-Operator, um Karten zu addieren
      * @param a Zu addierende Karte
-     * @return
+     * @return Addierte Karten
      */
     Card operator+(Card & a);
 
@@ -66,15 +66,21 @@ public:
      * @param p_step Anzahl der zu springenden Schritte
      * @return Karte p_step-Schritte weiter in der Liste
      */
-    Card* operator+(unsigned short p_step);
+    Card* operator+(int p_step);
 
     /**
      * @brief Überladener Minus-Operator, um in der Liste zurückzuspringen
      * @param p_step Anzahl der zurückzuspringenden Schritte
      * @return Karte p_step-Schritte zurück in der Liste
      */
-    Card* operator-(unsigned short p_step);
+    Card* operator-(int p_step);
 
+    int size();
+
+    char attributesToByte();
+
+    Card *nextCard();
+    Card *previousCard();
 };
 
 #endif // CARD_H

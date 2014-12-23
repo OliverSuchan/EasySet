@@ -15,7 +15,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    new Server(this);
+    new Controller(this);
 }
 
 void MainWindow::on_pushButton_2_clicked()

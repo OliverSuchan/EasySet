@@ -1,11 +1,12 @@
-#include "packetadministration.h"
+#include "packethandler.h"
+#include "card.h"
 
-PacketAdministration::PacketAdministration(QObject *p_parent) :
+PacketHandler::PacketHandler(QObject *p_parent) :
     QObject(p_parent)
 {
 }
 
-void PacketAdministration::processPackets(QByteArray p_packets)
+void PacketHandler::processPackets(QByteArray p_packets)
 {
     while(p_packets.size())
     {
@@ -16,25 +17,31 @@ void PacketAdministration::processPackets(QByteArray p_packets)
     }
 }
 
-QByteArray PacketAdministration::makeFSPacket(void *p_field)
+QByteArray PacketHandler::makeFSPacket(void *p_field)
 {
     QByteArray packet;
     packet.append(FIELD_SYNCHRO);
-    packet.append(static_cast<const char*>(p_field));
+    Card *currentCard = static_cast<Card*>(p_field);
+    while(currentCard->nextCard() != p_field && currentCard->nextCard() != nullptr)
+    {
+        std::cout << std::bitset<8>(currentCard->attributesToByte()) << std::endl;
+        packet.append(currentCard->attributesToByte());
+        currentCard = currentCard + 1;
+    }
     packet.insert(1, packet.size() + 1);
     return packet;
 }
 
-QByteArray PacketAdministration::makeClickPacket(void* p_card)
+QByteArray PacketHandler::makeClickPacket(void* p_card)
 {
     QByteArray packet;
     packet.append(CLICK);
-    packet.append(static_cast<const char*>(p_card));
+    packet.append(static_cast<Card*>(p_card)->attributesToByte());
     packet.insert(1, packet.size() + 1);
     return packet;
 }
 
-QByteArray PacketAdministration::makeScorePacket(short p_score)
+QByteArray PacketHandler::makeScorePacket(short p_score)
 {
     QByteArray packet;
     packet.append(SCORE);
@@ -43,7 +50,7 @@ QByteArray PacketAdministration::makeScorePacket(short p_score)
     return packet;
 }
 
-void PacketAdministration::processPacket(QByteArray p_packet)
+void PacketHandler::processPacket(QByteArray p_packet)
 {
     if(p_packet.size())
     {
@@ -56,7 +63,7 @@ void PacketAdministration::processPacket(QByteArray p_packet)
             break;
 
         case FIELD_SYNCHRO:
-            emit readField(static_cast<void*>(packet.data()));
+            emit readField(packet);
             break;
 
         case CLICK:
