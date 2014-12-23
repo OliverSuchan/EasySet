@@ -24,9 +24,15 @@ private:
 public:
     PacketAdministration(QObject* p_parent = 0);
     void processPackets(QByteArray p_packets);
+    QByteArray makeFSPacket(void* p_field);
+    QByteArray makeClickPacket(void* p_card);
+    QByteArray makeScorePacket(short p_score);
 
 signals:
     void readScore(short p_score);
+    void readField(void* p_field);
+    void readClick(void* p_card);
+
 };
 
 #endif // PACKETADMINISTRATION_H

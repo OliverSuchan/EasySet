@@ -13,12 +13,13 @@ public:
     PacketAdministration *m_packetAdministration;
 
 public:
-    explicit Client(QHostAddress = QHostAddress::LocalHost, QObject *parent = 0);
+    explicit Client(QObject *p_parent = 0, QHostAddress p_ip = QHostAddress::LocalHost, int = 1337);
 
 signals:
 
 public slots:
     void retrieveScore(short p_score);
+    void retrieveField(void* p_field);
     void onReadyRead();
 };
 

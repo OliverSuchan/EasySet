@@ -20,5 +20,5 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-   new Client(QHostAddress("10.16.1.1"), this);
+   new Client(this);
 }

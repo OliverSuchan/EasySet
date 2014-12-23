@@ -16,10 +16,39 @@ void PacketAdministration::processPackets(QByteArray p_packets)
     }
 }
 
+QByteArray PacketAdministration::makeFSPacket(void *p_field)
+{
+    QByteArray packet;
+    packet.append(FIELD_SYNCHRO);
+    packet.append(static_cast<const char*>(p_field));
+    packet.insert(1, packet.size() + 1);
+    return packet;
+}
+
+QByteArray PacketAdministration::makeClickPacket(void* p_card)
+{
+    QByteArray packet;
+    packet.append(CLICK);
+    packet.append(static_cast<const char*>(p_card));
+    packet.insert(1, packet.size() + 1);
+    return packet;
+}
+
+QByteArray PacketAdministration::makeScorePacket(short p_score)
+{
+    QByteArray packet;
+    packet.append(SCORE);
+    packet.append(p_score);
+    packet.insert(1, packet.size() + 1);
+    return packet;
+}
+
 void PacketAdministration::processPacket(QByteArray p_packet)
 {
     if(p_packet.size())
     {
+        QByteArray packet;
+        std::copy(p_packet.begin() + 2, p_packet.end(), packet.begin());
         switch(p_packet[0])
         {
         case SCORE:
@@ -27,6 +56,7 @@ void PacketAdministration::processPacket(QByteArray p_packet)
             break;
 
         case FIELD_SYNCHRO:
+            emit readField(static_cast<void*>(packet.data()));
             break;
 
         case CLICK:

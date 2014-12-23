@@ -29,4 +29,5 @@ HEADERS  += \
     include/network/packetadministration.h \
     include/network/server.h
 
-FORMS    += mainwindow.ui
+FORMS    += \
+    forms/mainwindow.ui
