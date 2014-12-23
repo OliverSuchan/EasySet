@@ -25,4 +25,5 @@ HEADERS  += \
     include/data/controller.h \
     include/data/window.h
 
-FORMS    += window.ui
+FORMS    += \
+    forms/window.ui
