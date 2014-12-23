@@ -31,3 +31,20 @@ HEADERS  += \
 
 FORMS    += \
     forms/mainwindow.ui
+
+INCLUDEPATH +=  include/data \
+                src/data
+
+SOURCES +=\
+    src/data/card.cpp \
+    src/data/main.cpp \
+    src/data/controller.cpp \
+    src/data/window.cpp
+
+HEADERS  += \
+    include/data/card.h \
+    include/data/controller.h \
+    include/data/window.h
+
+FORMS    += \
+    forms/window.ui
