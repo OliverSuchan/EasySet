@@ -22,12 +22,12 @@ QByteArray PacketHandler::makeFSPacket(void *p_field)
     QByteArray packet;
     packet.append(FIELD_SYNCHRO);
     Card *currentCard = static_cast<Card*>(p_field);
-    while(currentCard->nextCard() != p_field && currentCard->nextCard() != nullptr)
+    do
     {
-        std::cout << std::bitset<8>(currentCard->attributesToByte()) << std::endl;
-        packet.append(currentCard->attributesToByte());
-        currentCard = currentCard + 1;
+        packet.append(char(*currentCard));
+        currentCard = *currentCard + 1;
     }
+    while(currentCard != p_field && currentCard != nullptr);
     packet.insert(1, packet.size() + 1);
     return packet;
 }

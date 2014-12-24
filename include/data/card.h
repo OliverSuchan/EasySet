@@ -54,6 +54,8 @@ public:
      */
     Card(short p_color, short p_shape, short p_number, short p_opacity);
 
+    operator char();
+
     /**
      * @brief Überladener Plus-Operator, um Karten zu addieren
      * @param a Zu addierende Karte

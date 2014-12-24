@@ -58,15 +58,25 @@ void Controller::insertDeckCard(Card &a)
 }
 void Controller::draw()
 {
-//    this->m_deckCard = this->m_deckCard + (rand() % decklength);
-//    this->m_deckCard->m_previousCard->m_nextCard = this->m_deckCard->m_nextCard;
-//    this->m_deckCard->m_nextCard->m_previousCard = this->m_deckCard->m_previousCard;
-//    this->m_deckCard->m_nextCard = this->m_deckCard->m_previousCard = nullptr;
-//    if(m_field == nullptr)
-//        this->m_field = this->m_deckCard
+    Card *drawnCard = *this->m_deckCard + (rand() % this->m_deckCard->size());
+    drawnCard->m_previousCard->m_nextCard = drawnCard->m_nextCard;
+    drawnCard->m_nextCard->m_previousCard = drawnCard->m_previousCard;
+    this->m_deckCard = drawnCard->m_nextCard;
+    if(m_field)
+    {
+        drawnCard->m_nextCard = m_field;
+        drawnCard->m_previousCard = m_field->m_previousCard;
+        m_field->m_previousCard->m_nextCard = drawnCard;
+        m_field->m_previousCard = drawnCard;
+    }
+    else
+    {
+        m_field = drawnCard;
+        m_field->m_nextCard = m_field;
+        m_field->m_previousCard = m_field;
+    }
     std::cout << "Anzahl der Karten im Deck: " << m_deckCard->size() << std::endl;
-    m_field = m_deckCard;
-
+    std::cout << "Anzahl der Karten auf dem Spielfeld: " << m_field->size() << std::endl;
 }
 
 void Controller::sendFSPacket(QTcpSocket *p_client)
