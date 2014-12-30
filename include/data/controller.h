@@ -44,6 +44,8 @@ private:
     short decklength;
 
     void sendFSPacket(QTcpSocket *p_client);
+    
+    bool checkField(); // prüft, ob das Feld Sets enthält
 
 
 public:
