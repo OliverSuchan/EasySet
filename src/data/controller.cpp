@@ -84,3 +84,27 @@ void Controller::sendFSPacket(QTcpSocket *p_client)
     p_client->write(m_packetHandler->makeFSPacket(this->m_field));
     p_client->flush();
 }
+
+bool Controller::checkField()   // Untersucht alle Kombinationen des Feldes auf ein Set
+{
+    Card* a, b, c;
+    a = m_field;
+    b = a->m_nextCard;
+    c = b->m_nextCard;
+    for(int i = 0; i < m_field->size(); i++)
+    {
+        for(int j = i + 1; j < m_field->size(); j++)
+        {
+            for(int k = j + 1; k < m_field->size(); k++)
+            {
+                if(check(a,b,c)) return true;
+                c = c->m_nextCard;
+            }
+            b = b->m_nextCard;
+            c = b->m_nextCard;
+        }
+        a = a->m_nextCard;
+        b = a->m_nextCard;
+        c = b->m_nextCard;
+    }
+}
