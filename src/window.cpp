@@ -22,6 +22,7 @@ void Window::cardClicked()
     std::cout << char(*clickedCard) << std::endl;
     if(m_clickedCards.size() == 3)
     {
+        m_curPlayer->sendClickPacket(m_clickedCards);
         m_clickedCards.clear();
         emit unselectAll();
         emit canClick(false);

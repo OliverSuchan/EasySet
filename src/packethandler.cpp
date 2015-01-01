@@ -28,7 +28,7 @@ QByteArray PacketHandler::makeFSPacket(std::list<std::unique_ptr<Card> > &p_fiel
     return packet;
 }
 
-QByteArray PacketHandler::makeClickPacket(std::list<std::unique_ptr<Card> > &p_cards)
+QByteArray PacketHandler::makeClickPacket(std::list<Card *> &p_cards)
 {
     QByteArray packet;
     packet.append(CLICK);
@@ -53,7 +53,7 @@ void PacketHandler::processPacket(QByteArray p_packet, std::unique_ptr<QTcpSocke
             break;
 
         case CLICK:
-            emit readClick(p_socket.get(), p_packet[2]);
+            emit readClick(p_socket.get(), packet);
             break;
 
         case SCORE:

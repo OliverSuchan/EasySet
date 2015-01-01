@@ -20,5 +20,5 @@ public:
     void draw(short p_count = 3);
 
 public slots:
-    void retrieveClick(QTcpSocket *p_client, char p_card);
+    void retrieveClick(QTcpSocket *p_client, QByteArray p_cards);
 };

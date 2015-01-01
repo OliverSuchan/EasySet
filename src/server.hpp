@@ -31,6 +31,7 @@ protected slots:
 public slots:
     void newCon();
     void onReadyRead();
+    virtual void retrieveClick(QTcpSocket *p_client, QByteArray p_cards) = 0;
 
 };
 

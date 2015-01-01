@@ -8,6 +8,7 @@ Server::Server(QObject *parent, int p_port) :
     {
         std::cout << "Server wurde gestartet" << std::endl;
         connect(this, SIGNAL(newConnection()), this, SLOT(newCon()));
+        connect(m_packetHandler.get(), SIGNAL(readClick(QTcpSocket*, QByteArray)), this, SLOT(retrieveClick(QTcpSocket*,QByteArray)));
     }
     else
     {

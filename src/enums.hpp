@@ -16,7 +16,7 @@ enum Color
     GREEN
 };
 
-const QColor setColors[3] = { Qt::red, Qt::blue, Qt::darkGreen};
+static const QColor setColors[3] = { Qt::red, Qt::blue, Qt::darkGreen};
 
 enum Shape
 {

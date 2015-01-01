@@ -14,7 +14,7 @@ class Client : public QTcpSocket
 public:
     std::unique_ptr<PacketHandler> m_packetHandler;
     explicit Client(QObject *p_parent = 0, QHostAddress p_ip = QHostAddress::LocalHost, int p_port = 1337);
-    virtual void sendClickPacket(std::list<std::unique_ptr<Card>> &p_cards) = 0;
+    virtual void sendClickPacket(std::list<Card*> &p_cards) = 0;
 
 signals:
 

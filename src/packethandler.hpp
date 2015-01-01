@@ -18,12 +18,12 @@ public:
     explicit PacketHandler(QObject *parent = 0);
     void processPackets(QByteArray p_packets, std::unique_ptr<QTcpSocket> p_socket = nullptr);
     QByteArray makeFSPacket(std::list<std::unique_ptr<Card>> &p_field);
-    QByteArray makeClickPacket(std::list<std::unique_ptr<Card>> &p_cards);
+    QByteArray makeClickPacket(std::list<Card*> &p_cards);
 
 signals:
     void readField(QByteArray p_field);
     void readScore(short p_score);
-    void readClick(QTcpSocket *p_socket, char p_card);
+    void readClick(QTcpSocket *p_socket, QByteArray p_cards);
 
 public slots:
 

@@ -82,7 +82,7 @@ void Controller::draw(short p_count)
     sendFSPacket(nullptr);
 }
 
-void Controller::retrieveClick(QTcpSocket *p_client, char p_card)
+void Controller::retrieveClick(QTcpSocket *p_client, QByteArray p_cards)
 {
     std::cout << "click" << std::endl;
     /*for(auto it = m_clients.begin(); it != m_clients.end(); ++it)

@@ -15,6 +15,11 @@ void Client::retrieveBestScore(short p_score)
 
 }
 
+void Client::retrieveScore(short p_score)
+{
+
+}
+
 void Client::onReadyRead()
 {
     std::cout << "client; incoming message" << std::endl;
