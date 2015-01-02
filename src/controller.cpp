@@ -19,6 +19,7 @@ void Controller::sendFSPacket()
         std::get<0>(*it)->flush();
     }
     sendDeckLengthPacket();
+    sendScoreboard();
     getSetCount();
 }
 
@@ -40,6 +41,22 @@ void Controller::sendWaitTimePacket()
 void Controller::sendDeckLengthPacket()
 {
     QByteArray packet = m_packetHandler->makeDeckLengthPacket(m_deck.size());
+    for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
+    {
+        std::get<0>(*it)->write(packet);
+        std::get<0>(*it)->flush();
+    }
+}
+
+void Controller::sendScoreboard()
+{
+    QByteArray scores;
+    for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
+    {
+        scores.append(std::get<1>(*it));
+    }
+
+    QByteArray packet = m_packetHandler->makeScoresPacket(scores);
     for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
     {
         std::get<0>(*it)->write(packet);

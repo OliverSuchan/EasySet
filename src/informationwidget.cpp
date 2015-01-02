@@ -3,7 +3,7 @@
 InformationWidget::InformationWidget(QWidget *parent) :
     QWidget(parent)
 {
-    this->setMinimumSize(210, 180);
+    this->setMinimumSize(210, 720);
 
     m_refreshTimer = new QTimer(this);
     connect(m_refreshTimer, SIGNAL(timeout()), this, SLOT(showCountDown()));
@@ -20,24 +20,37 @@ InformationWidget::InformationWidget(QWidget *parent) :
     m_playerNum->show();
     setPlayerNumber(0);
 
-    m_curScore = new QLabel(this);
-    m_curScore->move(20, m_playerNum->y() + 40);
-    m_curScore->setFont(font);
-    m_curScore->show();
-    setScore(0);
+    m_playerCount = new QLabel(this);
+    m_playerCount->move(20, m_playerNum->y() + 40);
+    m_playerCount->setFont(font);
+    m_playerCount->show();
+    setPlayerCount(0);
 
     m_deckLength = new QLabel(this);
-    m_deckLength->move(20, m_curScore->y() + 40);
+    m_deckLength->move(20, m_playerCount->y() + 40);
     m_deckLength->setFont(font);
     m_deckLength->show();
     setDeckLength(0);
 
-    m_waitTime = new QLCDNumber(this);
+    m_scores = new QLabel(this);
+    m_scores->move(20, m_deckLength->y() + 40);
+    m_scores->setFont(font);
+    m_scores->show();
+
+    /*  Test
+    l.push_back(2);
+    l.push_back(7);
+    l.push_back(5);*/
+
+
+    // Timer
+
+    /*m_waitTime = new QLCDNumber(this);
 
     m_waitTime->setSegmentStyle(QLCDNumber::Flat);
     m_waitTime->show();
     m_waitTime->move((this->width() - m_waitTime->width()) / 2, m_deckLength->y() + 30);
-    m_waitTime->setGeometry(m_waitTime->x(), m_waitTime->y(), m_waitTime->width(), 50);
+    m_waitTime->setGeometry(m_waitTime->x(), m_waitTime->y(), m_waitTime->width(), 50);*/
 }
 
 void InformationWidget::setPlayerNumber(int p_number)
@@ -52,10 +65,10 @@ void InformationWidget::setPlayerNumber(int p_number)
     m_playerNum->adjustSize();
 }
 
-void InformationWidget::setScore(short p_score)
+void InformationWidget::setPlayerCount(short p_score)
 {
-    m_curScore->setText("Ihr Punktestand: " + QString::number(p_score));
-    m_curScore->adjustSize();
+    m_playerCount->setText("Anzahl Spieler: " + QString::number(p_score));
+    m_playerCount->adjustSize();
 }
 
 void InformationWidget::setDeckLength(short p_deckLength)
@@ -77,10 +90,21 @@ void InformationWidget::restartTimer()
 
 void InformationWidget::showCountDown()
 {
-    QTime curTime = QTime(0, m_currentValue / 60, m_currentValue % 60);
+    /*QTime curTime = QTime(0, m_currentValue / 60, m_currentValue % 60);
     QString text = curTime.toString("mm:ss");
     m_waitTime->display(text);
     m_currentValue--;
     if(m_currentValue <= 0)
-        m_currentValue = m_startValue;
+        m_currentValue = m_startValue;*/
+}
+void InformationWidget::setScores(QByteArray p_scores)
+{
+    short c = 1;
+    scoreboard = "Scoreboard: \n\n\n";
+    for(auto it = p_scores.begin(); it != p_scores.end(); ++it) {
+        scoreboard += ("Spieler " + QString::number(c) + ":        " + QString::number(*it) + "\n\n");
+        c++;
+    }
+    m_scores->setText(scoreboard);
+    m_scores->adjustSize();
 }

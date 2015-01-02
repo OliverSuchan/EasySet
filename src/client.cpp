@@ -10,6 +10,7 @@ Client::Client(QObject *p_parent, QHostAddress p_ip, int p_port) :
     connect(m_packetHandler, SIGNAL(readField(QByteArray)), Window::getInstance(), SLOT(retrieveField(QByteArray)));
     connect(m_packetHandler, SIGNAL(readWaitTime(unsigned int)), Window::getInstance(), SLOT(retrieveWaitTime(unsigned int)));
     connect(m_packetHandler, SIGNAL(readDeckLength(short)), Window::getInstance(), SLOT(retrieveDeckLength(short)));
+    connect(m_packetHandler, SIGNAL(readScores(QByteArray)), Window::getInstance(), SLOT(retrieveScores(QByteArray)));
 }
 
 void Client::onReadyRead()

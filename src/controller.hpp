@@ -22,11 +22,13 @@ private:
     void sendScorePacket(QTcpSocket *p_field, short p_score);
     void sendWaitTimePacket();
     void sendDeckLengthPacket();
+    void sendScoreboard();
     bool check(Cards &p_cards);
     Client &getClient(QTcpSocket *p_socket);
     void updateScores();
     QTimer *timer;
     short getSetCount();
+
 
 public:
     Controller(QObject *p_parent = 0);

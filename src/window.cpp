@@ -80,6 +80,10 @@ void Window::retrieveDeckLength(short p_deckLength)
 {
     infoWidget->setDeckLength(p_deckLength);
 }
+void Window::retrieveScores(QByteArray p_scores)
+{
+    infoWidget->setScores(p_scores);
+}
 
 Window::Window(QWidget *parent) :
     QMainWindow(parent),

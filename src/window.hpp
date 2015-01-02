@@ -43,6 +43,7 @@ public slots:
     void retrieveField(QByteArray p_field);
     void retrieveWaitTime(unsigned int p_waitTime);
     void retrieveDeckLength(short p_deckLength);
+    void retrieveScores(QByteArray p_scores);
 
 signals:
     void unselectAll();
