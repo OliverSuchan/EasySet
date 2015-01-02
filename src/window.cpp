@@ -26,7 +26,8 @@ void Window::cardClicked()
         {
             packet.append(char(**it));
         }
-        m_curPlayer->sendClickPacket(packet);
+        if(m_curPlayer)
+            m_curPlayer->sendClickPacket(packet);
         m_clickedCards.clear();
         m_curPlayer = nullptr;
         emit unselectAll();
@@ -78,7 +79,10 @@ void Window::retrieveWaitTime(unsigned int p_waitTime)
 Window::Window(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Window),
-    m_field()
+    m_field(),
+    m_players(),
+    m_curPlayer(nullptr)
+
 {
     ui->setupUi(this);
     this->setWindowTitle("EasySet");
