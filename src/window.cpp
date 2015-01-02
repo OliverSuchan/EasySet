@@ -76,13 +76,17 @@ void Window::retrieveWaitTime(unsigned int p_waitTime)
     infoWidget->setWaitTimeValue(p_waitTime / 1000);
 }
 
+void Window::retrieveDeckLength(short p_deckLength)
+{
+    infoWidget->setDeckLength(p_deckLength);
+}
+
 Window::Window(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Window),
     m_field(),
-    m_players(),
-    m_curPlayer(nullptr)
-
+    m_curPlayer(nullptr),
+    m_players()
 {
     ui->setupUi(this);
     this->setWindowTitle("EasySet");

@@ -18,6 +18,8 @@ void Controller::sendFSPacket()
         std::get<0>(*it)->write(packet);
         std::get<0>(*it)->flush();
     }
+    sendDeckLengthPacket();
+    getSetCount();
 }
 
 void Controller::sendScorePacket(QTcpSocket *p_socket, short p_score)
@@ -28,6 +30,16 @@ void Controller::sendScorePacket(QTcpSocket *p_socket, short p_score)
 void Controller::sendWaitTimePacket()
 {
     QByteArray packet = m_packetHandler->makeWaitTimePacket(m_waitTime);
+    for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
+    {
+        std::get<0>(*it)->write(packet);
+        std::get<0>(*it)->flush();
+    }
+}
+
+void Controller::sendDeckLengthPacket()
+{
+    QByteArray packet = m_packetHandler->makeDeckLengthPacket(m_deck.size());
     for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
     {
         std::get<0>(*it)->write(packet);
@@ -57,6 +69,32 @@ Server::Client &Controller::getClient(QTcpSocket *p_socket)
         if(std::get<0>(*it) == p_socket)
             return *it;
     }
+}
+
+short Controller::getSetCount()
+{
+    short setCount = 0;
+    std::list<Card*> checkList;
+    for(auto first = m_field.begin(); first != m_field.end(); ++first)
+    {
+        for(auto second = m_field.begin(); second != m_field.end(); ++second)
+        {
+            for(auto third = m_field.begin(); third != m_field.end(); ++third)
+            {
+                checkList.clear();
+                if(*first != *second && *first != *third && *second != *third)
+                {
+                    checkList.push_back(*first);
+                    checkList.push_back(*second);
+                    checkList.push_back(*third);
+                    if(check(checkList))
+                        ++setCount;
+                }
+            }
+        }
+    }
+    std::cout << "setCount: " << setCount / 6 << std::endl;
+    return setCount / 6;
 }
 
 Controller::Controller(QObject *p_parent) :

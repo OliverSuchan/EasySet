@@ -21,6 +21,7 @@ protected:
     virtual void sendFSPacket() = 0;
     virtual void sendScorePacket(QTcpSocket *p_field, short p_score) = 0;
     virtual void sendWaitTimePacket() = 0;
+    virtual void sendDeckLengthPacket() = 0;
     const unsigned int m_waitTime = 20 * 1000;
 
 public:

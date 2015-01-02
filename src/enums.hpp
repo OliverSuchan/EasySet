@@ -5,6 +5,7 @@
 enum PacketHeader
 {
     WAIT_TIME = 0x01,
+    DECK = 0x02,
     SCORE = 0x3,
     SCORES = 0x5,
     FIELD_SYNCHRO = 0x7,

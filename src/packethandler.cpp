@@ -67,6 +67,15 @@ QByteArray PacketHandler::makeWaitTimePacket(unsigned int p_waitTime)
     return packet;
 }
 
+QByteArray PacketHandler::makeDeckLengthPacket(short p_deckLength)
+{
+    QByteArray packet;
+    packet.append(DECK);
+    packet.append(p_deckLength);
+    packet.insert(1, packet.size() + 1);
+    return packet;
+}
+
 void PacketHandler::processPacket(QByteArray p_packet, QTcpSocket *p_socket)
 {
     if(p_packet.size())
@@ -98,6 +107,11 @@ void PacketHandler::processPacket(QByteArray p_packet, QTcpSocket *p_socket)
                 result |= ((static_cast<unsigned int>(packet[i]) & 0xFF) << ((packet.size() - 1 - i) * 8));
             }
             emit readWaitTime(result);
+            break;
+
+        case DECK:
+            std::cout << "deckLength: " << static_cast<short>(packet[0]) << std::endl;
+            emit readDeckLength(static_cast<short>(packet[0]));
             break;
 
         default:

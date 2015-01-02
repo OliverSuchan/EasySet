@@ -42,6 +42,7 @@ public slots:
     void cardClicked();
     void retrieveField(QByteArray p_field);
     void retrieveWaitTime(unsigned int p_waitTime);
+    void retrieveDeckLength(short p_deckLength);
 
 signals:
     void unselectAll();
