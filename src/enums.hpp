@@ -4,7 +4,9 @@
 
 enum PacketHeader
 {
+    WAIT_TIME = 0x01,
     SCORE = 0x3,
+    SCORES = 0x5,
     FIELD_SYNCHRO = 0x7,
     CLICK = 0xA
 };

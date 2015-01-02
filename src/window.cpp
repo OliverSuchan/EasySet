@@ -19,11 +19,16 @@ void Window::cardClicked()
         }
     }
     m_clickedCards.push_back(clickedCard);
-    std::cout << char(*clickedCard) << std::endl;
     if(m_clickedCards.size() == 3)
     {
-        m_curPlayer->sendClickPacket(m_clickedCards);
+        QByteArray packet;
+        for(auto it = m_clickedCards.begin(); it != m_clickedCards.end(); ++it)
+        {
+            packet.append(char(**it));
+        }
+        m_curPlayer->sendClickPacket(packet);
         m_clickedCards.clear();
+        m_curPlayer = nullptr;
         emit unselectAll();
         emit canClick(false);
     }
@@ -34,18 +39,40 @@ void Window::retrieveField(QByteArray p_field)
     static const void * sentBy = sender();
     if(sentBy != sender())
         return;
+    infoWidget->restartTimer();
+    for(auto it = m_field.begin(); it != m_field.end(); ++it)
+    {
+        CardWidget *curCard = static_cast<CardWidget*>(*it);
+        delete curCard;
+        curCard = nullptr;
+    }
     m_field.clear();
     for(auto it = p_field.begin(); it != p_field.end(); ++it)
     {
-        m_field.push_back(std::unique_ptr<Card>(new CardWidget((*it >> 6) & 0x03, (*it >> 4) & 0x03, (*it >> 2) & 0x03, *it & 0x03, this)));
-        CardWidget *cardWidget = static_cast<CardWidget*>(m_field.back().get());
-       cardWidget->setGeometry(((m_field.size() -1) % 4) * 110 + 20, ((m_field.size() - 1) / 4) * 220 + 20, 90, 200);
+        CardWidget *cardWidget = new CardWidget((*it >> 6) & 0x03, (*it >> 4) & 0x03, (*it >> 2) & 0x03, *it & 0x03, this);
+        m_field.push_back(cardWidget);
+        cardWidget->setGeometry(((m_field.size() -1) % 4) * 110 + 20, ((m_field.size() - 1) / 4) * 220 + 20, 90, 200);
         cardWidget->show();
         connect(cardWidget, SIGNAL(clicked()), this, SLOT(cardClicked()));
         connect(this, SIGNAL(canClick(bool)), cardWidget, SLOT(canClick(bool)));
         connect(this, SIGNAL(unselectAll()), cardWidget, SLOT(unselect()));
     }
-    emit canClick(false);
+    CardWidget *someCard = static_cast<CardWidget*>(m_field.back());
+    infoWidget->move(someCard->width() * 4 + 20 * 4 + 20, 0);
+    this->setFixedSize(infoWidget->x() + infoWidget->width() + 20, someCard->y() + someCard->height() + 20);
+    this->move((QApplication::desktop()->width() - this->width()) / 2, (QApplication::desktop()->height() - this->height()) / 2);
+    if(m_curPlayer)
+        emit canClick(true);
+    else
+        emit canClick(false);
+}
+
+void Window::retrieveWaitTime(unsigned int p_waitTime)
+{
+    static const void * sentBy = sender();
+    if(sentBy != sender())
+        return;
+    infoWidget->setWaitTimeValue(p_waitTime / 1000);
 }
 
 Window::Window(QWidget *parent) :
@@ -54,11 +81,24 @@ Window::Window(QWidget *parent) :
     m_field()
 {
     ui->setupUi(this);
+    this->setWindowTitle("EasySet");
+    this->setWindowFlags(Qt::WindowTitleHint | Qt::WindowCloseButtonHint);
+    infoWidget = new InformationWidget(this);
+    infoWidget->show();
 }
 
 Window::~Window()
 {
     delete ui;
+}
+
+void Window::closeEvent(QCloseEvent *p_closeEvent)
+{
+    QMessageBox::StandardButton reply = QMessageBox::warning(this, "Achtung!", "Sind Sie sich sicher, dass Sie das Spiel beenden wollen?\nDer Vorgang kann nicht rückgängig gemacht werden!", QMessageBox::Yes | QMessageBox::No);
+    if(reply == QMessageBox::Yes)
+        p_closeEvent->accept();
+    else
+        p_closeEvent->ignore();
 }
 
 void Window::keyPressEvent(QKeyEvent *p_keyEvent)
@@ -67,8 +107,11 @@ void Window::keyPressEvent(QKeyEvent *p_keyEvent)
     {
         if(std::get<1>(*it) == p_keyEvent->key())
         {
-            m_curPlayer = std::get<0>(*it);
-            emit canClick(true);
+            if(!m_curPlayer)
+            {
+                m_curPlayer = std::get<0>(*it);
+                emit canClick(true);
+            }
         }
     }
 }

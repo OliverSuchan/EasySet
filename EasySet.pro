@@ -23,7 +23,8 @@ SOURCES +=\
     src/client.cpp \
     src/player.cpp \
     src/packethandler.cpp \
-    src/server.cpp
+    src/server.cpp \
+    src/informationwidget.cpp
 
 HEADERS  += \
     src/window.hpp \
@@ -34,8 +35,8 @@ HEADERS  += \
     src/client.hpp \
     src/player.hpp \
     src/packethandler.hpp \
-    src/server.hpp
+    src/server.hpp \
+    src/informationwidget.hpp
 
 FORMS    += \
     forms/window.ui
-

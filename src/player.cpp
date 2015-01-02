@@ -1,6 +1,6 @@
 #include "player.hpp"
 
-void Player::sendClickPacket(std::list<Card *> &p_cards)
+void Player::sendClickPacket(QByteArray p_cards)
 {
     write(m_packetHandler->makeClickPacket(p_cards));
     flush();

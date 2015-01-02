@@ -1,7 +1,9 @@
 #pragma once
 
 #include <list>
+#include <QDesktopWidget>
 #include <QMainWindow>
+#include <QMessageBox>
 #include <QKeyEvent>
 
 namespace Ui {
@@ -9,6 +11,7 @@ namespace Ui {
 }
 
 #include "card.hpp"
+#include "informationwidget.hpp"
 
 class Player;
 
@@ -24,9 +27,11 @@ private:
     ~Window();
     Window& operator=(Window&) = delete;
     Ui::Window *ui;
-    std::list<std::unique_ptr<Card>> m_field;
+    std::list<Card*> m_field;
+    InformationWidget *infoWidget;
 
 protected:
+    void closeEvent(QCloseEvent *p_closeEvent);
     void keyPressEvent(QKeyEvent *p_keyEvent);
 
 public:
@@ -36,6 +41,7 @@ public:
 public slots:
     void cardClicked();
     void retrieveField(QByteArray p_field);
+    void retrieveWaitTime(unsigned int p_waitTime);
 
 signals:
     void unselectAll();

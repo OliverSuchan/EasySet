@@ -13,12 +13,15 @@ class Server : public QTcpServer
     Q_OBJECT
 
 protected:
-    typedef std::list<std::unique_ptr<Card>> Cards;
+    typedef std::list<Card*> Cards;
     typedef std::tuple<QTcpSocket*, short, Cards> Client;
     typedef std::vector<Client> Clients;
     Clients m_clients;
-    std::unique_ptr<PacketHandler> m_packetHandler;
-    virtual void sendFSPacket(QTcpSocket *p_field) = 0;
+    PacketHandler *m_packetHandler;
+    virtual void sendFSPacket() = 0;
+    virtual void sendScorePacket(QTcpSocket *p_field, short p_score) = 0;
+    virtual void sendWaitTimePacket() = 0;
+    const unsigned int m_waitTime = 20 * 1000;
 
 public:
     explicit Server(QObject *parent = 0, int p_port = 1337);

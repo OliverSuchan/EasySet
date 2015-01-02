@@ -1,14 +1,13 @@
-#include "src/server.hpp"
+#include "server.hpp"
 
 Server::Server(QObject *parent, int p_port) :
     QTcpServer(parent)
 {
-    m_packetHandler = std::unique_ptr<PacketHandler>(new PacketHandler);
+    m_packetHandler = new PacketHandler;
     if(listen(QHostAddress::Any, p_port))
     {
-        std::cout << "Server wurde gestartet" << std::endl;
         connect(this, SIGNAL(newConnection()), this, SLOT(newCon()));
-        connect(m_packetHandler.get(), SIGNAL(readClick(QTcpSocket*, QByteArray)), this, SLOT(retrieveClick(QTcpSocket*,QByteArray)));
+        connect(m_packetHandler, SIGNAL(readClick(QTcpSocket*,QByteArray)), this, SLOT(retrieveClick(QTcpSocket*,QByteArray)));
     }
     else
     {
@@ -29,16 +28,17 @@ void Server::newCon()
     {
         connect(newSocket, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
         connect(newSocket, SIGNAL(disconnected()), this, SLOT(deleteLater()));
-        m_clients.push_back(std::make_tuple(newSocket, 0, std::list<std::unique_ptr<Card>>()));
+        m_clients.push_back(std::make_tuple(newSocket, 0, std::list<Card *>()));
     }
-    sendFSPacket(nullptr);
+    sendWaitTimePacket();
+    sendFSPacket();
 }
 
 void Server::onReadyRead()
 {
-    QTcpSocket *senderSocket =static_cast<QTcpSocket*>(sender());
+    QTcpSocket *senderSocket = static_cast<QTcpSocket*>(sender());
     if(senderSocket)
     {
-        m_packetHandler->processPackets(senderSocket->readAll(), std::unique_ptr<QTcpSocket>(senderSocket));
+        m_packetHandler->processPackets(senderSocket->readAll(), senderSocket);
     }
 }
