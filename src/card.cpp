@@ -1,6 +1,7 @@
 #include "card.hpp"
 
-Card::Card(short p_color, short p_shape, short p_number, short p_opacity) :
+// Konstruktor
+Card::Card(short p_color, short p_shape, short p_number, short p_opacity) :     
     m_color(p_color),
     m_shape(p_shape),
     m_number(p_number),
@@ -18,6 +19,7 @@ char Card::attributesToByte()   // Attribute werden als Byte gespeichert
     return ((m_color << 6) | (m_shape << 4) | (m_number << 2) | m_opacity);
 }
 
+// Konvertierung von Card in char
 Card::operator char()
 {
     return attributesToByte();
