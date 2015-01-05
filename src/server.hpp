@@ -26,6 +26,7 @@ protected:
     //const unsigned int m_waitTime = 20 * 1000;
 
 public:
+    virtual void sendGameStartedPacket() = 0;
     explicit Server(QObject *parent = 0, int p_port = 1337);
 
 signals:

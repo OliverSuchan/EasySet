@@ -1,10 +1,10 @@
-#ifndef SETUPWINDOW_HPP
-#define SETUPWINDOW_HPP
+#pragma once
 
 #include <iostream>
 #include <QMainWindow>
 #include <QListWidgetItem>
 #include <QKeyEvent>
+#include <QDesktopWidget>
 #include "window.hpp"
 #include "player.hpp"
 #include "controller.hpp"
@@ -20,6 +20,7 @@ class SetupWindow : public QMainWindow
 private:
     Ui::SetupWindow *ui;
     std::list<Qt::Key> m_keyList;
+    int getActualPlayerCount();
 
 public:
     explicit SetupWindow(QWidget *parent = 0);
@@ -42,5 +43,3 @@ private slots:
     void on_pushButton_2_clicked();
     void on_pushButton_8_clicked();
 };
-
-#endif // SETUPWINDOW_HPP

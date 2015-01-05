@@ -3,6 +3,7 @@
 #include <list>
 #include <QDesktopWidget>
 #include <QMainWindow>
+#include <QPushButton>
 #include <QMessageBox>
 #include <QKeyEvent>
 
@@ -14,7 +15,7 @@ namespace Ui {
 #include "informationwidget.hpp"
 
 class Player;
-
+class Controller;
 
 class Window : public QMainWindow
 {
@@ -29,6 +30,9 @@ private:
     Ui::Window *ui;
     std::list<Card*> m_field;
     InformationWidget *infoWidget;
+    QFrame *m_layer;
+    QPushButton *m_startButton;
+    Controller *m_controller;
 
 protected:
     void closeEvent(QCloseEvent *p_closeEvent);
@@ -38,6 +42,9 @@ public:
     std::list<std::tuple<Player*, Qt::Key>> m_players;
     static Window *getInstance();
 
+private slots:
+    void clickStartButton();
+
 public slots:
     void cardClicked();
     void retrieveField(QByteArray p_field);
@@ -46,6 +53,7 @@ public slots:
     void retrieveScores(QByteArray p_scores);
     void retrieveGameStarted();
     void retrieveGameFinished();
+    void retrieveShowStartButton();
 
 signals:
     void unselectAll();
@@ -54,3 +62,4 @@ signals:
 };
 
 #include "player.hpp"
+#include "controller.hpp"

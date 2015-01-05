@@ -31,7 +31,11 @@ private:
     //QTimer *timer;
 
 public:
+    void sendGameStartedPacket();
     Controller(QObject *p_parent = 0);
+
+signals:
+    void showStartButton();
 
 public slots:
     void draw(short p_count = 3);

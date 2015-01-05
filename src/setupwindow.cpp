@@ -1,11 +1,25 @@
 #include "src/setupwindow.hpp"
 #include "ui_setupwindow.h"
+int SetupWindow::getActualPlayerCount()
+{
+    int count = 0;
+    for(int i = 0; i < ui->listWidget_3->count(); i++)
+    {
+        if(ui->listWidget_3->item(i)->text() != "-")
+            count++;
+    }
+    return count;
+}
+
 SetupWindow::SetupWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::SetupWindow),
     m_keyList()
 {
     ui->setupUi(this);
+    this->setFixedSize(this->size());
+    this->move((QApplication::desktop()->width() - this->width()) / 2, (QApplication::desktop()->height() - this->height()) / 2);
+    this->setWindowFlags(Qt::WindowTitleHint | Qt::WindowCloseButtonHint);
     for(int i = 1; i <= 8; i++)
     {
         ui->listWidget_2->addItem("Spieler "  + QString::number(i) + ": ");
@@ -97,15 +111,19 @@ void SetupWindow::on_pushButton_2_clicked()
 
 void SetupWindow::on_pushButton_8_clicked()
 {
-    new Controller();
-    for(int i = 0; i < ui->listWidget_3->count(); i++)
+    if(getActualPlayerCount())
     {
-        if(ui->listWidget_3->item(i)->text() != "-")
+        new Controller();
+        for(int i = 0; i < ui->listWidget_3->count(); i++)
         {
-            Player *p = new Player();
-            Window::getInstance()->m_players.push_back(std::make_tuple(p, static_cast<Qt::Key>(QKeySequence(ui->listWidget_3->item(i)->text())[0])));
+            if(ui->listWidget_3->item(i)->text() != "-")
+            {
+                Window::getInstance()->m_players.push_back(std::make_tuple(new Player(), static_cast<Qt::Key>(QKeySequence(ui->listWidget_3->item(i)->text())[0])));
+            }
         }
+        Window::getInstance()->show();
+        this->close();
     }
-    Window::getInstance()->show();
-    this->close();
+    else
+        QMessageBox::information(this, "Keine Spieler", "Dem Spiel wurden keine Spieler hinzugefügt.");
 }

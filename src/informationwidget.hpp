@@ -1,5 +1,4 @@
-#ifndef INFORMATIONWIDGET_HPP
-#define INFORMATIONWIDGET_HPP
+#pragma once
 
 #include <iostream>
 #include <QWidget>
@@ -39,5 +38,3 @@ private slots:
     void showCountDown();
 
 };
-
-#endif // INFORMATIONWIDGET_HPP

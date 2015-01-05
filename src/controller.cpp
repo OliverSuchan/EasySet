@@ -138,12 +138,23 @@ short Controller::getSetCount()
     return setCount / 6;    // da jedes Set 6 mal gezählt wird teilen wir durch 6
 }
 
+void Controller::sendGameStartedPacket()
+{
+    QByteArray packet =m_packetHandler->makeGameStartedPacket();
+    for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
+    {
+        std::get<0>(*it)->write(packet);
+        std::get<0>(*it)->flush();
+    }
+}
+
 // Konstruktor
 Controller::Controller(QObject *p_parent) :
     Server(p_parent),
     m_deck(),
     m_field()
 {
+    connect(this, SIGNAL(showStartButton()), Window::getInstance(), SLOT(retrieveShowStartButton()));
     m_extraCards.store(false);
     srand(time(NULL));
     for(int i = 0; i < 3; i++)
@@ -160,6 +171,7 @@ Controller::Controller(QObject *p_parent) :
         }
     }
     draw(12);
+    emit showStartButton();
 //    timer = new QTimer(this);
 //    connect(timer, SIGNAL(timeout()), this, SLOT(draw()));
 //    timer->setInterval(m_waitTime);
