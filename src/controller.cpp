@@ -22,10 +22,7 @@ void Controller::sendFSPacket()
     }
     // Methodenaufrufe, um Anzeigen zu synchronisieren
     sendDeckLengthPacket();     
-    sendScoreboard();   
-    
-    // Liefert die Anzahl der auf dem Feld existierenden Sets zurück
-    getSetCount();
+    sendScoreboard();
 }
 
 void Controller::sendScorePacket(QTcpSocket *p_socket, short p_score)
@@ -33,15 +30,15 @@ void Controller::sendScorePacket(QTcpSocket *p_socket, short p_score)
 
 }
 
-void Controller::sendWaitTimePacket()
-{
-    QByteArray packet = m_packetHandler->makeWaitTimePacket(m_waitTime);
-    for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
-    {
-        std::get<0>(*it)->write(packet);
-        std::get<0>(*it)->flush();
-    }
-}
+//void Controller::sendWaitTimePacket()
+//{
+//    QByteArray packet = m_packetHandler->makeWaitTimePacket(m_waitTime);
+//    for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
+//    {
+//        std::get<0>(*it)->write(packet);
+//        std::get<0>(*it)->flush();
+//    }
+//}
 
 // Sendet die Deckgröße an alle Clients für die Anzeige
 void Controller::sendDeckLengthPacket()
@@ -68,6 +65,16 @@ void Controller::sendScoreboard()
     QByteArray packet = m_packetHandler->makeScoresPacket(scores);
     
     //sendet das Packet an alle Clients
+    for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
+    {
+        std::get<0>(*it)->write(packet);
+        std::get<0>(*it)->flush();
+    }
+}
+
+void Controller::sendGameFinishedPacket()
+{
+    QByteArray packet =m_packetHandler->makeGameFinishedPacket();
     for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
     {
         std::get<0>(*it)->write(packet);
@@ -153,10 +160,10 @@ Controller::Controller(QObject *p_parent) :
         }
     }
     draw(12);
-    timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(draw()));
-    timer->setInterval(m_waitTime);
-    timer->start();
+//    timer = new QTimer(this);
+//    connect(timer, SIGNAL(timeout()), this, SLOT(draw()));
+//    timer->setInterval(m_waitTime);
+//    timer->start();
 }
 // ziehe p_count neue Karten vom Stapel und lege sie auf das Feld
 void Controller::draw(short p_count)
@@ -191,6 +198,17 @@ void Controller::draw(short p_count)
     
     // synchronisiere Spielfeld
     sendFSPacket();
+
+    if(!getSetCount())
+    {
+        if(m_deck.size() > 0)
+        {
+            draw();
+            m_extraCards.store(true);
+        }
+        else
+            sendGameFinishedPacket();
+    }
 }
 // verarbeite Spielereingabe
 void Controller::retrieveClick(QTcpSocket *p_client, QByteArray p_cards)
@@ -216,7 +234,7 @@ void Controller::retrieveClick(QTcpSocket *p_client, QByteArray p_cards)
         
         // anschließend werden neue Karten nachgelegt
         draw();
-        timer->start();
+        //timer->start();
     }
     else
     {

@@ -4,7 +4,8 @@
 
 enum PacketHeader
 {
-    WAIT_TIME = 0x01,
+    //WAIT_TIME = 0x01,
+    GAME_STATE = 0x01,
     DECK = 0x02,
     SCORE = 0x3,
     SCORES = 0x5,

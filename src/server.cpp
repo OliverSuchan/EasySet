@@ -30,7 +30,7 @@ void Server::newCon()
         connect(newSocket, SIGNAL(disconnected()), this, SLOT(deleteLater()));
         m_clients.push_back(std::make_tuple(newSocket, 0, std::list<Card *>()));
     }
-    sendWaitTimePacket();
+    //sendWaitTimePacket();
     sendFSPacket();
 }
 

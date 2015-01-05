@@ -21,16 +21,20 @@ public:
     QByteArray makeClickPacket(QByteArray p_cards);
     QByteArray makeScoresPacket(QByteArray p_scores);
     QByteArray makeScorePacket(short p_score);
-    QByteArray makeWaitTimePacket(unsigned int p_waitTime);
+    QByteArray makeGameStartedPacket();
+    QByteArray makeGameFinishedPacket();
     QByteArray makeDeckLengthPacket(short p_deckLength);
+    //QByteArray makeWaitTimePacket(unsigned int p_waitTime);
 
 signals:
     void readField(QByteArray p_field);
     void readScore(short p_score);
     void readScores(QByteArray p_scores);
     void readClick(QTcpSocket *p_socket, QByteArray p_cards);
-    void readWaitTime(unsigned int p_waitTime);
+    void readGameStartedPacket();
+    void readGameFinishedPacket();
     void readDeckLength(short p_deckLength);
+    //void readWaitTime(unsigned int p_waitTime);
 
 public slots:
 

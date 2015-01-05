@@ -40,7 +40,7 @@ void Window::retrieveField(QByteArray p_field)
     static const void * sentBy = sender();
     if(sentBy != sender())
         return;
-    infoWidget->restartTimer();
+    //infoWidget->restartTimer();
     for(auto it = m_field.begin(); it != m_field.end(); ++it)
     {
         CardWidget *curCard = static_cast<CardWidget*>(*it);
@@ -68,13 +68,13 @@ void Window::retrieveField(QByteArray p_field)
         emit canClick(false);
 }
 
-void Window::retrieveWaitTime(unsigned int p_waitTime)
-{
-    static const void * sentBy = sender();
-    if(sentBy != sender())
-        return;
-    infoWidget->setWaitTimeValue(p_waitTime / 1000);
-}
+//void Window::retrieveWaitTime(unsigned int p_waitTime)
+//{
+//    static const void * sentBy = sender();
+//    if(sentBy != sender())
+//        return;
+//    infoWidget->setWaitTimeValue(p_waitTime / 1000);
+//}
 
 void Window::retrieveDeckLength(short p_deckLength)
 {
@@ -83,6 +83,16 @@ void Window::retrieveDeckLength(short p_deckLength)
 void Window::retrieveScores(QByteArray p_scores)
 {
     infoWidget->setScores(p_scores);
+}
+
+void Window::retrieveGameStarted()
+{
+
+}
+
+void Window::retrieveGameFinished()
+{
+    std::cout << "game finished" << std::endl;
 }
 
 Window::Window(QWidget *parent) :

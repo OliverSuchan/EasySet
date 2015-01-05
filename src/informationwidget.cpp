@@ -77,16 +77,16 @@ void InformationWidget::setDeckLength(short p_deckLength)
     m_deckLength->adjustSize();
 }
 
-void InformationWidget::setWaitTimeValue(int p_value)
-{
-    m_startValue = p_value;
-    m_currentValue = m_startValue;
-}
+//void InformationWidget::setWaitTimeValue(int p_value)
+//{
+//    m_startValue = p_value;
+//    m_currentValue = m_startValue;
+//}
 
-void InformationWidget::restartTimer()
-{
-    m_currentValue = m_startValue;
-}
+//void InformationWidget::restartTimer()
+//{
+//    m_currentValue = m_startValue;
+//}
 
 void InformationWidget::showCountDown()
 {

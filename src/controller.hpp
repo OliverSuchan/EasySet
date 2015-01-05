@@ -23,12 +23,12 @@ private:
     void sendWaitTimePacket();
     void sendDeckLengthPacket();
     void sendScoreboard();
+    void sendGameFinishedPacket();
     bool check(Cards &p_cards);
     Client &getClient(QTcpSocket *p_socket);
     void updateScores();
-    QTimer *timer;
     short getSetCount();
-
+    //QTimer *timer;
 
 public:
     Controller(QObject *p_parent = 0);

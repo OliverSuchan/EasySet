@@ -6,7 +6,7 @@ void Player::sendClickPacket(QByteArray p_cards)
     flush();
 }
 
-Player::Player(QObject *p_parent) :
-    Client(p_parent)
+Player::Player(QObject *p_parent, QHostAddress p_ip, int p_port) :
+    Client(p_parent, p_ip, p_port)
 {
 }

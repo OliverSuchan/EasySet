@@ -55,17 +55,35 @@ QByteArray PacketHandler::makeScorePacket(short p_score)
     return packet;
 }
 
-QByteArray PacketHandler::makeWaitTimePacket(unsigned int p_waitTime)
+QByteArray PacketHandler::makeGameStartedPacket()
 {
     QByteArray packet;
-    packet.append(WAIT_TIME);
-    for(int i = sizeof(p_waitTime) - 1; i >= 0; --i)
-    {
-        packet.append(static_cast<char>((p_waitTime >> (i * 8)) & 0xFF));
-    }
+    packet.append(GAME_STATE);
+    packet.append(1);
     packet.insert(1, packet.size() + 1);
     return packet;
 }
+
+QByteArray PacketHandler::makeGameFinishedPacket()
+{
+    QByteArray packet;
+    packet.append(GAME_STATE);
+    packet.append(2);
+    packet.insert(1, packet.size() + 1);
+    return packet;
+}
+
+//QByteArray PacketHandler::makeWaitTimePacket(unsigned int p_waitTime)
+//{
+//    QByteArray packet;
+//    packet.append(WAIT_TIME);
+//    for(int i = sizeof(p_waitTime) - 1; i >= 0; --i)
+//    {
+//        packet.append(static_cast<char>((p_waitTime >> (i * 8)) & 0xFF));
+//    }
+//    packet.insert(1, packet.size() + 1);
+//    return packet;
+//}
 
 QByteArray PacketHandler::makeDeckLengthPacket(short p_deckLength)
 {
@@ -82,7 +100,7 @@ void PacketHandler::processPacket(QByteArray p_packet, QTcpSocket *p_socket)
     {
         QByteArray packet(p_packet[1] - 2, Qt::Uninitialized);;
         std::copy(p_packet.begin() + 2, p_packet.end(), packet.begin());
-        unsigned int result = 0;
+        //unsigned int result = 0;
         switch(p_packet[0])
         {
         case FIELD_SYNCHRO:
@@ -101,18 +119,24 @@ void PacketHandler::processPacket(QByteArray p_packet, QTcpSocket *p_socket)
             emit readScores(packet);
             break;
 
-        case WAIT_TIME:
-            for(int i = 0; i < packet.size(); i++)
-            {
-                result |= ((static_cast<unsigned int>(packet[i]) & 0xFF) << ((packet.size() - 1 - i) * 8));
-            }
-            emit readWaitTime(result);
+        case GAME_STATE:
+            if(static_cast<short>(packet[0]) == 1)
+                emit readGameStartedPacket();
+            else if(static_cast<short>(packet[0]) == 2)
+                emit readGameFinishedPacket();
             break;
 
         case DECK:
-            std::cout << "deckLength: " << static_cast<short>(packet[0]) << std::endl;
             emit readDeckLength(static_cast<short>(packet[0]));
             break;
+
+        //        case WAIT_TIME:
+        //            for(int i = 0; i < packet.size(); i++)
+        //            {
+        //                result |= ((static_cast<unsigned int>(packet[i]) & 0xFF) << ((packet.size() - 1 - i) * 8));
+        //            }
+        //            emit readWaitTime(result);
+        //            break;
 
         default:
             std::cerr << "Dieser Pakettyp existiert nicht!" << std::endl;

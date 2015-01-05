@@ -41,9 +41,11 @@ public:
 public slots:
     void cardClicked();
     void retrieveField(QByteArray p_field);
-    void retrieveWaitTime(unsigned int p_waitTime);
+    //void retrieveWaitTime(unsigned int p_waitTime);
     void retrieveDeckLength(short p_deckLength);
     void retrieveScores(QByteArray p_scores);
+    void retrieveGameStarted();
+    void retrieveGameFinished();
 
 signals:
     void unselectAll();
