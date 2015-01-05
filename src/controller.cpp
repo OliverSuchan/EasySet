@@ -79,12 +79,30 @@ void Controller::sendGameFinishedPacket()
 
 void Controller::sendInputLocked()
 {
-
+    QByteArray packet =m_packetHandler->makeInputLockedPacket();
+    for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
+    {
+        std::get<0>(*it)->write(packet);
+        std::get<0>(*it)->flush();
+    }
 }
 
 void Controller::sendInputUnlocked(QTcpSocket *p_socket)
 {
-
+    QByteArray packet =m_packetHandler->makeInputUnlockedPacket();
+    if(p_socket)
+    {
+        p_socket->write(packet);
+        p_socket->flush();
+    }
+    else
+    {
+        for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
+        {
+            std::get<0>(*it)->write(packet);
+            std::get<0>(*it)->flush();
+        }
+    }
 }
 
 // prüft, ob die übergebenen Karten ein Set bilden, indem sie wie ein Vektor aufaddiert werden (siehe operator+ in Card)
@@ -239,6 +257,7 @@ void Controller::retrieveClick(QTcpSocket *p_client, QByteArray p_cards)
             cards.push_back(currentCard);
     }
     Client &client = getClient(p_client);
+    sendInputUnlocked();
     // Falls die Karten ein Set bilden, wird das Set vom Spielfeld gelöscht und der Client erhält die Karten und einen Punkt 
     if(check(cards))
     {
@@ -278,12 +297,6 @@ void Controller::retrieveClick(QTcpSocket *p_client, QByteArray p_cards)
 
 void Controller::retrievePlayerTurn(QTcpSocket *p_socket)
 {
-    QByteArray packet = m_packetHandler->makeInputLockedPacket();
-    for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
-    {
-        std::get<0>(*it)->write(packet);
-        std::get<0>(*it)->flush();
-    }
-    p_socket->write(m_packetHandler->makeInputUnlockedPacket());
-    p_socket->flush();
+    sendInputLocked();
+    sendInputUnlocked(p_socket);
 }

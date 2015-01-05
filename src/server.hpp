@@ -23,7 +23,7 @@ protected:
     virtual void sendDeckLengthPacket() = 0;
     virtual void sendScoreboard() = 0;
     virtual void sendInputLocked() = 0;
-    virtual void sendInputUnlocked(QTcpSocket *p_socket) = 0;
+    virtual void sendInputUnlocked(QTcpSocket *p_socket = nullptr) = 0;
     //virtual void sendWaitTimePacket() = 0;
     //const unsigned int m_waitTime = 20 * 1000;
 

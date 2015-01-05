@@ -24,7 +24,7 @@ private:
     void sendScoreboard();
     void sendGameFinishedPacket();
     void sendInputLocked();
-    void sendInputUnlocked(QTcpSocket *p_socket);
+    void sendInputUnlocked(QTcpSocket *p_socket = nullptr);
     bool check(Cards &p_cards);
     Client &getClient(QTcpSocket *p_socket);
     short getSetCount();
