@@ -19,6 +19,20 @@ void Window::retrieveShowStartButton()
     connect(m_startButton, SIGNAL(clicked()), this, SLOT(clickStartButton()));
 }
 
+void Window::retrieveUnlock()
+{
+    m_inputLocked.store(false);
+    m_layer->close();
+    this->setFocus();
+}
+
+void Window::retrieveLock()
+{
+    m_inputLocked.store(true);
+    m_layer->show();
+    m_layer->raise();
+}
+
 void Window::cardClicked()
 {
     Card *clickedCard = dynamic_cast<Card*>(sender());
@@ -72,11 +86,13 @@ void Window::retrieveField(QByteArray p_field)
     }
     CardWidget *someCard = static_cast<CardWidget*>(m_field.back());
     infoWidget->move(someCard->width() * 4 + 20 * 4 + 20, 0);
-    this->setFixedSize(infoWidget->x() + infoWidget->width() + 20, someCard->y() + someCard->height() + 20);
+    int infoWidgetHeight = infoWidget->y() + infoWidget->height() + 20;
+    int cardWidgetHeight = someCard->y() + someCard->height() + 20;
+    this->setFixedSize(infoWidget->x() + infoWidget->width() + 20, (infoWidgetHeight > cardWidgetHeight) ? (infoWidgetHeight) : (cardWidgetHeight));
     this->move((QApplication::desktop()->width() - this->width()) / 2, (QApplication::desktop()->height() - this->height()) / 2);
-    m_layer->setGeometry(0, 0, someCard->x() + someCard->width() + 20, someCard->y() + someCard->height() + 20);
+    m_layer->setGeometry(0, 0, infoWidget->x(), someCard->y() + someCard->height() + 20);
     m_layer->raise();
-    m_startButton->move((someCard->x() + someCard->width() + 20 - m_startButton->width()) / 2, (someCard->y() + someCard->height() + 20 - m_startButton->height()) / 2);
+    m_startButton->move((m_layer->width() - m_startButton->width()) / 2, (m_layer->height() - m_startButton->height()) / 2);
     if(m_curPlayer)
         emit canClick(true);
     else
@@ -102,13 +118,13 @@ void Window::retrieveScores(QByteArray p_scores)
 
 void Window::retrieveGameStarted()
 {
-    std::cout << "game started" << std::endl;
-    m_layer->hide();
+    m_layer->close();
+    m_startButton->hide();
+    this->setFocus();
 }
 
 void Window::retrieveGameFinished()
 {
-    std::cout << "game finished" << std::endl;
     emit canClick(false);
 }
 
@@ -133,6 +149,7 @@ Window::Window(QWidget *parent) :
     m_startButton->setStyleSheet("QPushButton {color: red;}");
     m_startButton->setText("Start!");
     m_startButton->hide();
+    m_inputLocked.store(false);
 }
 
 Window::~Window()
@@ -155,9 +172,10 @@ void Window::keyPressEvent(QKeyEvent *p_keyEvent)
     {
         if(std::get<1>(*it) == p_keyEvent->key())
         {
-            if(!m_curPlayer)
+            if(!m_curPlayer && !m_inputLocked.load())
             {
                 m_curPlayer = std::get<0>(*it);
+                m_curPlayer->sendTurnPacket();
                 emit canClick(true);
             }
         }

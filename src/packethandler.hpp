@@ -20,10 +20,12 @@ public:
     QByteArray makeFSPacket(std::list<Card*> &p_field);
     QByteArray makeClickPacket(QByteArray p_cards);
     QByteArray makeScoresPacket(QByteArray p_scores);
-    QByteArray makeScorePacket(short p_score);
     QByteArray makeGameStartedPacket();
     QByteArray makeGameFinishedPacket();
     QByteArray makeDeckLengthPacket(short p_deckLength);
+    QByteArray makeInputLockedPacket();
+    QByteArray makeInputUnlockedPacket();
+    QByteArray makeTurnPacket();
     //QByteArray makeWaitTimePacket(unsigned int p_waitTime);
 
 signals:
@@ -34,6 +36,9 @@ signals:
     void readGameStartedPacket();
     void readGameFinishedPacket();
     void readDeckLength(short p_deckLength);
+    void readLockedPacket();
+    void readUnlockedPacket();
+    void readTurnPacket(QTcpSocket *p_socket);
     //void readWaitTime(unsigned int p_waitTime);
 
 public slots:

@@ -3,8 +3,6 @@
 InformationWidget::InformationWidget(QWidget *parent) :
     QWidget(parent)
 {
-    this->setMinimumSize(210, 720);
-
     m_refreshTimer = new QTimer(this);
     connect(m_refreshTimer, SIGNAL(timeout()), this, SLOT(showCountDown()));
     m_refreshTimer->start(1000);
@@ -51,6 +49,7 @@ InformationWidget::InformationWidget(QWidget *parent) :
     m_waitTime->show();
     m_waitTime->move((this->width() - m_waitTime->width()) / 2, m_deckLength->y() + 30);
     m_waitTime->setGeometry(m_waitTime->x(), m_waitTime->y(), m_waitTime->width(), 50);*/
+    this->setMinimumSize(210, m_scores->x() + m_scores->height() + 20);
 }
 
 void InformationWidget::setPlayerNumber(int p_number)
@@ -107,4 +106,5 @@ void InformationWidget::setScores(QByteArray p_scores)
     }
     m_scores->setText(scoreboard);
     m_scores->adjustSize();
+    this->setMinimumSize(210, m_scores->y() + m_scores->height() + 20);
 }

@@ -19,14 +19,14 @@ private:
     Card* searchForCard(short p_color, short p_shape, short p_number, short p_opacity, Cards &p_cards);
     std::atomic<bool> m_extraCards;
     void sendFSPacket();
-    void sendScorePacket(QTcpSocket *p_field, short p_score);
     void sendWaitTimePacket();
     void sendDeckLengthPacket();
     void sendScoreboard();
     void sendGameFinishedPacket();
+    void sendInputLocked();
+    void sendInputUnlocked(QTcpSocket *p_socket);
     bool check(Cards &p_cards);
     Client &getClient(QTcpSocket *p_socket);
-    void updateScores();
     short getSetCount();
     //QTimer *timer;
 
@@ -40,4 +40,6 @@ signals:
 public slots:
     void draw(short p_count = 3);
     void retrieveClick(QTcpSocket *p_client, QByteArray p_cards);
+    void retrievePlayerTurn(QTcpSocket *p_socket);
+
 };

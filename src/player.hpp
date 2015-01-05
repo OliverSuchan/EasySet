@@ -9,5 +9,6 @@ class Player : public Client
 
 public:
     void sendClickPacket(QByteArray p_cards);
+    void sendTurnPacket();
     Player(QObject *p_parent = 0, QHostAddress p_ip = QHostAddress::LocalHost, int p_port = 1337);
 };

@@ -7,8 +7,9 @@ enum PacketHeader
     //WAIT_TIME = 0x01,
     GAME_STATE = 0x01,
     DECK = 0x02,
-    SCORE = 0x3,
-    SCORES = 0x5,
+    INPUT_STATE = 0x03,
+    PLAYER_TURN = 0x04,
+    SCORES = 0x05,
     FIELD_SYNCHRO = 0x7,
     CLICK = 0xA
 };

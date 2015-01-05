@@ -25,11 +25,6 @@ void Controller::sendFSPacket()
     sendScoreboard();
 }
 
-void Controller::sendScorePacket(QTcpSocket *p_socket, short p_score)
-{
-
-}
-
 //void Controller::sendWaitTimePacket()
 //{
 //    QByteArray packet = m_packetHandler->makeWaitTimePacket(m_waitTime);
@@ -80,6 +75,16 @@ void Controller::sendGameFinishedPacket()
         std::get<0>(*it)->write(packet);
         std::get<0>(*it)->flush();
     }
+}
+
+void Controller::sendInputLocked()
+{
+
+}
+
+void Controller::sendInputUnlocked(QTcpSocket *p_socket)
+{
+
 }
 
 // prüft, ob die übergebenen Karten ein Set bilden, indem sie wie ein Vektor aufaddiert werden (siehe operator+ in Card)
@@ -233,6 +238,7 @@ void Controller::retrieveClick(QTcpSocket *p_client, QByteArray p_cards)
         if(currentCard)
             cards.push_back(currentCard);
     }
+    Client &client = getClient(p_client);
     // Falls die Karten ein Set bilden, wird das Set vom Spielfeld gelöscht und der Client erhält die Karten und einen Punkt 
     if(check(cards))
     {
@@ -240,20 +246,44 @@ void Controller::retrieveClick(QTcpSocket *p_client, QByteArray p_cards)
         {
             m_field.remove(*it);
         }
-        Client &client = getClient(p_client);
         std::get<2>(client).merge(cards);
         std::get<1>(client)++;
         
         // anschließend werden neue Karten nachgelegt
         draw();
+
+        if(std::get<1>(client) <= 0)
+        {
+            for(int i = 0; i < 3; i++)
+            {
+                int index = rand() % std::get<2>(client).size();
+                auto it = std::get<2>(client).begin();
+                std::advance(it, index);
+                m_deck.push_back(std::move(*it));
+                std::get<2>(client).remove(*it);
+            }
+        }
         //timer->start();
     }
     else
     {
-
+        std::get<1>(client)--;
+        sendScoreboard();
     }
     if(m_field.size() > 12)
         m_extraCards.store(true);
     else
         m_extraCards.store(false);
+}
+
+void Controller::retrievePlayerTurn(QTcpSocket *p_socket)
+{
+    QByteArray packet = m_packetHandler->makeInputLockedPacket();
+    for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
+    {
+        std::get<0>(*it)->write(packet);
+        std::get<0>(*it)->flush();
+    }
+    p_socket->write(m_packetHandler->makeInputUnlockedPacket());
+    p_socket->flush();
 }

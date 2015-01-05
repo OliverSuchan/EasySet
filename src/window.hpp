@@ -1,5 +1,6 @@
 #pragma once
 
+#include <atomic>
 #include <list>
 #include <QDesktopWidget>
 #include <QMainWindow>
@@ -33,6 +34,7 @@ private:
     QFrame *m_layer;
     QPushButton *m_startButton;
     Controller *m_controller;
+    std::atomic<bool> m_inputLocked;
 
 protected:
     void closeEvent(QCloseEvent *p_closeEvent);
@@ -54,6 +56,8 @@ public slots:
     void retrieveGameStarted();
     void retrieveGameFinished();
     void retrieveShowStartButton();
+    void retrieveUnlock();
+    void retrieveLock();
 
 signals:
     void unselectAll();

@@ -46,15 +46,6 @@ QByteArray PacketHandler::makeScoresPacket(QByteArray p_scores)
     return packet;
 }
 
-QByteArray PacketHandler::makeScorePacket(short p_score)
-{
-    QByteArray packet;
-    packet.append(SCORE);
-    packet.append(p_score);
-    packet.insert(1, packet.size() + 1);
-    return packet;
-}
-
 QByteArray PacketHandler::makeGameStartedPacket()
 {
     QByteArray packet;
@@ -94,6 +85,32 @@ QByteArray PacketHandler::makeDeckLengthPacket(short p_deckLength)
     return packet;
 }
 
+QByteArray PacketHandler::makeInputLockedPacket()
+{
+    QByteArray packet;
+    packet.append(INPUT_STATE);
+    packet.append(2);
+    packet.insert(1, packet.size() + 1);
+    return packet;
+}
+
+QByteArray PacketHandler::makeInputUnlockedPacket()
+{
+    QByteArray packet;
+    packet.append(INPUT_STATE);
+    packet.append(1);
+    packet.insert(1, packet.size() + 1);
+    return packet;
+}
+
+QByteArray PacketHandler::makeTurnPacket()
+{
+    QByteArray packet;
+    packet.append(PLAYER_TURN);
+    packet.insert(1, packet.size() + 1);
+    return packet;
+}
+
 void PacketHandler::processPacket(QByteArray p_packet, QTcpSocket *p_socket)
 {
     if(p_packet.size())
@@ -111,10 +128,6 @@ void PacketHandler::processPacket(QByteArray p_packet, QTcpSocket *p_socket)
             emit readClick(p_socket, packet);
             break;
 
-        case SCORE:
-            emit readScore(p_packet[2]);
-            break;
-
         case SCORES:
             emit readScores(packet);
             break;
@@ -130,13 +143,24 @@ void PacketHandler::processPacket(QByteArray p_packet, QTcpSocket *p_socket)
             emit readDeckLength(static_cast<short>(packet[0]));
             break;
 
-        //        case WAIT_TIME:
-        //            for(int i = 0; i < packet.size(); i++)
-        //            {
-        //                result |= ((static_cast<unsigned int>(packet[i]) & 0xFF) << ((packet.size() - 1 - i) * 8));
-        //            }
-        //            emit readWaitTime(result);
-        //            break;
+        case INPUT_STATE:
+            if(static_cast<short>(packet[0]) == 1)
+                emit readUnlockedPacket();
+            else if(static_cast<short>(packet[0]) == 2)
+                emit readLockedPacket();
+            break;
+
+        case PLAYER_TURN:
+            emit readTurnPacket(p_socket);
+            break;
+
+//        case WAIT_TIME:
+//            for(int i = 0; i < packet.size(); i++)
+//            {
+//                result |= ((static_cast<unsigned int>(packet[i]) & 0xFF) << ((packet.size() - 1 - i) * 8));
+//            }
+//            emit readWaitTime(result);
+//            break;
 
         default:
             std::cerr << "Dieser Pakettyp existiert nicht!" << std::endl;

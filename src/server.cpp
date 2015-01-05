@@ -8,6 +8,7 @@ Server::Server(QObject *parent, int p_port) :
     {
         connect(this, SIGNAL(newConnection()), this, SLOT(newCon()));
         connect(m_packetHandler, SIGNAL(readClick(QTcpSocket*,QByteArray)), this, SLOT(retrieveClick(QTcpSocket*,QByteArray)));
+        connect(m_packetHandler, SIGNAL(readTurnPacket(QTcpSocket*)), this, SLOT(retrievePlayerTurn(QTcpSocket*)));
     }
     else
     {
@@ -32,6 +33,7 @@ void Server::newCon()
     }
     //sendWaitTimePacket();
     sendFSPacket();
+    sendScoreboard();
 }
 
 void Server::onReadyRead()

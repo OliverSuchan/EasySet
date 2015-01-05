@@ -19,9 +19,11 @@ protected:
     Clients m_clients;
     PacketHandler *m_packetHandler;
     virtual void sendFSPacket() = 0;
-    virtual void sendScorePacket(QTcpSocket *p_field, short p_score) = 0;
     virtual void sendGameFinishedPacket() = 0;
     virtual void sendDeckLengthPacket() = 0;
+    virtual void sendScoreboard() = 0;
+    virtual void sendInputLocked() = 0;
+    virtual void sendInputUnlocked(QTcpSocket *p_socket) = 0;
     //virtual void sendWaitTimePacket() = 0;
     //const unsigned int m_waitTime = 20 * 1000;
 
@@ -38,6 +40,7 @@ public slots:
     void newCon();
     void onReadyRead();
     virtual void retrieveClick(QTcpSocket *p_client, QByteArray p_cards) = 0;
+    virtual void retrievePlayerTurn(QTcpSocket *p_client) = 0;
 
 };
 
