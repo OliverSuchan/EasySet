@@ -1,11 +1,16 @@
 #include "src/setupwindow.hpp"
 #include "ui_setupwindow.h"
-
 SetupWindow::SetupWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::SetupWindow)
+    ui(new Ui::SetupWindow),
+    m_keyList()
 {
     ui->setupUi(this);
+    for(int i = 1; i <= 8; i++)
+    {
+        ui->listWidget_2->addItem("Spieler "  + QString::number(i) + ": ");
+        ui->listWidget_3->addItem("-");
+    }
 }
 
 SetupWindow::~SetupWindow()
@@ -29,6 +34,7 @@ void SetupWindow::on_stackedWidget_currentChanged(int arg1)
 void SetupWindow::on_pushButton_3_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
+    ui->listWidget_2->setFocus();
 }
 
 void SetupWindow::on_commandLinkButton_clicked()
@@ -68,4 +74,38 @@ void SetupWindow::on_pushButton_5_clicked()
     }
     else
         QMessageBox::information(this, "Fehler beim Verbinden", "Beim Verbinden mit dem Server ist ein Fehler aufgetreten.");
+}
+
+void SetupWindow::on_pushButton_clicked()
+{
+    if(ui->listWidget_2->selectedItems().length() && ui->lineEdit_3->text().length())
+    {
+        for(int i = 0; i < ui->listWidget_3->count(); i++)
+        {
+            if(ui->listWidget_3->item(i)->text() == ui->lineEdit_3->text())
+                return;
+        }
+        ui->listWidget_3->item(ui->listWidget_2->currentIndex().row())->setText(ui->lineEdit_3->text());
+    }
+    ui->lineEdit_3->clear();
+}
+
+void SetupWindow::on_pushButton_2_clicked()
+{
+    ui->listWidget_3->item(ui->listWidget_2->currentIndex().row())->setText("-");
+}
+
+void SetupWindow::on_pushButton_8_clicked()
+{
+    new Controller();
+    for(int i = 0; i < ui->listWidget_3->count(); i++)
+    {
+        if(ui->listWidget_3->item(i)->text() != "-")
+        {
+            Player *p = new Player();
+            Window::getInstance()->m_players.push_back(std::make_tuple(p, static_cast<Qt::Key>(QKeySequence(ui->listWidget_3->item(i)->text())[0])));
+        }
+    }
+    Window::getInstance()->show();
+    this->close();
 }

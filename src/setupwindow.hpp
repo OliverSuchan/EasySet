@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <QMainWindow>
+#include <QListWidgetItem>
+#include <QKeyEvent>
 #include "window.hpp"
 #include "player.hpp"
 #include "controller.hpp"
@@ -14,6 +16,10 @@ class SetupWindow;
 class SetupWindow : public QMainWindow
 {
     Q_OBJECT
+
+private:
+    Ui::SetupWindow *ui;
+    std::list<Qt::Key> m_keyList;
 
 public:
     explicit SetupWindow(QWidget *parent = 0);
@@ -31,8 +37,10 @@ private slots:
 
     void on_pushButton_5_clicked();
 
-private:
-    Ui::SetupWindow *ui;
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+    void on_pushButton_8_clicked();
 };
 
 #endif // SETUPWINDOW_HPP
