@@ -83,7 +83,6 @@ void Controller::sendInputLocked()
     for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
     {
         std::get<0>(*it)->write(packet);
-        std::get<0>(*it)->flush();
     }
 }
 
@@ -93,14 +92,14 @@ void Controller::sendInputUnlocked(QTcpSocket *p_socket)
     if(p_socket)
     {
         p_socket->write(packet);
-        p_socket->flush();
+        p_socket->waitForBytesWritten();
     }
     else
     {
         for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
         {
             std::get<0>(*it)->write(packet);
-            std::get<0>(*it)->flush();
+            std::get<0>(*it)->waitForBytesWritten();
         }
     }
 }
@@ -157,7 +156,6 @@ short Controller::getSetCount()
             }
         }
     }
-    std::cout << "setCount: " << setCount / 6 << std::endl;
     return setCount / 6;    // da jedes Set 6 mal gezählt wird teilen wir durch 6
 }
 
@@ -202,9 +200,7 @@ Controller::Controller(QObject *p_parent) :
 }
 // ziehe p_count neue Karten vom Stapel und lege sie auf das Feld
 void Controller::draw(short p_count)
-{
-    std::cout << "field_size: " << m_field.size() << std::endl;
-    
+{    
     // falls bereits zu viele Karten auf dem Feld liegen, wird nichts neues gezogen
     if(m_extraCards.load())
     {

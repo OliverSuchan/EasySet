@@ -4,6 +4,7 @@
 #include <list>
 #include <stdlib.h>
 #include <ctime>
+#include <thread>
 #include <chrono>
 #include <QTimer>
 #include "server.hpp"

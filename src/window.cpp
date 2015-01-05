@@ -28,6 +28,9 @@ void Window::retrieveUnlock()
 
 void Window::retrieveLock()
 {
+    static const void * sentBy = sender();
+    if(sentBy != sender())
+        return;
     m_inputLocked.store(true);
     m_layer->show();
     m_layer->raise();
@@ -126,6 +129,8 @@ void Window::retrieveGameStarted()
 void Window::retrieveGameFinished()
 {
     emit canClick(false);
+    QMessageBox::information(this, "Ende!", "Das Spiel ist vorbei - es gibt keine Sets mehr");
+    this->close();
 }
 
 Window::Window(QWidget *parent) :

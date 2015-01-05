@@ -100,6 +100,7 @@ void SetupWindow::on_pushButton_clicked()
                 return;
         }
         ui->listWidget_3->item(ui->listWidget_2->currentIndex().row())->setText(ui->lineEdit_3->text());
+        ui->listWidget_2->setItemSelected(ui->listWidget_2->item(ui->listWidget_2->currentIndex().row() + 1), true);
     }
     ui->lineEdit_3->clear();
 }
@@ -118,7 +119,9 @@ void SetupWindow::on_pushButton_8_clicked()
         {
             if(ui->listWidget_3->item(i)->text() != "-")
             {
-                Window::getInstance()->m_players.push_back(std::make_tuple(new Player(), static_cast<Qt::Key>(QKeySequence(ui->listWidget_3->item(i)->text())[0])));
+                Player *p = new Player();
+                if(p->waitForConnected())
+                    Window::getInstance()->m_players.push_back(std::make_tuple(p, static_cast<Qt::Key>(QKeySequence(ui->listWidget_3->item(i)->text())[0])));
             }
         }
         Window::getInstance()->show();

@@ -50,7 +50,6 @@ private slots:
 public slots:
     void cardClicked();
     void retrieveField(QByteArray p_field);
-    //void retrieveWaitTime(unsigned int p_waitTime);
     void retrieveDeckLength(short p_deckLength);
     void retrieveScores(QByteArray p_scores);
     void retrieveGameStarted();
@@ -58,6 +57,7 @@ public slots:
     void retrieveShowStartButton();
     void retrieveUnlock();
     void retrieveLock();
+    //void retrieveWaitTime(unsigned int p_waitTime);
 
 signals:
     void unselectAll();
