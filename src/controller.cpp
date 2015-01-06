@@ -20,6 +20,7 @@ void Controller::sendFSPacket()
         std::get<0>(*it)->write(packet);
         std::get<0>(*it)->flush();
     }
+    sendInputUnlocked();
     // Methodenaufrufe, um Anzeigen zu synchronisieren
     sendDeckLengthPacket();     
     sendScoreboard();
@@ -173,7 +174,8 @@ void Controller::sendGameStartedPacket()
 Controller::Controller(QObject *p_parent) :
     Server(p_parent),
     m_deck(),
-    m_field()
+    m_field(),
+    m_playerTurn(nullptr)
 {
     connect(this, SIGNAL(showStartButton()), Window::getInstance(), SLOT(retrieveShowStartButton()));
     m_extraCards.store(false);
@@ -193,10 +195,22 @@ Controller::Controller(QObject *p_parent) :
     }
     draw(12);
     emit showStartButton();
+    clickTimer = new QTimer(this);
+    clickTimer->setInterval(5000);
+    connect(clickTimer, SIGNAL(timeout()), this, SLOT(deductScore()));
 //    timer = new QTimer(this);
 //    connect(timer, SIGNAL(timeout()), this, SLOT(draw()));
 //    timer->setInterval(m_waitTime);
-//    timer->start();
+            //    timer->start();
+}
+
+void Controller::deductScore()
+{
+    clickTimer->stop();
+    Client &client = getClient(m_playerTurn);
+    std::get<1>(client)--;
+    m_playerTurn = nullptr;
+    sendFSPacket();
 }
 // ziehe p_count neue Karten vom Stapel und lege sie auf das Feld
 void Controller::draw(short p_count)
@@ -204,10 +218,15 @@ void Controller::draw(short p_count)
     // falls bereits zu viele Karten auf dem Feld liegen, wird nichts neues gezogen
     if(m_extraCards.load())
     {
+        if(!getSetCount())
+        {
+            goto draw;
+        }
         sendFSPacket();
         return;
     }
     
+    draw:
     // es können maximal so viele Karten gezogen werden, wie welche im Deck liegen
     if(m_deck.size() < p_count)
         p_count = m_deck.size();
@@ -245,6 +264,10 @@ void Controller::draw(short p_count)
 void Controller::retrieveClick(QTcpSocket *p_client, QByteArray p_cards)
 {
     Cards cards;
+    Client &client = getClient(p_client);
+    sendInputUnlocked();
+    clickTimer->stop();
+    m_playerTurn = nullptr;
     // Suche angeklickte Karten auf dem Feld zusammen
     for(auto it = p_cards.begin(); it != p_cards.end(); ++it)
     {
@@ -252,8 +275,6 @@ void Controller::retrieveClick(QTcpSocket *p_client, QByteArray p_cards)
         if(currentCard)
             cards.push_back(currentCard);
     }
-    Client &client = getClient(p_client);
-    sendInputUnlocked();
     // Falls die Karten ein Set bilden, wird das Set vom Spielfeld gelöscht und der Client erhält die Karten und einen Punkt 
     if(check(cards))
     {
@@ -295,4 +316,6 @@ void Controller::retrievePlayerTurn(QTcpSocket *p_socket)
 {
     sendInputLocked();
     sendInputUnlocked(p_socket);
+    m_playerTurn = p_socket;
+    clickTimer->start();
 }

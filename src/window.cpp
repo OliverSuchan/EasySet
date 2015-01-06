@@ -59,9 +59,15 @@ void Window::cardClicked()
             m_curPlayer->sendClickPacket(packet);
         m_clickedCards.clear();
         m_curPlayer = nullptr;
+        m_layer->hide();
         emit unselectAll();
         emit canClick(false);
     }
+}
+
+void Window::clientDisconnected()
+{
+    QMessageBox::information(this, "Verbindungsfehler", "Die Verbindung zwischen Server und Client wurde getrennt.");
 }
 
 void Window::retrieveField(QByteArray p_field)
@@ -77,18 +83,19 @@ void Window::retrieveField(QByteArray p_field)
         curCard = nullptr;
     }
     m_field.clear();
+    int mod = (p_field.size() > 12) ? (5) : (4);
     for(auto it = p_field.begin(); it != p_field.end(); ++it)
     {
         CardWidget *cardWidget = new CardWidget((*it >> 6) & 0x03, (*it >> 4) & 0x03, (*it >> 2) & 0x03, *it & 0x03, this);
         m_field.push_back(cardWidget);
-        cardWidget->setGeometry(((m_field.size() -1) % 4) * 110 + 20, ((m_field.size() - 1) / 4) * 220 + 20, 90, 200);
+        cardWidget->setGeometry(((m_field.size() -1) % mod) * 110 + 20, ((m_field.size() - 1) / mod) * 220 + 20, 90, 200);
         cardWidget->show();
         connect(cardWidget, SIGNAL(clicked()), this, SLOT(cardClicked()));
         connect(this, SIGNAL(canClick(bool)), cardWidget, SLOT(canClick(bool)));
         connect(this, SIGNAL(unselectAll()), cardWidget, SLOT(unselect()));
     }
     CardWidget *someCard = static_cast<CardWidget*>(m_field.back());
-    infoWidget->move(someCard->width() * 4 + 20 * 4 + 20, 0);
+    infoWidget->move(someCard->width() * mod + 20 * mod + 20, 0);
     int infoWidgetHeight = infoWidget->y() + infoWidget->height() + 20;
     int cardWidgetHeight = someCard->y() + someCard->height() + 20;
     this->setFixedSize(infoWidget->x() + infoWidget->width() + 20, (infoWidgetHeight > cardWidgetHeight) ? (infoWidgetHeight) : (cardWidgetHeight));
@@ -117,6 +124,7 @@ void Window::retrieveDeckLength(short p_deckLength)
 void Window::retrieveScores(QByteArray p_scores)
 {
     infoWidget->setScores(p_scores);
+    infoWidget->setPlayerCount(p_scores.size());
 }
 
 void Window::retrieveGameStarted()
@@ -129,6 +137,7 @@ void Window::retrieveGameStarted()
 void Window::retrieveGameFinished()
 {
     emit canClick(false);
+    m_inputLocked.store(true);
     QMessageBox::information(this, "Ende!", "Das Spiel ist vorbei - es gibt keine Sets mehr");
     this->close();
 }

@@ -49,6 +49,7 @@ private slots:
 
 public slots:
     void cardClicked();
+    void clientDisconnected();
     void retrieveField(QByteArray p_field);
     void retrieveDeckLength(short p_deckLength);
     void retrieveScores(QByteArray p_scores);

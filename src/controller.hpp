@@ -17,6 +17,7 @@ class Controller : public Server
 private:
     Cards m_deck;
     Cards m_field;
+    QTcpSocket *m_playerTurn;
     Card* searchForCard(short p_color, short p_shape, short p_number, short p_opacity, Cards &p_cards);
     std::atomic<bool> m_extraCards;
     void sendFSPacket();
@@ -29,6 +30,7 @@ private:
     bool check(Cards &p_cards);
     Client &getClient(QTcpSocket *p_socket);
     short getSetCount();
+    QTimer *clickTimer;
     //QTimer *timer;
 
 public:
@@ -37,6 +39,9 @@ public:
 
 signals:
     void showStartButton();
+
+private slots:
+    void deductScore();
 
 public slots:
     void draw(short p_count = 3);

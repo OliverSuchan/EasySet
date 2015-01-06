@@ -14,6 +14,7 @@ Client::Client(QObject *p_parent, QHostAddress p_ip, int p_port) :
     connect(m_packetHandler, SIGNAL(readGameFinishedPacket()), Window::getInstance(), SLOT(retrieveGameFinished()));
     connect(m_packetHandler, SIGNAL(readLockedPacket()), Window::getInstance(), SLOT(retrieveLock()));
     connect(m_packetHandler, SIGNAL(readUnlockedPacket()), Window::getInstance(), SLOT(retrieveUnlock()));
+    connect(this, SIGNAL(disconnected()), Window::getInstance(), SLOT(clientDisconnected()));
 }
 
 void Client::onReadyRead()
