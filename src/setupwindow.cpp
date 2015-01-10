@@ -13,8 +13,7 @@ int SetupWindow::getActualPlayerCount()
 
 SetupWindow::SetupWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::SetupWindow),
-    m_keyList()
+    ui(new Ui::SetupWindow)
 {
     ui->setupUi(this);
     this->setFixedSize(this->size());
@@ -72,8 +71,8 @@ void SetupWindow::on_pushButton_4_clicked()
 void SetupWindow::on_pushButton_7_clicked()
 {
     new Controller();
-    Window::getInstance()->m_players.push_back(std::make_tuple(new Player(), Qt::Key_Space));
-    Window::getInstance()->show();
+    Window::getInstance().m_players.push_back(std::make_tuple(new Player(), Qt::Key_Space));
+    Window::getInstance().show();
     this->close();
 }
 
@@ -82,8 +81,8 @@ void SetupWindow::on_pushButton_5_clicked()
     Player *p = new Player(nullptr, QHostAddress(ui->lineEdit->text()), ui->lineEdit_2->text().toInt());
     if(p->waitForConnected())
     {
-        Window::getInstance()->m_players.push_back(std::make_tuple(p, Qt::Key_Space));
-        Window::getInstance()->show();
+        Window::getInstance().m_players.push_back(std::make_tuple(p, Qt::Key_Space));
+        Window::getInstance().show();
         this->close();
     }
     else
@@ -121,10 +120,10 @@ void SetupWindow::on_pushButton_8_clicked()
             {
                 Player *p = new Player();
                 if(p->waitForConnected())
-                    Window::getInstance()->m_players.push_back(std::make_tuple(p, static_cast<Qt::Key>(QKeySequence(ui->listWidget_3->item(i)->text())[0])));
+                    Window::getInstance().m_players.push_back(std::make_tuple(p, static_cast<Qt::Key>(QKeySequence(ui->listWidget_3->item(i)->text())[0])));
             }
         }
-        Window::getInstance()->show();
+        Window::getInstance().show();
         this->close();
     }
     else

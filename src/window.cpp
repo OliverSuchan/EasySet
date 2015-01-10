@@ -1,9 +1,9 @@
 #include "window.hpp"
 #include "ui_window.h"
 
-Window *Window::getInstance()
+Window &Window::getInstance()
 {
-    static Window *winInstance = new Window;
+    static Window winInstance;
     return winInstance;
 }
 
@@ -22,8 +22,14 @@ void Window::retrieveShowStartButton()
 void Window::retrieveUnlock()
 {
     m_inputLocked.store(false);
-    m_layer->close();
+    m_layer->hide();
     this->setFocus();
+    if(m_curPlayer)
+    {
+        m_layer->setPalette(QPalette(QColor(255, 200, 200, 125)));
+        m_layer->show();
+        m_layer->lower();
+    }
 }
 
 void Window::retrieveLock()
@@ -34,6 +40,7 @@ void Window::retrieveLock()
     m_inputLocked.store(true);
     m_layer->show();
     m_layer->raise();
+    m_layer->setPalette(QPalette(QColor(0, 0, 0, 125)));
 }
 
 void Window::cardClicked()
@@ -67,6 +74,9 @@ void Window::cardClicked()
 
 void Window::clientDisconnected()
 {
+    static const void * sentBy = sender();
+    if(sentBy != sender())
+        return;
     QMessageBox::information(this, "Verbindungsfehler", "Die Verbindung zwischen Server und Client wurde getrennt.");
 }
 
@@ -75,7 +85,7 @@ void Window::retrieveField(QByteArray p_field)
     static const void * sentBy = sender();
     if(sentBy != sender())
         return;
-    //infoWidget->restartTimer();
+    m_curPlayer = nullptr;
     for(auto it = m_field.begin(); it != m_field.end(); ++it)
     {
         CardWidget *curCard = static_cast<CardWidget*>(*it);
@@ -95,41 +105,30 @@ void Window::retrieveField(QByteArray p_field)
         connect(this, SIGNAL(unselectAll()), cardWidget, SLOT(unselect()));
     }
     CardWidget *someCard = static_cast<CardWidget*>(m_field.back());
-    infoWidget->move(someCard->width() * mod + 20 * mod + 20, 0);
-    int infoWidgetHeight = infoWidget->y() + infoWidget->height() + 20;
+    m_infoWidget->move(someCard->width() * mod + 20 * mod + 20, 0);
+    int infoWidgetHeight = m_infoWidget->y() + m_infoWidget->height() + 20;
     int cardWidgetHeight = someCard->y() + someCard->height() + 20;
-    this->setFixedSize(infoWidget->x() + infoWidget->width() + 20, (infoWidgetHeight > cardWidgetHeight) ? (infoWidgetHeight) : (cardWidgetHeight));
+    this->setFixedSize(m_infoWidget->x() + m_infoWidget->width() + 20, (infoWidgetHeight > cardWidgetHeight) ? (infoWidgetHeight) : (cardWidgetHeight));
     this->move((QApplication::desktop()->width() - this->width()) / 2, (QApplication::desktop()->height() - this->height()) / 2);
-    m_layer->setGeometry(0, 0, infoWidget->x(), someCard->y() + someCard->height() + 20);
+    m_layer->setGeometry(0, 0, m_infoWidget->x(), someCard->y() + someCard->height() + 20);
     m_layer->raise();
     m_startButton->move((m_layer->width() - m_startButton->width()) / 2, (m_layer->height() - m_startButton->height()) / 2);
-    if(m_curPlayer)
-        emit canClick(true);
-    else
-        emit canClick(false);
+    emit canClick(false);
 }
-
-//void Window::retrieveWaitTime(unsigned int p_waitTime)
-//{
-//    static const void * sentBy = sender();
-//    if(sentBy != sender())
-//        return;
-//    infoWidget->setWaitTimeValue(p_waitTime / 1000);
-//}
 
 void Window::retrieveDeckLength(short p_deckLength)
 {
-    infoWidget->setDeckLength(p_deckLength);
+    m_infoWidget->setDeckLength(p_deckLength);
 }
 void Window::retrieveScores(QByteArray p_scores)
 {
-    infoWidget->setScores(p_scores);
-    infoWidget->setPlayerCount(p_scores.size());
+    m_infoWidget->setScores(p_scores);
+    m_infoWidget->setPlayerCount(p_scores.size());
 }
 
 void Window::retrieveGameStarted()
 {
-    m_layer->close();
+    m_layer->hide();
     m_startButton->hide();
     this->setFocus();
 }
@@ -153,11 +152,11 @@ Window::Window(QWidget *parent) :
     m_players = std::list<std::tuple<Player*, Qt::Key>>();
     this->setWindowTitle("EasySet");
     this->setWindowFlags(Qt::WindowTitleHint | Qt::WindowCloseButtonHint);
-    infoWidget = new InformationWidget(this);
-    infoWidget->show();
-    m_layer = new QFrame(this, Qt::WindowStaysOnTopHint);
+    m_infoWidget = new InformationWidget(this);
+    m_infoWidget->show();
+    m_layer = new QWidget(this);
     m_layer->setAutoFillBackground(true);
-    m_layer->setPalette(QPalette(QColor(100, 100, 100, 100)));
+    m_layer->setPalette(QPalette(QColor(0, 0, 0, 125)));
     m_layer->show();
     m_startButton = new QPushButton(m_layer);
     m_startButton->setStyleSheet("QPushButton {color: red;}");

@@ -2,9 +2,11 @@
 
 #include <QColor>
 
+/**
+ * @brief Anonyme innere Klasse, mit den verschiedenen Pakettypen
+ */
 enum PacketHeader
 {
-    //WAIT_TIME = 0x01,
     GAME_STATE = 0x01,
     DECK = 0x02,
     INPUT_STATE = 0x03,
@@ -14,6 +16,9 @@ enum PacketHeader
     CLICK = 0xA
 };
 
+/**
+ * @brief Anonyme innere Klasse, mit den verschiedenen Farben einer Karte
+ */
 enum Color
 {
     RED,
@@ -21,8 +26,14 @@ enum Color
     GREEN
 };
 
+/**
+ * @brief Die möglichen Farben der Karten
+ */
 static const QColor setColors[3] = { Qt::red, Qt::blue, Qt::darkGreen};
 
+/**
+ * @brief Anonyme innere Klasse, mit den verschiedenen Formen einer Karte
+ */
 enum Shape
 {
     TRIANGLE,
@@ -30,6 +41,9 @@ enum Shape
     CIRCLE
 };
 
+/**
+ * @brief Anonyme innere Klasse, mit den verschiedenen Anzahlen einer Karte
+ */
 enum Number
 {
     ONE,
@@ -37,6 +51,9 @@ enum Number
     THREE
 };
 
+/**
+ * @brief Anonyme innere Klasse, mit den verschiedenen Einfärbungen einer Karte
+ */
 enum Opacity
 {
     FILLED,
@@ -44,4 +61,4 @@ enum Opacity
     PALLID
 };
 
-#include "card.hpp"
+//#include "card.hpp"

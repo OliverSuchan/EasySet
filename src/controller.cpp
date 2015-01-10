@@ -20,21 +20,10 @@ void Controller::sendFSPacket()
         std::get<0>(*it)->write(packet);
         std::get<0>(*it)->flush();
     }
-    sendInputUnlocked();
     // Methodenaufrufe, um Anzeigen zu synchronisieren
     sendDeckLengthPacket();     
     sendScoreboard();
 }
-
-//void Controller::sendWaitTimePacket()
-//{
-//    QByteArray packet = m_packetHandler->makeWaitTimePacket(m_waitTime);
-//    for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
-//    {
-//        std::get<0>(*it)->write(packet);
-//        std::get<0>(*it)->flush();
-//    }
-//}
 
 // Sendet die Deckgröße an alle Clients für die Anzeige
 void Controller::sendDeckLengthPacket()
@@ -75,6 +64,7 @@ void Controller::sendGameFinishedPacket()
     {
         std::get<0>(*it)->write(packet);
         std::get<0>(*it)->flush();
+        std::get<0>(*it)->disconnectFromHost();
     }
 }
 
@@ -124,11 +114,13 @@ bool Controller::check(Server::Cards &p_cards)
 // liefert einen Client anhand des Sockets
 Server::Client &Controller::getClient(QTcpSocket *p_socket)
 {
+    Client* retVal = nullptr;
     for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
     {
         if(std::get<0>(*it) == p_socket)
             return *it;
     }
+    return *retVal;
 }
 
 // berechnet die Anzahl der Sets auf dem Spielfeld 
@@ -177,7 +169,7 @@ Controller::Controller(QObject *p_parent) :
     m_field(),
     m_playerTurn(nullptr)
 {
-    connect(this, SIGNAL(showStartButton()), Window::getInstance(), SLOT(retrieveShowStartButton()));
+    connect(this, SIGNAL(showStartButton()), &Window::getInstance(), SLOT(retrieveShowStartButton()));
     m_extraCards.store(false);
     srand(time(NULL));
     for(int i = 0; i < 3; i++)
@@ -198,10 +190,6 @@ Controller::Controller(QObject *p_parent) :
     clickTimer = new QTimer(this);
     clickTimer->setInterval(5000);
     connect(clickTimer, SIGNAL(timeout()), this, SLOT(deductScore()));
-//    timer = new QTimer(this);
-//    connect(timer, SIGNAL(timeout()), this, SLOT(draw()));
-//    timer->setInterval(m_waitTime);
-            //    timer->start();
 }
 
 void Controller::deductScore()
@@ -209,11 +197,24 @@ void Controller::deductScore()
     clickTimer->stop();
     Client &client = getClient(m_playerTurn);
     std::get<1>(client)--;
+    if(std::get<2>(client).size() > 0)
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            int index = rand() % std::get<2>(client).size();
+            auto it = std::get<2>(client).begin();
+            std::advance(it, index);
+            m_deck.push_back(std::move(*it));
+            std::get<2>(client).remove(*it);
+        }
+    }
     m_playerTurn = nullptr;
     sendFSPacket();
+    sendInputUnlocked();
 }
+
 // ziehe p_count neue Karten vom Stapel und lege sie auf das Feld
-void Controller::draw(short p_count)
+void Controller::draw(unsigned int p_count)
 {    
     // falls bereits zu viele Karten auf dem Feld liegen, wird nichts neues gezogen
     if(m_extraCards.load())
@@ -232,7 +233,7 @@ void Controller::draw(short p_count)
         p_count = m_deck.size();
     
     // ziehe neue Karten und lege sie aufs Feld
-    for(int i = 0; i < p_count; i++)
+    for(unsigned int i = 0; i < p_count; i++)
     {
         int index = rand() % this->m_deck.size();
         auto it = m_deck.begin();
@@ -299,7 +300,6 @@ void Controller::retrieveClick(QTcpSocket *p_client, QByteArray p_cards)
                 std::get<2>(client).remove(*it);
             }
         }
-        //timer->start();
     }
     else
     {

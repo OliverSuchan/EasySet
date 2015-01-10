@@ -17,21 +17,20 @@ Server::Server(QObject *parent, int p_port) :
     }
 }
 
-void Server::deleteLater()
-{
-    QTcpServer::deleteLater();
-}
-
 void Server::newCon()
 {
     QTcpSocket *newSocket = static_cast<QTcpSocket*>(nextPendingConnection());
     if(newSocket)
     {
+        if(m_clients.size() == 8)
+        {
+            newSocket->disconnectFromHost();
+            return;
+        }
         connect(newSocket, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
         connect(newSocket, SIGNAL(disconnected()), this, SLOT(deleteLater()));
         m_clients.push_back(std::make_tuple(newSocket, 0, std::list<Card *>()));
     }
-    //sendWaitTimePacket();
     sendFSPacket();
     sendScoreboard();
 }

@@ -3,38 +3,56 @@
 #include <iostream>
 #include <QWidget>
 #include <QLabel>
-#include <QLCDNumber>
-#include <QTimer>
-#include <QTime>
 
+/**
+ * @brief Das InformationWidget dient zur Ausgabe des Spielstatuses
+ */
 class InformationWidget : public QWidget
 {
     Q_OBJECT
 
 private:
-    QLabel *m_playerNum;
+    /**
+     * @brief QLabel zur Ausgabe des Punktestandes
+     */
     QLabel *m_scores;
+
+    /**
+     * @brief QLabel zur Ausgabe der Anzahl der im Deck verbleibenden Karten
+     */
     QLabel *m_deckLength;
-    QTimer *m_refreshTimer;
+
+    /**
+     * @brief QLabel zur Ausgabe der Spieleranzahl
+     */
     QLabel *m_playerCount;
-    QString scoreboard;
-    //QLCDNumber *m_waitTime;
-    //int m_startValue;
-    //int m_currentValue;
 
 public:
+    /**
+     * @brief Konstruktor zum Erzeugen einer InformationWidget-Instanz
+     * @param parent Elternteil des InformationWidgets
+     */
     explicit InformationWidget(QWidget *parent = 0);
-    void setPlayerNumber(int p_number);
+
+    /**
+     * @brief Legt die Anzahl der Spieler fest
+     * @param p_playerCount Spieleranzahl
+     * @see m_playerCount
+     */
     void setPlayerCount(short p_playerCount);
+
+    /**
+     * @brief Legt die Anzahl der Karten im Deck fest
+     * @param p_deckLength Anzahl der Karten im Deck
+     * @see m_deckLength
+     */
     void setDeckLength(short p_deckLength);
-    void setSetCount(short p_setCount);
+
+    /**
+     * @brief Legt den Inhalt des Scoreboards fest
+     * @param p_scores Punktestand
+     * @see m_scores
+     */
     void setScores(QByteArray p_scores);
-    //void setWaitTimeValue(int p_value);
-    //void restartTimer();
-
-signals:
-
-private slots:
-    void showCountDown();
 
 };
