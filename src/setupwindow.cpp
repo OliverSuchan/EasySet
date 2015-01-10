@@ -99,7 +99,7 @@ void SetupWindow::on_pushButton_clicked()
                 return;
         }
         ui->listWidget_3->item(ui->listWidget_2->currentIndex().row())->setText(ui->lineEdit_3->text());
-        ui->listWidget_2->setItemSelected(ui->listWidget_2->item(ui->listWidget_2->currentIndex().row() + 1), true);
+        ui->listWidget_2->setCurrentRow(ui->listWidget_2->currentIndex().row() + 1);
     }
     ui->lineEdit_3->clear();
 }

@@ -50,5 +50,5 @@ void InformationWidget::setScores(QByteArray p_scores)
     }
     m_scores->setText(scoreBoard);
     m_scores->adjustSize();
-    this->setMinimumSize(210, m_scores->y() + m_scores->height() + 20);
+    this->setMinimumSize(m_deckLength->x() + m_deckLength->width() + 20, m_scores->y() + m_scores->height() + 20);
 }

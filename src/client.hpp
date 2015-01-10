@@ -2,7 +2,6 @@
 
 #include <QTcpSocket>
 #include <QHostAddress>
-#include <memory>
 
 class PacketHandler;
 class Card;

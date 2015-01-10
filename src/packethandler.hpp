@@ -1,7 +1,6 @@
 #pragma once
 
 #include <iostream>
-#include <bitset>
 #include <QObject>
 #include <QTcpSocket>
 #include "enums.hpp"
