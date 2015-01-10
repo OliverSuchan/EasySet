@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Einrichtungsassistent</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../resources.qrc">
+    <normaloff>:/icon/EasySet-Icon.ico</normaloff>:/icon/EasySet-Icon.ico</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
@@ -338,6 +342,8 @@
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

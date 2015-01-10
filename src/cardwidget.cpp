@@ -38,7 +38,7 @@ void CardWidget::paintEvent(QPaintEvent *)
     else
         painter.setBrush(Qt::gray);
     painter.drawRoundedRect(0, 0, this->width() - painter.pen().width(), this->height() - painter.pen().width(), 10, 10);
-    Qt::BrushStyle bs;
+    Qt::BrushStyle bs = Qt::SolidPattern;
     switch(m_opacity)
     {
     case FILLED:

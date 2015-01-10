@@ -12,6 +12,8 @@ TARGET = EasySet
 TEMPLATE = app
 CONFIG += c++11
 
+RC_FILE = resources/resources.rc
+
 INCLUDEPATH += src/
 
 SOURCES +=\

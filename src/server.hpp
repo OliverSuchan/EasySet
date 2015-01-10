@@ -124,7 +124,7 @@ public slots:
      * @param p_socket Client, dem das Anklicken der Karten gewährt ist
      * @see PacketHandler::readTurnPacket
      */
-    virtual void retrievePlayerTurn(QTcpSocket *p_client) = 0;
+    virtual void retrievePlayerTurn(QTcpSocket *p_socket) = 0;
 
 };
 
