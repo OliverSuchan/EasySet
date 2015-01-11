@@ -74,23 +74,24 @@ void Controller::sendInputLocked()
     for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
     {
         std::get<0>(*it)->write(packet);
+        std::get<0>(*it)->flush();
     }
 }
 
 void Controller::sendInputUnlocked(QTcpSocket *p_socket)
 {
-    QByteArray packet =m_packetHandler->makeInputUnlockedPacket();
+    QByteArray packet = m_packetHandler->makeInputUnlockedPacket();
     if(p_socket)
     {
         p_socket->write(packet);
-        p_socket->waitForBytesWritten();
+        p_socket->flush();
     }
     else
     {
         for(auto it = m_clients.begin(); it != m_clients.end(); ++it)
         {
             std::get<0>(*it)->write(packet);
-            std::get<0>(*it)->waitForBytesWritten();
+            std::get<0>(*it)->flush();
         }
     }
 }

@@ -12,8 +12,8 @@ enum PacketHeader
     INPUT_STATE = 0x03,
     PLAYER_TURN = 0x04,
     SCORES = 0x05,
-    FIELD_SYNCHRO = 0x7,
-    CLICK = 0xA
+    FIELD_SYNCHRO = 0x07,
+    CLICK = 0x0A
 };
 
 /**
