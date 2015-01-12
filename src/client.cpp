@@ -1,11 +1,14 @@
 #include "client.hpp"
-
+// Kostruktor
 Client::Client(QObject *p_parent, QHostAddress p_ip, int p_port) :
     QTcpSocket(p_parent)
 {
     m_packetHandler = new PacketHandler;
+
     connectToHost(p_ip, p_port);
     connect(this, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
+    
+    // verlinkt Packethandler-Signale mit den Slots des Fensters
     connect(m_packetHandler, SIGNAL(readField(QByteArray)), &Window::getInstance(), SLOT(retrieveField(QByteArray)));
     //connect(m_packetHandler, SIGNAL(readWaitTime(unsigned int)), Window::getInstance(), SLOT(retrieveWaitTime(unsigned int)));
     connect(m_packetHandler, SIGNAL(readDeckLength(short)), &Window::getInstance(), SLOT(retrieveDeckLength(short)));
@@ -16,7 +19,7 @@ Client::Client(QObject *p_parent, QHostAddress p_ip, int p_port) :
     connect(m_packetHandler, SIGNAL(readUnlockedPacket()), &Window::getInstance(), SLOT(retrieveUnlock()));
     connect(this, SIGNAL(disconnected()), &Window::getInstance(), SLOT(clientDisconnected()));
 }
-
+// verarbeitet vom Server gesendete Befehle
 void Client::onReadyRead()
 {
     QTcpSocket *serverSocket = static_cast<QTcpSocket*>(sender());
