@@ -269,7 +269,6 @@ void Controller::retrieveClick(QTcpSocket *p_client, QByteArray p_cards)
     Client &client = getClient(p_client);
     sendInputUnlocked();
     clickTimer->stop();
-    m_playerTurn = nullptr;
     // Suche angeklickte Karten auf dem Feld zusammen
     for(auto it = p_cards.begin(); it != p_cards.end(); ++it)
     {
@@ -304,10 +303,10 @@ void Controller::retrieveClick(QTcpSocket *p_client, QByteArray p_cards)
     }
     else
     {
-        std::get<1>(client)--;
         deductScore();
         sendScoreboard();
     }
+    m_playerTurn = nullptr;
     if(m_field.size() > 12)
         m_extraCards.store(true);
     else
