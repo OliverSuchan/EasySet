@@ -6,7 +6,7 @@ void KI::selectField()
     {
         if(m_gameEnded.load())
             return;
-        std::this_thread::sleep_for(std::chrono::seconds(1));
+        std::this_thread::sleep_for(std::chrono::seconds(20));
         if(m_gameEnded.load())
             return;
 
