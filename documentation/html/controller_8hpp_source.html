@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>EasySet: src/controller.hpp Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="EasySet-Icon.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">EasySet
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="namespaces.html"><span>Namensbereiche</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('controller_8hpp_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">controller.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="controller_8hpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;atomic&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QTimer&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="server_8hpp.html">server.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="card_8hpp.html">card.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_controller.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_controller.html">Controller</a> : <span class="keyword">public</span> <a class="code" href="class_server.html">Server</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    std::atomic&lt;bool&gt; m_extraCards;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_server.html#a2b2ff2c4678bdca3599c3feb5efdaff7">Cards</a> m_deck;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_server.html#a2b2ff2c4678bdca3599c3feb5efdaff7">Cards</a> m_field;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    QTcpSocket *m_playerTurn;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    QTimer *clickTimer;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> sendFSPacket();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> sendDeckLengthPacket();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> sendScoreboard();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> sendGameFinishedPacket();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> sendInputLocked();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> sendInputUnlocked(QTcpSocket *p_socket = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">short</span> getSetCount();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <a class="code" href="class_client.html">Client</a> &amp;getClient(QTcpSocket *p_socket);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="class_card.html">Card</a>* searchForCard(<span class="keywordtype">short</span> p_color, <span class="keywordtype">short</span> p_shape, <span class="keywordtype">short</span> p_number, <span class="keywordtype">short</span> p_opacity, <a class="code" href="class_server.html#a2b2ff2c4678bdca3599c3feb5efdaff7">Cards</a> &amp;p_cards);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_controller.html#a07ee1874817ee0abd630e846e7b37ea9">sendGameStartedPacket</a>();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="class_controller.html#a631b306cacf6c59b6185152f8ea25fa3">check</a>(<a class="code" href="class_server.html#a2b2ff2c4678bdca3599c3feb5efdaff7">Cards</a> &amp;p_cards);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <a class="code" href="class_controller.html#aa3d04afa037846c8eea68ccb37159760">Controller</a>(QObject *p_parent = 0);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;signals:</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_controller.html#a7b451f4eb09398e825910d02e73f8789">showStartButton</a>();</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">void</span> deductScore();</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_controller.html#ad54697994dab06b6340cd674af53f7e2">draw</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p_count = 3);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_controller.html#a0283cf55f555625b3df2cb0b3557d61b">retrieveClick</a>(QTcpSocket *p_client, QByteArray p_cards);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_controller.html#a74bfe4153a8b5d66621bb19c76767d8c">retrievePlayerTurn</a>(QTcpSocket *p_socket);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;};</div>
+<div class="ttc" id="class_server_html"><div class="ttname"><a href="class_server.html">Server</a></div><div class="ttdoc">Die abstrakte Klasse Server, steht für den Server des Spiels. </div><div class="ttdef"><b>Definition:</b> server.hpp:13</div></div>
+<div class="ttc" id="class_controller_html_a0283cf55f555625b3df2cb0b3557d61b"><div class="ttname"><a href="class_controller.html#a0283cf55f555625b3df2cb0b3557d61b">Controller::retrieveClick</a></div><div class="ttdeci">void retrieveClick(QTcpSocket *p_client, QByteArray p_cards)</div><div class="ttdoc">Wird aufgerufen, wenn ein Set ausgewählt wurde.  Das Set wird überprüft und dementsprechend Punkte gu...</div><div class="ttdef"><b>Definition:</b> controller.cpp:266</div></div>
+<div class="ttc" id="class_controller_html_a74bfe4153a8b5d66621bb19c76767d8c"><div class="ttname"><a href="class_controller.html#a74bfe4153a8b5d66621bb19c76767d8c">Controller::retrievePlayerTurn</a></div><div class="ttdeci">void retrievePlayerTurn(QTcpSocket *p_socket)</div><div class="ttdoc">Wird aufgerufen, sobald ein Spieler ein Set auswählen möchte. </div><div class="ttdef"><b>Definition:</b> controller.cpp:317</div></div>
+<div class="ttc" id="class_controller_html_a07ee1874817ee0abd630e846e7b37ea9"><div class="ttname"><a href="class_controller.html#a07ee1874817ee0abd630e846e7b37ea9">Controller::sendGameStartedPacket</a></div><div class="ttdeci">void sendGameStartedPacket()</div><div class="ttdoc">Sendet das Paket, um das Spiel zu starten. </div><div class="ttdef"><b>Definition:</b> controller.cpp:156</div></div>
+<div class="ttc" id="class_client_html"><div class="ttname"><a href="class_client.html">Client</a></div><div class="ttdoc">Die abstrakte Klasse Client kümmert sich um die Verbindung zum Server und macht so ein Spielen möglic...</div><div class="ttdef"><b>Definition:</b> client.hpp:12</div></div>
+<div class="ttc" id="class_controller_html_aa3d04afa037846c8eea68ccb37159760"><div class="ttname"><a href="class_controller.html#aa3d04afa037846c8eea68ccb37159760">Controller::Controller</a></div><div class="ttdeci">Controller(QObject *p_parent=0)</div><div class="ttdoc">Konstruktor zum Erzeugen einer Controller-Instanz. </div><div class="ttdef"><b>Definition:</b> controller.cpp:167</div></div>
+<div class="ttc" id="class_controller_html_a631b306cacf6c59b6185152f8ea25fa3"><div class="ttname"><a href="class_controller.html#a631b306cacf6c59b6185152f8ea25fa3">Controller::check</a></div><div class="ttdeci">static bool check(Cards &amp;p_cards)</div><div class="ttdoc">Überprüft ob eine Liste aus Karten ein Set bilden. </div><div class="ttdef"><b>Definition:</b> controller.cpp:100</div></div>
+<div class="ttc" id="class_controller_html"><div class="ttname"><a href="class_controller.html">Controller</a></div><div class="ttdoc">Die Klasse Controller ist für den kompletten Spielverlauf zuständig.  Sie regelt, wann welcher Client...</div><div class="ttdef"><b>Definition:</b> controller.hpp:18</div></div>
+<div class="ttc" id="class_server_html_a2b2ff2c4678bdca3599c3feb5efdaff7"><div class="ttname"><a href="class_server.html#a2b2ff2c4678bdca3599c3feb5efdaff7">Server::Cards</a></div><div class="ttdeci">std::list&lt; Card * &gt; Cards</div><div class="ttdoc">Typdefinition Cards. </div><div class="ttdef"><b>Definition:</b> server.hpp:22</div></div>
+<div class="ttc" id="class_controller_html_a7b451f4eb09398e825910d02e73f8789"><div class="ttname"><a href="class_controller.html#a7b451f4eb09398e825910d02e73f8789">Controller::showStartButton</a></div><div class="ttdeci">void showStartButton()</div><div class="ttdoc">Wird emittiert, um den Startbutton auf dem Hauptfenster anzuzeigen. </div></div>
+<div class="ttc" id="class_controller_html_ad54697994dab06b6340cd674af53f7e2"><div class="ttname"><a href="class_controller.html#ad54697994dab06b6340cd674af53f7e2">Controller::draw</a></div><div class="ttdeci">void draw(unsigned int p_count=3)</div><div class="ttdoc">Zieht eine bestimmte Anzahl zufälliger Karten aus dem Deck und legt sie aufs Spielfeld.  Danach wird eine Spielfeld-Synchronisation ausgeführt. </div><div class="ttdef"><b>Definition:</b> controller.cpp:218</div></div>
+<div class="ttc" id="card_8hpp_html"><div class="ttname"><a href="card_8hpp.html">card.hpp</a></div></div>
+<div class="ttc" id="class_card_html"><div class="ttname"><a href="class_card.html">Card</a></div><div class="ttdoc">Die Klasse Card stellt das digitale pendant zu den analogen Karten des Spiels Set dar...</div><div class="ttdef"><b>Definition:</b> card.hpp:8</div></div>
+<div class="ttc" id="server_8hpp_html"><div class="ttname"><a href="server_8hpp.html">server.hpp</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="controller_8hpp.html">controller.hpp</a></li>
+    <li class="footer">Erzeugt am Mon Jan 12 2015 01:03:58 für EasySet von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

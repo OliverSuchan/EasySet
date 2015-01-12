@@ -106,6 +106,8 @@ void SetupWindow::on_pushButton_clicked()
 
 void SetupWindow::on_pushButton_2_clicked()
 {
+    if( ui->listWidget_3->item(ui->listWidget_2->currentIndex().row())->text() == "#")
+        ui->pushButton_9->setEnabled(true);
     ui->listWidget_3->item(ui->listWidget_2->currentIndex().row())->setText("-");
 }
 
@@ -118,9 +120,18 @@ void SetupWindow::on_pushButton_8_clicked()
         {
             if(ui->listWidget_3->item(i)->text() != "-")
             {
-                Player *p = new Player();
-                if(p->waitForConnected())
-                    Window::getInstance().m_players.push_back(std::make_tuple(p, static_cast<Qt::Key>(QKeySequence(ui->listWidget_3->item(i)->text())[0])));
+                if(ui->listWidget_3->item(i)->text() == "#")
+                {
+                    KI *ki = new KI();
+                    if(ki->waitForConnected())
+                        Window::getInstance().m_players.push_back(std::make_tuple(ki, static_cast<Qt::Key>(-1)));
+                }
+                else
+                {
+                    Player *p = new Player();
+                    if(p->waitForConnected())
+                        Window::getInstance().m_players.push_back(std::make_tuple(p, static_cast<Qt::Key>(QKeySequence(ui->listWidget_3->item(i)->text())[0])));
+                }
             }
         }
         Window::getInstance().show();
@@ -128,4 +139,10 @@ void SetupWindow::on_pushButton_8_clicked()
     }
     else
         QMessageBox::information(this, "Keine Spieler", "Dem Spiel wurden keine Spieler hinzugefügt.");
+}
+
+void SetupWindow::on_pushButton_9_clicked()
+{
+    ui->listWidget_3->item(ui->listWidget_2->currentIndex().row())->setText("#");
+    ui->pushButton_9->setEnabled(false);
 }

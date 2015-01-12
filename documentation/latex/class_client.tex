@@ -1,0 +1,136 @@
+\hypertarget{class_client}{}\section{Client Klassenreferenz}
+\label{class_client}\index{Client@{Client}}
+
+
+Die abstrakte Klasse \hyperlink{class_client}{Client} kümmert sich um die Verbindung zum \hyperlink{class_server}{Server} und macht so ein Spielen möglich.  
+
+
+
+
+{\ttfamily \#include $<$client.\+hpp$>$}
+
+Klassendiagramm für Client\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_client}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_client_a1e1df136ba1989a25261aed93a46c6a1}{on\+Ready\+Read} ()
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, sobald der Buffer mit den eingehenden Paketen lesebereit ist. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_client_ade80139efef3b5a858968ccf20563709}{Client} (Q\+Object $\ast$p\+\_\+parent=0, Q\+Host\+Address p\+\_\+ip=Q\+Host\+Address\+::\+Local\+Host, int p\+\_\+port=1337)
+\begin{DoxyCompactList}\small\item\em Konstruktor zum Erzeugen einer Client-\/\+Instanz. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_client_ac3b60506d2f900a3490a05425f392914}{send\+Click\+Packet} (Q\+Byte\+Array p\+\_\+cards)=0
+\begin{DoxyCompactList}\small\item\em Sendet ein Klick-\/\+Paket -\/ mit den ausgewählten Karten -\/ an den \hyperlink{class_server}{Server}.~\newline
+ (Muss von Klasse \hyperlink{class_player}{Player} definiert werden) \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_client_a62fc6262c8e9f0e9a0b2811a9c6fa8b0}{send\+Turn\+Packet} ()=0
+\begin{DoxyCompactList}\small\item\em Sendet ein Paket an den \hyperlink{class_server}{Server} das angibt, dass der aktuelle Socket am Zug ist.~\newline
+ (Muss von Klasse \hyperlink{class_player}{Player} definiert werden) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_packet_handler}{Packet\+Handler} $\ast$ \hyperlink{class_client_a4f9222fa01234b1ebdbe909f13e15744}{m\+\_\+packet\+Handler}
+\begin{DoxyCompactList}\small\item\em Paketverwalter für ein-\/ und ausgehende Pakete. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Die abstrakte Klasse \hyperlink{class_client}{Client} kümmert sich um die Verbindung zum \hyperlink{class_server}{Server} und macht so ein Spielen möglich. 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{class_client_ade80139efef3b5a858968ccf20563709}{}\index{Client@{Client}!Client@{Client}}
+\index{Client@{Client}!Client@{Client}}
+\subsubsection[{Client}]{\setlength{\rightskip}{0pt plus 5cm}Client\+::\+Client (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{p\+\_\+parent = {\ttfamily 0}, }
+\item[{Q\+Host\+Address}]{p\+\_\+ip = {\ttfamily QHostAddress\+:\+:LocalHost}, }
+\item[{int}]{p\+\_\+port = {\ttfamily 1337}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{class_client_ade80139efef3b5a858968ccf20563709}
+
+
+Konstruktor zum Erzeugen einer Client-\/\+Instanz. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+parent} & Elternteil des Clients \\
+\hline
+{\em p\+\_\+ip} & I\+P-\/\+Adresse mit der sich der \hyperlink{class_client}{Client} verbinden soll \\
+\hline
+{\em p\+\_\+port} & Port, auf dem die Verbindung stattfindet \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{class_client_a1e1df136ba1989a25261aed93a46c6a1}{}\index{Client@{Client}!on\+Ready\+Read@{on\+Ready\+Read}}
+\index{on\+Ready\+Read@{on\+Ready\+Read}!Client@{Client}}
+\subsubsection[{on\+Ready\+Read}]{\setlength{\rightskip}{0pt plus 5cm}void Client\+::on\+Ready\+Read (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{class_client_a1e1df136ba1989a25261aed93a46c6a1}
+
+
+Wird aufgerufen, sobald der Buffer mit den eingehenden Paketen lesebereit ist. 
+
+\hypertarget{class_client_ac3b60506d2f900a3490a05425f392914}{}\index{Client@{Client}!send\+Click\+Packet@{send\+Click\+Packet}}
+\index{send\+Click\+Packet@{send\+Click\+Packet}!Client@{Client}}
+\subsubsection[{send\+Click\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Client\+::send\+Click\+Packet (
+\begin{DoxyParamCaption}
+\item[{Q\+Byte\+Array}]{p\+\_\+cards}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_client_ac3b60506d2f900a3490a05425f392914}
+
+
+Sendet ein Klick-\/\+Paket -\/ mit den ausgewählten Karten -\/ an den \hyperlink{class_server}{Server}.~\newline
+ (Muss von Klasse \hyperlink{class_player}{Player} definiert werden) 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+cards} & Array bestehend aus den angewählten Karten \\
+\hline
+\end{DoxyParams}
+
+
+Implementiert in \hyperlink{class_player_ae688e0cb60be7901e195d7881b4d39ce}{Player}.
+
+\hypertarget{class_client_a62fc6262c8e9f0e9a0b2811a9c6fa8b0}{}\index{Client@{Client}!send\+Turn\+Packet@{send\+Turn\+Packet}}
+\index{send\+Turn\+Packet@{send\+Turn\+Packet}!Client@{Client}}
+\subsubsection[{send\+Turn\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Client\+::send\+Turn\+Packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_client_a62fc6262c8e9f0e9a0b2811a9c6fa8b0}
+
+
+Sendet ein Paket an den \hyperlink{class_server}{Server} das angibt, dass der aktuelle Socket am Zug ist.~\newline
+ (Muss von Klasse \hyperlink{class_player}{Player} definiert werden) 
+
+
+
+Implementiert in \hyperlink{class_player_a08220f4cd6aa057071371a7c815a63dd}{Player}.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\hypertarget{class_client_a4f9222fa01234b1ebdbe909f13e15744}{}\index{Client@{Client}!m\+\_\+packet\+Handler@{m\+\_\+packet\+Handler}}
+\index{m\+\_\+packet\+Handler@{m\+\_\+packet\+Handler}!Client@{Client}}
+\subsubsection[{m\+\_\+packet\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Packet\+Handler}$\ast$ Client\+::m\+\_\+packet\+Handler\hspace{0.3cm}{\ttfamily [protected]}}\label{class_client_a4f9222fa01234b1ebdbe909f13e15744}
+
+
+Paketverwalter für ein-\/ und ausgehende Pakete. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler}{Packet\+Handler} 
+\end{DoxySeeAlso}
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{client_8hpp}{client.\+hpp}\item 
+src/\hyperlink{client_8cpp}{client.\+cpp}\end{DoxyCompactItemize}

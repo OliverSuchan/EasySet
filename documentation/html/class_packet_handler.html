@@ -1,0 +1,750 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>EasySet: PacketHandler Klassenreferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="EasySet-Icon.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">EasySet
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="namespaces.html"><span>Namensbereiche</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klassen</span></a></li>
+      <li><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Auflistung&#160;der&#160;Klassen</span></a></li>
+      <li><a href="classes.html"><span>Klassen-Verzeichnis</span></a></li>
+      <li><a href="hierarchy.html"><span>Klassenhierarchie</span></a></li>
+      <li><a href="functions.html"><span>Klassen-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_packet_handler.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#signals">Signale</a> &#124;
+<a href="#pub-methods">Öffentliche Methoden</a> &#124;
+<a href="class_packet_handler-members.html">Aufstellung aller Elemente</a>  </div>
+  <div class="headertitle">
+<div class="title">PacketHandler Klassenreferenz</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Die PacketHandler-Klasse dient zur Verwaltung von ein- bzw. ausgehenden Paketen.<br />
+ Werden bestimmte Pakettypen erkannt, so werden die entsprechenden Signale emittiert,<br />
+ und dadurch die Slots in den externen Klassen aufgerufen.  
+ <a href="class_packet_handler.html#details">Mehr ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="packethandler_8hpp_source.html">packethandler.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Klassendiagramm für PacketHandler:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_packet_handler.png" usemap="#PacketHandler_map" alt=""/>
+  <map id="PacketHandler_map" name="PacketHandler_map">
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
+Signale</h2></td></tr>
+<tr class="memitem:a7434b94845f0389703fa4d85e8487372"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#a7434b94845f0389703fa4d85e8487372">readField</a> (QByteArray p_field)</td></tr>
+<tr class="memdesc:a7434b94845f0389703fa4d85e8487372"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal das emittiert wird, wenn das Spielfeldsynchronisations-Paket verarbeitet wird.  <a href="#a7434b94845f0389703fa4d85e8487372">Mehr ...</a><br /></td></tr>
+<tr class="separator:a7434b94845f0389703fa4d85e8487372"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a766789a5ff926bee167e308b620f8807"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#a766789a5ff926bee167e308b620f8807">readScores</a> (QByteArray p_scores)</td></tr>
+<tr class="memdesc:a766789a5ff926bee167e308b620f8807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal das emittiert wird, wenn das Punktestandsynchronisations-Paket verarbeitet wird.  <a href="#a766789a5ff926bee167e308b620f8807">Mehr ...</a><br /></td></tr>
+<tr class="separator:a766789a5ff926bee167e308b620f8807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cb91da2e7e174f5b781d5338a54427e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#a8cb91da2e7e174f5b781d5338a54427e">readClick</a> (QTcpSocket *p_socket, QByteArray p_cards)</td></tr>
+<tr class="memdesc:a8cb91da2e7e174f5b781d5338a54427e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal das emittiert wird, wenn ein Klick-Paket verarbeitet wird.  <a href="#a8cb91da2e7e174f5b781d5338a54427e">Mehr ...</a><br /></td></tr>
+<tr class="separator:a8cb91da2e7e174f5b781d5338a54427e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84c59146583fc6ee254940cce4377b54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#a84c59146583fc6ee254940cce4377b54">readGameStartedPacket</a> ()</td></tr>
+<tr class="memdesc:a84c59146583fc6ee254940cce4377b54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal das emittiert wird, wenn das Spielstarten-Paket verarbeitet wird.  <a href="#a84c59146583fc6ee254940cce4377b54">Mehr ...</a><br /></td></tr>
+<tr class="separator:a84c59146583fc6ee254940cce4377b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa47688eb98584d262f5ba2f98f019105"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#aa47688eb98584d262f5ba2f98f019105">readGameFinishedPacket</a> ()</td></tr>
+<tr class="memdesc:aa47688eb98584d262f5ba2f98f019105"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal das emittiert wird, wenn das Spielbeenden-Paket verarbeitet wird.  <a href="#aa47688eb98584d262f5ba2f98f019105">Mehr ...</a><br /></td></tr>
+<tr class="separator:aa47688eb98584d262f5ba2f98f019105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc467ba059a00877d8fae31672395ac4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#abc467ba059a00877d8fae31672395ac4">readDeckLength</a> (short p_deckLength)</td></tr>
+<tr class="memdesc:abc467ba059a00877d8fae31672395ac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal das emittiert wird, wenn das Deckgrößen-Paket verarbeitet wird.  <a href="#abc467ba059a00877d8fae31672395ac4">Mehr ...</a><br /></td></tr>
+<tr class="separator:abc467ba059a00877d8fae31672395ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acba72c3a586146653ad0b6c0851dbc0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#acba72c3a586146653ad0b6c0851dbc0c">readLockedPacket</a> ()</td></tr>
+<tr class="memdesc:acba72c3a586146653ad0b6c0851dbc0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal das emittiert wird, wenn das Eingabensperr-Paket verarbeitet wird.  <a href="#acba72c3a586146653ad0b6c0851dbc0c">Mehr ...</a><br /></td></tr>
+<tr class="separator:acba72c3a586146653ad0b6c0851dbc0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a309f2c1cd016039c1fe8b38d75b3ef7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#a309f2c1cd016039c1fe8b38d75b3ef7c">readUnlockedPacket</a> ()</td></tr>
+<tr class="memdesc:a309f2c1cd016039c1fe8b38d75b3ef7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal das emittiert wird, wenn das Eingabenentsperr-Paket verarbeitet wird.  <a href="#a309f2c1cd016039c1fe8b38d75b3ef7c">Mehr ...</a><br /></td></tr>
+<tr class="separator:a309f2c1cd016039c1fe8b38d75b3ef7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceaa87f977376e769e840db3e0756bfe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#aceaa87f977376e769e840db3e0756bfe">readTurnPacket</a> (QTcpSocket *p_socket)</td></tr>
+<tr class="memdesc:aceaa87f977376e769e840db3e0756bfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal das emittiert wird, wenn das Spieler-Am-Zug-Paket verarbeitet wird.  <a href="#aceaa87f977376e769e840db3e0756bfe">Mehr ...</a><br /></td></tr>
+<tr class="separator:aceaa87f977376e769e840db3e0756bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Öffentliche Methoden</h2></td></tr>
+<tr class="memitem:a4728b3f54723e7f05e947eb56433d4b5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#a4728b3f54723e7f05e947eb56433d4b5">PacketHandler</a> (QObject *parent=0)</td></tr>
+<tr class="memdesc:a4728b3f54723e7f05e947eb56433d4b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor zum Erzeugen einer PacketHandler-Instanz.  <a href="#a4728b3f54723e7f05e947eb56433d4b5">Mehr ...</a><br /></td></tr>
+<tr class="separator:a4728b3f54723e7f05e947eb56433d4b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d948da50131eeef0d977e0693ff9741"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#a4d948da50131eeef0d977e0693ff9741">processPackets</a> (QByteArray p_packets, QTcpSocket *p_socket=nullptr)</td></tr>
+<tr class="memdesc:a4d948da50131eeef0d977e0693ff9741"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teilt den Datenstrom in die einzelnen Pakete auf und verarbeitet diese dann.  <a href="#a4d948da50131eeef0d977e0693ff9741">Mehr ...</a><br /></td></tr>
+<tr class="separator:a4d948da50131eeef0d977e0693ff9741"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e2e51aa1b548ec1b209ee682bdd4c54"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#a9e2e51aa1b548ec1b209ee682bdd4c54">makeFSPacket</a> (std::list&lt; <a class="el" href="class_card.html">Card</a> * &gt; &amp;p_field)</td></tr>
+<tr class="memdesc:a9e2e51aa1b548ec1b209ee682bdd4c54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erzeugt ein Paket für die Spielfeldsynchronisation, anhand einer Liste aus Karte.  <a href="#a9e2e51aa1b548ec1b209ee682bdd4c54">Mehr ...</a><br /></td></tr>
+<tr class="separator:a9e2e51aa1b548ec1b209ee682bdd4c54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd77784148000bbe33af457c09a05022"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#abd77784148000bbe33af457c09a05022">makeClickPacket</a> (QByteArray p_cards)</td></tr>
+<tr class="memdesc:abd77784148000bbe33af457c09a05022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erzeugt ein Paket das eine Set-Auswahl darstellt.  <a href="#abd77784148000bbe33af457c09a05022">Mehr ...</a><br /></td></tr>
+<tr class="separator:abd77784148000bbe33af457c09a05022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a256842b9c4243360441366ae04838b0d"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#a256842b9c4243360441366ae04838b0d">makeScoresPacket</a> (QByteArray p_scores)</td></tr>
+<tr class="memdesc:a256842b9c4243360441366ae04838b0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erzeugt ein Paket, für die Punkte-Synchronisation.  <a href="#a256842b9c4243360441366ae04838b0d">Mehr ...</a><br /></td></tr>
+<tr class="separator:a256842b9c4243360441366ae04838b0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef3b383774fb1894dcd99dd40b3f735a"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#aef3b383774fb1894dcd99dd40b3f735a">makeGameStartedPacket</a> ()</td></tr>
+<tr class="memdesc:aef3b383774fb1894dcd99dd40b3f735a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erzeugt eine Paket das den Start des Spiels darstellt.  <a href="#aef3b383774fb1894dcd99dd40b3f735a">Mehr ...</a><br /></td></tr>
+<tr class="separator:aef3b383774fb1894dcd99dd40b3f735a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8cdb7008eb99e5dfc5383746d18b4f3"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#ad8cdb7008eb99e5dfc5383746d18b4f3">makeGameFinishedPacket</a> ()</td></tr>
+<tr class="memdesc:ad8cdb7008eb99e5dfc5383746d18b4f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erzeugt ein Paket, um das Spielende anzusagen.  <a href="#ad8cdb7008eb99e5dfc5383746d18b4f3">Mehr ...</a><br /></td></tr>
+<tr class="separator:ad8cdb7008eb99e5dfc5383746d18b4f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3de99e5e6f714e26f558c99bfdfc6968"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#a3de99e5e6f714e26f558c99bfdfc6968">makeDeckLengthPacket</a> (short p_deckLength)</td></tr>
+<tr class="memdesc:a3de99e5e6f714e26f558c99bfdfc6968"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erzeugt ein Paket das die Anzahl der im Deck beinhalteten Karten darstellt.  <a href="#a3de99e5e6f714e26f558c99bfdfc6968">Mehr ...</a><br /></td></tr>
+<tr class="separator:a3de99e5e6f714e26f558c99bfdfc6968"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad64f92836fdc7415ce7b012065bd985b"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#ad64f92836fdc7415ce7b012065bd985b">makeInputLockedPacket</a> ()</td></tr>
+<tr class="memdesc:ad64f92836fdc7415ce7b012065bd985b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erzeugt ein Paket das die Sperrung der Eingaben bewirkt.  <a href="#ad64f92836fdc7415ce7b012065bd985b">Mehr ...</a><br /></td></tr>
+<tr class="separator:ad64f92836fdc7415ce7b012065bd985b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49c990160b529af585b201b8690058ef"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#a49c990160b529af585b201b8690058ef">makeInputUnlockedPacket</a> ()</td></tr>
+<tr class="memdesc:a49c990160b529af585b201b8690058ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erzeugt ein Paket das die Entsperrung der Eingaben bewirkt.  <a href="#a49c990160b529af585b201b8690058ef">Mehr ...</a><br /></td></tr>
+<tr class="separator:a49c990160b529af585b201b8690058ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76a8c456652beb81888ddb02718db34c"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packet_handler.html#a76a8c456652beb81888ddb02718db34c">makeTurnPacket</a> ()</td></tr>
+<tr class="memdesc:a76a8c456652beb81888ddb02718db34c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erzeugt ein Paket das angibt, dass ein Spieler ein Set auswählen möchte.  <a href="#a76a8c456652beb81888ddb02718db34c">Mehr ...</a><br /></td></tr>
+<tr class="separator:a76a8c456652beb81888ddb02718db34c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Die PacketHandler-Klasse dient zur Verwaltung von ein- bzw. ausgehenden Paketen.<br />
+ Werden bestimmte Pakettypen erkannt, so werden die entsprechenden Signale emittiert,<br />
+ und dadurch die Slots in den externen Klassen aufgerufen. </p>
+</div><h2 class="groupheader">Beschreibung der Konstruktoren und Destruktoren</h2>
+<a class="anchor" id="a4728b3f54723e7f05e947eb56433d4b5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">PacketHandler::PacketHandler </td>
+          <td>(</td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Konstruktor zum Erzeugen einer PacketHandler-Instanz. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Elternteil des PacketHandlers </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentation der Elementfunktionen</h2>
+<a class="anchor" id="abd77784148000bbe33af457c09a05022"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray PacketHandler::makeClickPacket </td>
+          <td>(</td>
+          <td class="paramtype">QByteArray&#160;</td>
+          <td class="paramname"><em>p_cards</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Erzeugt ein Paket das eine Set-Auswahl darstellt. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_cards</td><td>Ausgewählte Karten </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Paket </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3de99e5e6f714e26f558c99bfdfc6968"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray PacketHandler::makeDeckLengthPacket </td>
+          <td>(</td>
+          <td class="paramtype">short&#160;</td>
+          <td class="paramname"><em>p_deckLength</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Erzeugt ein Paket das die Anzahl der im Deck beinhalteten Karten darstellt. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_deckLength</td><td>Deckgröße </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Paket </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9e2e51aa1b548ec1b209ee682bdd4c54"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray PacketHandler::makeFSPacket </td>
+          <td>(</td>
+          <td class="paramtype">std::list&lt; <a class="el" href="class_card.html">Card</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>p_field</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Erzeugt ein Paket für die Spielfeldsynchronisation, anhand einer Liste aus Karte. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_field</td><td>Liste aus Karten - Spielfeld </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Paket </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad8cdb7008eb99e5dfc5383746d18b4f3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray PacketHandler::makeGameFinishedPacket </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Erzeugt ein Paket, um das Spielende anzusagen. </p>
+<dl class="section return"><dt>Rückgabe</dt><dd>Paket </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aef3b383774fb1894dcd99dd40b3f735a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray PacketHandler::makeGameStartedPacket </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Erzeugt eine Paket das den Start des Spiels darstellt. </p>
+<dl class="section return"><dt>Rückgabe</dt><dd>Paket </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad64f92836fdc7415ce7b012065bd985b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray PacketHandler::makeInputLockedPacket </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Erzeugt ein Paket das die Sperrung der Eingaben bewirkt. </p>
+<dl class="section return"><dt>Rückgabe</dt><dd>Paket </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a49c990160b529af585b201b8690058ef"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray PacketHandler::makeInputUnlockedPacket </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Erzeugt ein Paket das die Entsperrung der Eingaben bewirkt. </p>
+<dl class="section return"><dt>Rückgabe</dt><dd>Paket </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a256842b9c4243360441366ae04838b0d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray PacketHandler::makeScoresPacket </td>
+          <td>(</td>
+          <td class="paramtype">QByteArray&#160;</td>
+          <td class="paramname"><em>p_scores</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Erzeugt ein Paket, für die Punkte-Synchronisation. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_scores</td><td>Die Punkte aller Spieler </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Paket </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a76a8c456652beb81888ddb02718db34c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray PacketHandler::makeTurnPacket </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Erzeugt ein Paket das angibt, dass ein Spieler ein Set auswählen möchte. </p>
+<dl class="section return"><dt>Rückgabe</dt><dd>Paket </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4d948da50131eeef0d977e0693ff9741"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PacketHandler::processPackets </td>
+          <td>(</td>
+          <td class="paramtype">QByteArray&#160;</td>
+          <td class="paramname"><em>p_packets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QTcpSocket *&#160;</td>
+          <td class="paramname"><em>p_socket</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Teilt den Datenstrom in die einzelnen Pakete auf und verarbeitet diese dann. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_packets</td><td>Datenstrom </td></tr>
+    <tr><td class="paramname">p_socket</td><td>Absender </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Siehe auch</dt><dd>processPacket </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8cb91da2e7e174f5b781d5338a54427e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PacketHandler::readClick </td>
+          <td>(</td>
+          <td class="paramtype">QTcpSocket *&#160;</td>
+          <td class="paramname"><em>p_socket</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QByteArray&#160;</td>
+          <td class="paramname"><em>p_cards</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Signal das emittiert wird, wenn ein Klick-Paket verarbeitet wird. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_socket</td><td>Absender </td></tr>
+    <tr><td class="paramname">p_cards</td><td>Ausgewählte Karten </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="abc467ba059a00877d8fae31672395ac4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PacketHandler::readDeckLength </td>
+          <td>(</td>
+          <td class="paramtype">short&#160;</td>
+          <td class="paramname"><em>p_deckLength</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Signal das emittiert wird, wenn das Deckgrößen-Paket verarbeitet wird. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_deckLength</td><td>Deckgröße </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a7434b94845f0389703fa4d85e8487372"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PacketHandler::readField </td>
+          <td>(</td>
+          <td class="paramtype">QByteArray&#160;</td>
+          <td class="paramname"><em>p_field</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Signal das emittiert wird, wenn das Spielfeldsynchronisations-Paket verarbeitet wird. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_field</td><td>Spielfeld </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aa47688eb98584d262f5ba2f98f019105"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PacketHandler::readGameFinishedPacket </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Signal das emittiert wird, wenn das Spielbeenden-Paket verarbeitet wird. </p>
+
+</div>
+</div>
+<a class="anchor" id="a84c59146583fc6ee254940cce4377b54"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PacketHandler::readGameStartedPacket </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Signal das emittiert wird, wenn das Spielstarten-Paket verarbeitet wird. </p>
+
+</div>
+</div>
+<a class="anchor" id="acba72c3a586146653ad0b6c0851dbc0c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PacketHandler::readLockedPacket </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Signal das emittiert wird, wenn das Eingabensperr-Paket verarbeitet wird. </p>
+
+</div>
+</div>
+<a class="anchor" id="a766789a5ff926bee167e308b620f8807"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PacketHandler::readScores </td>
+          <td>(</td>
+          <td class="paramtype">QByteArray&#160;</td>
+          <td class="paramname"><em>p_scores</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Signal das emittiert wird, wenn das Punktestandsynchronisations-Paket verarbeitet wird. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_scores</td><td>Punktestand </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aceaa87f977376e769e840db3e0756bfe"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PacketHandler::readTurnPacket </td>
+          <td>(</td>
+          <td class="paramtype">QTcpSocket *&#160;</td>
+          <td class="paramname"><em>p_socket</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Signal das emittiert wird, wenn das Spieler-Am-Zug-Paket verarbeitet wird. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_socket</td><td>Spieler, der am Zug ist </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a309f2c1cd016039c1fe8b38d75b3ef7c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PacketHandler::readUnlockedPacket </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Signal das emittiert wird, wenn das Eingabenentsperr-Paket verarbeitet wird. </p>
+
+</div>
+</div>
+<hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
+<li>src/<a class="el" href="packethandler_8hpp_source.html">packethandler.hpp</a></li>
+<li>src/<a class="el" href="packethandler_8cpp.html">packethandler.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_packet_handler.html">PacketHandler</a></li>
+    <li class="footer">Erzeugt am Mon Jan 12 2015 01:04:03 für EasySet von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

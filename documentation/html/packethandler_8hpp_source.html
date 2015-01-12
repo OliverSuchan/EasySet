@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>EasySet: src/packethandler.hpp Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="EasySet-Icon.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">EasySet
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="namespaces.html"><span>Namensbereiche</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('packethandler_8hpp_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">packethandler.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="packethandler_8hpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QTcpSocket&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="enums_8hpp.html">enums.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="card_8hpp.html">card.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_packet_handler.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_packet_handler.html">PacketHandler</a> : <span class="keyword">public</span> QObject</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> processPacket(QByteArray p_packet, QTcpSocket* p_socket = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_packet_handler.html#a4728b3f54723e7f05e947eb56433d4b5">PacketHandler</a>(QObject *parent = 0);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_packet_handler.html#a4d948da50131eeef0d977e0693ff9741">processPackets</a>(QByteArray p_packets, QTcpSocket *p_socket = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    QByteArray <a class="code" href="class_packet_handler.html#a9e2e51aa1b548ec1b209ee682bdd4c54">makeFSPacket</a>(std::list&lt;Card*&gt; &amp;p_field);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    QByteArray <a class="code" href="class_packet_handler.html#abd77784148000bbe33af457c09a05022">makeClickPacket</a>(QByteArray p_cards);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    QByteArray <a class="code" href="class_packet_handler.html#a256842b9c4243360441366ae04838b0d">makeScoresPacket</a>(QByteArray p_scores);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    QByteArray <a class="code" href="class_packet_handler.html#aef3b383774fb1894dcd99dd40b3f735a">makeGameStartedPacket</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    QByteArray <a class="code" href="class_packet_handler.html#ad8cdb7008eb99e5dfc5383746d18b4f3">makeGameFinishedPacket</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    QByteArray <a class="code" href="class_packet_handler.html#a3de99e5e6f714e26f558c99bfdfc6968">makeDeckLengthPacket</a>(<span class="keywordtype">short</span> p_deckLength);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    QByteArray <a class="code" href="class_packet_handler.html#ad64f92836fdc7415ce7b012065bd985b">makeInputLockedPacket</a>();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    QByteArray <a class="code" href="class_packet_handler.html#a49c990160b529af585b201b8690058ef">makeInputUnlockedPacket</a>();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    QByteArray <a class="code" href="class_packet_handler.html#a76a8c456652beb81888ddb02718db34c">makeTurnPacket</a>();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;signals:</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_packet_handler.html#a7434b94845f0389703fa4d85e8487372">readField</a>(QByteArray p_field);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_packet_handler.html#a766789a5ff926bee167e308b620f8807">readScores</a>(QByteArray p_scores);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_packet_handler.html#a8cb91da2e7e174f5b781d5338a54427e">readClick</a>(QTcpSocket *p_socket, QByteArray p_cards);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_packet_handler.html#a84c59146583fc6ee254940cce4377b54">readGameStartedPacket</a>();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_packet_handler.html#aa47688eb98584d262f5ba2f98f019105">readGameFinishedPacket</a>();</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_packet_handler.html#abc467ba059a00877d8fae31672395ac4">readDeckLength</a>(<span class="keywordtype">short</span> p_deckLength);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_packet_handler.html#acba72c3a586146653ad0b6c0851dbc0c">readLockedPacket</a>();</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_packet_handler.html#a309f2c1cd016039c1fe8b38d75b3ef7c">readUnlockedPacket</a>();</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_packet_handler.html#aceaa87f977376e769e840db3e0756bfe">readTurnPacket</a>(QTcpSocket *p_socket);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;};</div>
+<div class="ttc" id="class_packet_handler_html_aceaa87f977376e769e840db3e0756bfe"><div class="ttname"><a href="class_packet_handler.html#aceaa87f977376e769e840db3e0756bfe">PacketHandler::readTurnPacket</a></div><div class="ttdeci">void readTurnPacket(QTcpSocket *p_socket)</div><div class="ttdoc">Signal das emittiert wird, wenn das Spieler-Am-Zug-Paket verarbeitet wird. </div></div>
+<div class="ttc" id="class_packet_handler_html_a49c990160b529af585b201b8690058ef"><div class="ttname"><a href="class_packet_handler.html#a49c990160b529af585b201b8690058ef">PacketHandler::makeInputUnlockedPacket</a></div><div class="ttdeci">QByteArray makeInputUnlockedPacket()</div><div class="ttdoc">Erzeugt ein Paket das die Entsperrung der Eingaben bewirkt. </div><div class="ttdef"><b>Definition:</b> packethandler.cpp:97</div></div>
+<div class="ttc" id="class_packet_handler_html_a256842b9c4243360441366ae04838b0d"><div class="ttname"><a href="class_packet_handler.html#a256842b9c4243360441366ae04838b0d">PacketHandler::makeScoresPacket</a></div><div class="ttdeci">QByteArray makeScoresPacket(QByteArray p_scores)</div><div class="ttdoc">Erzeugt ein Paket, für die Punkte-Synchronisation. </div><div class="ttdef"><b>Definition:</b> packethandler.cpp:40</div></div>
+<div class="ttc" id="class_packet_handler_html_aa47688eb98584d262f5ba2f98f019105"><div class="ttname"><a href="class_packet_handler.html#aa47688eb98584d262f5ba2f98f019105">PacketHandler::readGameFinishedPacket</a></div><div class="ttdeci">void readGameFinishedPacket()</div><div class="ttdoc">Signal das emittiert wird, wenn das Spielbeenden-Paket verarbeitet wird. </div></div>
+<div class="ttc" id="class_packet_handler_html_aef3b383774fb1894dcd99dd40b3f735a"><div class="ttname"><a href="class_packet_handler.html#aef3b383774fb1894dcd99dd40b3f735a">PacketHandler::makeGameStartedPacket</a></div><div class="ttdeci">QByteArray makeGameStartedPacket()</div><div class="ttdoc">Erzeugt eine Paket das den Start des Spiels darstellt. </div><div class="ttdef"><b>Definition:</b> packethandler.cpp:49</div></div>
+<div class="ttc" id="class_packet_handler_html_a9e2e51aa1b548ec1b209ee682bdd4c54"><div class="ttname"><a href="class_packet_handler.html#a9e2e51aa1b548ec1b209ee682bdd4c54">PacketHandler::makeFSPacket</a></div><div class="ttdeci">QByteArray makeFSPacket(std::list&lt; Card * &gt; &amp;p_field)</div><div class="ttdoc">Erzeugt ein Paket für die Spielfeldsynchronisation, anhand einer Liste aus Karte. ...</div><div class="ttdef"><b>Definition:</b> packethandler.cpp:19</div></div>
+<div class="ttc" id="class_packet_handler_html_ad64f92836fdc7415ce7b012065bd985b"><div class="ttname"><a href="class_packet_handler.html#ad64f92836fdc7415ce7b012065bd985b">PacketHandler::makeInputLockedPacket</a></div><div class="ttdeci">QByteArray makeInputLockedPacket()</div><div class="ttdoc">Erzeugt ein Paket das die Sperrung der Eingaben bewirkt. </div><div class="ttdef"><b>Definition:</b> packethandler.cpp:88</div></div>
+<div class="ttc" id="class_packet_handler_html_a4728b3f54723e7f05e947eb56433d4b5"><div class="ttname"><a href="class_packet_handler.html#a4728b3f54723e7f05e947eb56433d4b5">PacketHandler::PacketHandler</a></div><div class="ttdeci">PacketHandler(QObject *parent=0)</div><div class="ttdoc">Konstruktor zum Erzeugen einer PacketHandler-Instanz. </div><div class="ttdef"><b>Definition:</b> packethandler.cpp:3</div></div>
+<div class="ttc" id="class_packet_handler_html_a766789a5ff926bee167e308b620f8807"><div class="ttname"><a href="class_packet_handler.html#a766789a5ff926bee167e308b620f8807">PacketHandler::readScores</a></div><div class="ttdeci">void readScores(QByteArray p_scores)</div><div class="ttdoc">Signal das emittiert wird, wenn das Punktestandsynchronisations-Paket verarbeitet wird...</div></div>
+<div class="ttc" id="class_packet_handler_html_a8cb91da2e7e174f5b781d5338a54427e"><div class="ttname"><a href="class_packet_handler.html#a8cb91da2e7e174f5b781d5338a54427e">PacketHandler::readClick</a></div><div class="ttdeci">void readClick(QTcpSocket *p_socket, QByteArray p_cards)</div><div class="ttdoc">Signal das emittiert wird, wenn ein Klick-Paket verarbeitet wird. </div></div>
+<div class="ttc" id="class_packet_handler_html_a4d948da50131eeef0d977e0693ff9741"><div class="ttname"><a href="class_packet_handler.html#a4d948da50131eeef0d977e0693ff9741">PacketHandler::processPackets</a></div><div class="ttdeci">void processPackets(QByteArray p_packets, QTcpSocket *p_socket=nullptr)</div><div class="ttdoc">Teilt den Datenstrom in die einzelnen Pakete auf und verarbeitet diese dann. </div><div class="ttdef"><b>Definition:</b> packethandler.cpp:8</div></div>
+<div class="ttc" id="class_packet_handler_html"><div class="ttname"><a href="class_packet_handler.html">PacketHandler</a></div><div class="ttdoc">Die PacketHandler-Klasse dient zur Verwaltung von ein- bzw. ausgehenden Paketen.  Werden bestimmte Pa...</div><div class="ttdef"><b>Definition:</b> packethandler.hpp:14</div></div>
+<div class="ttc" id="class_packet_handler_html_a3de99e5e6f714e26f558c99bfdfc6968"><div class="ttname"><a href="class_packet_handler.html#a3de99e5e6f714e26f558c99bfdfc6968">PacketHandler::makeDeckLengthPacket</a></div><div class="ttdeci">QByteArray makeDeckLengthPacket(short p_deckLength)</div><div class="ttdoc">Erzeugt ein Paket das die Anzahl der im Deck beinhalteten Karten darstellt. </div><div class="ttdef"><b>Definition:</b> packethandler.cpp:79</div></div>
+<div class="ttc" id="class_packet_handler_html_abc467ba059a00877d8fae31672395ac4"><div class="ttname"><a href="class_packet_handler.html#abc467ba059a00877d8fae31672395ac4">PacketHandler::readDeckLength</a></div><div class="ttdeci">void readDeckLength(short p_deckLength)</div><div class="ttdoc">Signal das emittiert wird, wenn das Deckgrößen-Paket verarbeitet wird. </div></div>
+<div class="ttc" id="class_packet_handler_html_a76a8c456652beb81888ddb02718db34c"><div class="ttname"><a href="class_packet_handler.html#a76a8c456652beb81888ddb02718db34c">PacketHandler::makeTurnPacket</a></div><div class="ttdeci">QByteArray makeTurnPacket()</div><div class="ttdoc">Erzeugt ein Paket das angibt, dass ein Spieler ein Set auswählen möchte. </div><div class="ttdef"><b>Definition:</b> packethandler.cpp:106</div></div>
+<div class="ttc" id="class_packet_handler_html_a309f2c1cd016039c1fe8b38d75b3ef7c"><div class="ttname"><a href="class_packet_handler.html#a309f2c1cd016039c1fe8b38d75b3ef7c">PacketHandler::readUnlockedPacket</a></div><div class="ttdeci">void readUnlockedPacket()</div><div class="ttdoc">Signal das emittiert wird, wenn das Eingabenentsperr-Paket verarbeitet wird. </div></div>
+<div class="ttc" id="class_packet_handler_html_a84c59146583fc6ee254940cce4377b54"><div class="ttname"><a href="class_packet_handler.html#a84c59146583fc6ee254940cce4377b54">PacketHandler::readGameStartedPacket</a></div><div class="ttdeci">void readGameStartedPacket()</div><div class="ttdoc">Signal das emittiert wird, wenn das Spielstarten-Paket verarbeitet wird. </div></div>
+<div class="ttc" id="class_packet_handler_html_abd77784148000bbe33af457c09a05022"><div class="ttname"><a href="class_packet_handler.html#abd77784148000bbe33af457c09a05022">PacketHandler::makeClickPacket</a></div><div class="ttdeci">QByteArray makeClickPacket(QByteArray p_cards)</div><div class="ttdoc">Erzeugt ein Paket das eine Set-Auswahl darstellt. </div><div class="ttdef"><b>Definition:</b> packethandler.cpp:31</div></div>
+<div class="ttc" id="card_8hpp_html"><div class="ttname"><a href="card_8hpp.html">card.hpp</a></div></div>
+<div class="ttc" id="enums_8hpp_html"><div class="ttname"><a href="enums_8hpp.html">enums.hpp</a></div></div>
+<div class="ttc" id="class_packet_handler_html_a7434b94845f0389703fa4d85e8487372"><div class="ttname"><a href="class_packet_handler.html#a7434b94845f0389703fa4d85e8487372">PacketHandler::readField</a></div><div class="ttdeci">void readField(QByteArray p_field)</div><div class="ttdoc">Signal das emittiert wird, wenn das Spielfeldsynchronisations-Paket verarbeitet wird. </div></div>
+<div class="ttc" id="class_packet_handler_html_acba72c3a586146653ad0b6c0851dbc0c"><div class="ttname"><a href="class_packet_handler.html#acba72c3a586146653ad0b6c0851dbc0c">PacketHandler::readLockedPacket</a></div><div class="ttdeci">void readLockedPacket()</div><div class="ttdoc">Signal das emittiert wird, wenn das Eingabensperr-Paket verarbeitet wird. </div></div>
+<div class="ttc" id="class_packet_handler_html_ad8cdb7008eb99e5dfc5383746d18b4f3"><div class="ttname"><a href="class_packet_handler.html#ad8cdb7008eb99e5dfc5383746d18b4f3">PacketHandler::makeGameFinishedPacket</a></div><div class="ttdeci">QByteArray makeGameFinishedPacket()</div><div class="ttdoc">Erzeugt ein Paket, um das Spielende anzusagen. </div><div class="ttdef"><b>Definition:</b> packethandler.cpp:58</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="packethandler_8hpp.html">packethandler.hpp</a></li>
+    <li class="footer">Erzeugt am Mon Jan 12 2015 01:03:58 für EasySet von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

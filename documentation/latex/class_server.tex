@@ -1,0 +1,334 @@
+\hypertarget{class_server}{}\section{Server Klassenreferenz}
+\label{class_server}\index{Server@{Server}}
+
+
+Die abstrakte Klasse \hyperlink{class_server}{Server}, steht für den \hyperlink{class_server}{Server} des Spiels.  
+
+
+
+
+{\ttfamily \#include $<$server.\+hpp$>$}
+
+Klassendiagramm für Server\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_server}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_server_a278a1ed6357a7d773c1d9d452f7d8cf1}{new\+Con} ()
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, wenn eine neue Verbindung zur Verfügung steht. \end{DoxyCompactList}\item 
+void \hyperlink{class_server_ac67d866fb14c4644acd1098bacfadeee}{on\+Ready\+Read} ()
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, sobald der Buffer mit den eingehenden Paketen lesebereit ist. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_server_aabd6ee61f3530f06cf7664a283f40f33}{retrieve\+Click} (Q\+Tcp\+Socket $\ast$p\+\_\+client, Q\+Byte\+Array p\+\_\+cards)=0
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, wenn ein Set ausgewählt wurde.~\newline
+ Das Set wird überprüft und dementsprechend Punkte gutgeschrieben oder abgezogen. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_server_a5455bcd1eeb8acbf5d3b6d91420b44d4}{retrieve\+Player\+Turn} (Q\+Tcp\+Socket $\ast$p\+\_\+socket)=0
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, sobald ein Spieler ein Set auswählen möchte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_server_a1be346a3252468e445f8f809d1c912e7}{send\+Game\+Started\+Packet} ()=0
+\begin{DoxyCompactList}\small\item\em Sendet das Paket, um das Spiel zu starten. \end{DoxyCompactList}\item 
+\hyperlink{class_server_a9fc4c94bf5687657b7d1eea35334ed44}{Server} (Q\+Object $\ast$parent=0, int p\+\_\+port=1337)
+\begin{DoxyCompactList}\small\item\em Konstruktor zum Erzeugen einer Server-\/\+Instanz. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Geschützte Typen}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::list$<$ \hyperlink{class_card}{Card} $\ast$ $>$ \hyperlink{class_server_a2b2ff2c4678bdca3599c3feb5efdaff7}{Cards}
+\begin{DoxyCompactList}\small\item\em Typdefinition Cards. \end{DoxyCompactList}\item 
+typedef std\+::tuple$<$ Q\+Tcp\+Socket $\ast$, short, \hyperlink{class_server_a2b2ff2c4678bdca3599c3feb5efdaff7}{Cards} $>$ \hyperlink{class_server_a31786b51863a753101d409d1e14c0b9a}{Client}
+\begin{DoxyCompactList}\small\item\em Typdefinition \hyperlink{class_client}{Client}. \end{DoxyCompactList}\item 
+typedef std\+::vector$<$ \hyperlink{class_server_a31786b51863a753101d409d1e14c0b9a}{Client} $>$ \hyperlink{class_server_a2642184a6bcfa2be2b0670e27dcf1e18}{Clients}
+\begin{DoxyCompactList}\small\item\em Typdefinition Clients. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_server_a19626d482d7017eddc08d7108ea46172}{send\+F\+S\+Packet} ()=0
+\begin{DoxyCompactList}\small\item\em Sendet das Paket für die Spielfeldsynchronisation. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_server_af5674e040ed1c7265d1661d009a5c8c8}{send\+Deck\+Length\+Packet} ()=0
+\begin{DoxyCompactList}\small\item\em Sendet die Anzahl der verbleibenden Karten im Deck. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_server_a3f98e42962d5962f968ac4b8fd9e1319}{send\+Scoreboard} ()=0
+\begin{DoxyCompactList}\small\item\em Sendet das Paket für die Punktzahl-\/\+Synchronisation. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_server_a668f044471c3d90b0478f66aeceae97a}{send\+Game\+Finished\+Packet} ()=0
+\begin{DoxyCompactList}\small\item\em Sendet das Paket, das angibt, dass das Spiel vorrüber ist und~\newline
+ trennt die Verbindungen zu allen Clients. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_server_a45454ed604157da02e8091b70de8faee}{send\+Input\+Locked} ()=0
+\begin{DoxyCompactList}\small\item\em Sendet das Paket, um die Eingaben der Spieler zu sperren,~\newline
+ sobald ein Spieler ein Set auswählen möchte. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_server_a04ade032f7222f003ecfec4a488ca546}{send\+Input\+Unlocked} (Q\+Tcp\+Socket $\ast$p\+\_\+socket=nullptr)=0
+\begin{DoxyCompactList}\small\item\em Sendet das Paket, um die Eingaben eines bestimmten Spielers~\newline
+ oder aller Spieler zu entsperren. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_server_a2642184a6bcfa2be2b0670e27dcf1e18}{Clients} \hyperlink{class_server_ab5a2930921b8b38e303934a9a4d0bc41}{m\+\_\+clients}
+\begin{DoxyCompactList}\small\item\em Liste aus allen verbundenen Clients. \end{DoxyCompactList}\item 
+\hyperlink{class_packet_handler}{Packet\+Handler} $\ast$ \hyperlink{class_server_a1f34d45e9f5cae0325e2b5ecc80bc2b5}{m\+\_\+packet\+Handler}
+\begin{DoxyCompactList}\small\item\em Paketverwalter für ein-\/ und ausgehende Pakete. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Die abstrakte Klasse \hyperlink{class_server}{Server}, steht für den \hyperlink{class_server}{Server} des Spiels. 
+
+\subsection{Dokumentation der benutzerdefinierten Datentypen}
+\hypertarget{class_server_a2b2ff2c4678bdca3599c3feb5efdaff7}{}\index{Server@{Server}!Cards@{Cards}}
+\index{Cards@{Cards}!Server@{Server}}
+\subsubsection[{Cards}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\+::list$<${\bf Card}$\ast$$>$ {\bf Server\+::\+Cards}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_server_a2b2ff2c4678bdca3599c3feb5efdaff7}
+
+
+Typdefinition Cards. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_card}{Card} 
+\end{DoxySeeAlso}
+\hypertarget{class_server_a31786b51863a753101d409d1e14c0b9a}{}\index{Server@{Server}!Client@{Client}}
+\index{Client@{Client}!Server@{Server}}
+\subsubsection[{Client}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\+::tuple$<$Q\+Tcp\+Socket$\ast$, short, {\bf Cards}$>$ {\bf Server\+::\+Client}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_server_a31786b51863a753101d409d1e14c0b9a}
+
+
+Typdefinition \hyperlink{class_client}{Client}. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_server_a2b2ff2c4678bdca3599c3feb5efdaff7}{Server\+::\+Cards} 
+\end{DoxySeeAlso}
+\hypertarget{class_server_a2642184a6bcfa2be2b0670e27dcf1e18}{}\index{Server@{Server}!Clients@{Clients}}
+\index{Clients@{Clients}!Server@{Server}}
+\subsubsection[{Clients}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\+::vector$<${\bf Client}$>$ {\bf Server\+::\+Clients}\hspace{0.3cm}{\ttfamily [protected]}}\label{class_server_a2642184a6bcfa2be2b0670e27dcf1e18}
+
+
+Typdefinition Clients. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_server_a31786b51863a753101d409d1e14c0b9a}{Server\+::\+Client} 
+\end{DoxySeeAlso}
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{class_server_a9fc4c94bf5687657b7d1eea35334ed44}{}\index{Server@{Server}!Server@{Server}}
+\index{Server@{Server}!Server@{Server}}
+\subsubsection[{Server}]{\setlength{\rightskip}{0pt plus 5cm}Server\+::\+Server (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}, }
+\item[{int}]{p\+\_\+port = {\ttfamily 1337}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{class_server_a9fc4c94bf5687657b7d1eea35334ed44}
+
+
+Konstruktor zum Erzeugen einer Server-\/\+Instanz. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em parent} & Elternteil des Servers \\
+\hline
+{\em p\+\_\+port} & Port an dem der \hyperlink{class_server}{Server} lauscht \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{class_server_a278a1ed6357a7d773c1d9d452f7d8cf1}{}\index{Server@{Server}!new\+Con@{new\+Con}}
+\index{new\+Con@{new\+Con}!Server@{Server}}
+\subsubsection[{new\+Con}]{\setlength{\rightskip}{0pt plus 5cm}void Server\+::new\+Con (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{class_server_a278a1ed6357a7d773c1d9d452f7d8cf1}
+
+
+Wird aufgerufen, wenn eine neue Verbindung zur Verfügung steht. 
+
+\hypertarget{class_server_ac67d866fb14c4644acd1098bacfadeee}{}\index{Server@{Server}!on\+Ready\+Read@{on\+Ready\+Read}}
+\index{on\+Ready\+Read@{on\+Ready\+Read}!Server@{Server}}
+\subsubsection[{on\+Ready\+Read}]{\setlength{\rightskip}{0pt plus 5cm}void Server\+::on\+Ready\+Read (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{class_server_ac67d866fb14c4644acd1098bacfadeee}
+
+
+Wird aufgerufen, sobald der Buffer mit den eingehenden Paketen lesebereit ist. 
+
+\hypertarget{class_server_aabd6ee61f3530f06cf7664a283f40f33}{}\index{Server@{Server}!retrieve\+Click@{retrieve\+Click}}
+\index{retrieve\+Click@{retrieve\+Click}!Server@{Server}}
+\subsubsection[{retrieve\+Click}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Server\+::retrieve\+Click (
+\begin{DoxyParamCaption}
+\item[{Q\+Tcp\+Socket $\ast$}]{p\+\_\+client, }
+\item[{Q\+Byte\+Array}]{p\+\_\+cards}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [slot]}}\label{class_server_aabd6ee61f3530f06cf7664a283f40f33}
+
+
+Wird aufgerufen, wenn ein Set ausgewählt wurde.~\newline
+ Das Set wird überprüft und dementsprechend Punkte gutgeschrieben oder abgezogen. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+client} & Spieler, der das Set ausgewählt hat \\
+\hline
+{\em p\+\_\+cards} & Die ausgewählten Karten \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_a8cb91da2e7e174f5b781d5338a54427e}{Packet\+Handler\+::read\+Click} 
+\end{DoxySeeAlso}
+\hypertarget{class_server_a5455bcd1eeb8acbf5d3b6d91420b44d4}{}\index{Server@{Server}!retrieve\+Player\+Turn@{retrieve\+Player\+Turn}}
+\index{retrieve\+Player\+Turn@{retrieve\+Player\+Turn}!Server@{Server}}
+\subsubsection[{retrieve\+Player\+Turn}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Server\+::retrieve\+Player\+Turn (
+\begin{DoxyParamCaption}
+\item[{Q\+Tcp\+Socket $\ast$}]{p\+\_\+socket}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [slot]}}\label{class_server_a5455bcd1eeb8acbf5d3b6d91420b44d4}
+
+
+Wird aufgerufen, sobald ein Spieler ein Set auswählen möchte. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+socket} & \hyperlink{class_client}{Client}, dem das Anklicken der Karten gewährt ist \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_aceaa87f977376e769e840db3e0756bfe}{Packet\+Handler\+::read\+Turn\+Packet} 
+\end{DoxySeeAlso}
+\hypertarget{class_server_af5674e040ed1c7265d1661d009a5c8c8}{}\index{Server@{Server}!send\+Deck\+Length\+Packet@{send\+Deck\+Length\+Packet}}
+\index{send\+Deck\+Length\+Packet@{send\+Deck\+Length\+Packet}!Server@{Server}}
+\subsubsection[{send\+Deck\+Length\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Server\+::send\+Deck\+Length\+Packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\label{class_server_af5674e040ed1c7265d1661d009a5c8c8}
+
+
+Sendet die Anzahl der verbleibenden Karten im Deck. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_a3de99e5e6f714e26f558c99bfdfc6968}{Packet\+Handler\+::make\+Deck\+Length\+Packet} 
+\end{DoxySeeAlso}
+\hypertarget{class_server_a19626d482d7017eddc08d7108ea46172}{}\index{Server@{Server}!send\+F\+S\+Packet@{send\+F\+S\+Packet}}
+\index{send\+F\+S\+Packet@{send\+F\+S\+Packet}!Server@{Server}}
+\subsubsection[{send\+F\+S\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Server\+::send\+F\+S\+Packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\label{class_server_a19626d482d7017eddc08d7108ea46172}
+
+
+Sendet das Paket für die Spielfeldsynchronisation. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_a9e2e51aa1b548ec1b209ee682bdd4c54}{Packet\+Handler\+::make\+F\+S\+Packet} 
+\end{DoxySeeAlso}
+\hypertarget{class_server_a668f044471c3d90b0478f66aeceae97a}{}\index{Server@{Server}!send\+Game\+Finished\+Packet@{send\+Game\+Finished\+Packet}}
+\index{send\+Game\+Finished\+Packet@{send\+Game\+Finished\+Packet}!Server@{Server}}
+\subsubsection[{send\+Game\+Finished\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Server\+::send\+Game\+Finished\+Packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\label{class_server_a668f044471c3d90b0478f66aeceae97a}
+
+
+Sendet das Paket, das angibt, dass das Spiel vorrüber ist und~\newline
+ trennt die Verbindungen zu allen Clients. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_ad8cdb7008eb99e5dfc5383746d18b4f3}{Packet\+Handler\+::make\+Game\+Finished\+Packet} 
+\end{DoxySeeAlso}
+\hypertarget{class_server_a1be346a3252468e445f8f809d1c912e7}{}\index{Server@{Server}!send\+Game\+Started\+Packet@{send\+Game\+Started\+Packet}}
+\index{send\+Game\+Started\+Packet@{send\+Game\+Started\+Packet}!Server@{Server}}
+\subsubsection[{send\+Game\+Started\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Server\+::send\+Game\+Started\+Packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_server_a1be346a3252468e445f8f809d1c912e7}
+
+
+Sendet das Paket, um das Spiel zu starten. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_aef3b383774fb1894dcd99dd40b3f735a}{Packet\+Handler\+::make\+Game\+Started\+Packet} 
+\end{DoxySeeAlso}
+
+
+Implementiert in \hyperlink{class_controller_a07ee1874817ee0abd630e846e7b37ea9}{Controller}.
+
+\hypertarget{class_server_a45454ed604157da02e8091b70de8faee}{}\index{Server@{Server}!send\+Input\+Locked@{send\+Input\+Locked}}
+\index{send\+Input\+Locked@{send\+Input\+Locked}!Server@{Server}}
+\subsubsection[{send\+Input\+Locked}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Server\+::send\+Input\+Locked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\label{class_server_a45454ed604157da02e8091b70de8faee}
+
+
+Sendet das Paket, um die Eingaben der Spieler zu sperren,~\newline
+ sobald ein Spieler ein Set auswählen möchte. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_ad64f92836fdc7415ce7b012065bd985b}{Packet\+Handler\+::make\+Input\+Locked\+Packet} 
+\end{DoxySeeAlso}
+\hypertarget{class_server_a04ade032f7222f003ecfec4a488ca546}{}\index{Server@{Server}!send\+Input\+Unlocked@{send\+Input\+Unlocked}}
+\index{send\+Input\+Unlocked@{send\+Input\+Unlocked}!Server@{Server}}
+\subsubsection[{send\+Input\+Unlocked}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Server\+::send\+Input\+Unlocked (
+\begin{DoxyParamCaption}
+\item[{Q\+Tcp\+Socket $\ast$}]{p\+\_\+socket = {\ttfamily nullptr}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\label{class_server_a04ade032f7222f003ecfec4a488ca546}
+
+
+Sendet das Paket, um die Eingaben eines bestimmten Spielers~\newline
+ oder aller Spieler zu entsperren. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+socket} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_a49c990160b529af585b201b8690058ef}{Packet\+Handler\+::make\+Input\+Unlocked\+Packet} 
+\end{DoxySeeAlso}
+\hypertarget{class_server_a3f98e42962d5962f968ac4b8fd9e1319}{}\index{Server@{Server}!send\+Scoreboard@{send\+Scoreboard}}
+\index{send\+Scoreboard@{send\+Scoreboard}!Server@{Server}}
+\subsubsection[{send\+Scoreboard}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Server\+::send\+Scoreboard (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\label{class_server_a3f98e42962d5962f968ac4b8fd9e1319}
+
+
+Sendet das Paket für die Punktzahl-\/\+Synchronisation. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_a256842b9c4243360441366ae04838b0d}{Packet\+Handler\+::make\+Scores\+Packet} 
+\end{DoxySeeAlso}
+
+
+\subsection{Dokumentation der Datenelemente}
+\hypertarget{class_server_ab5a2930921b8b38e303934a9a4d0bc41}{}\index{Server@{Server}!m\+\_\+clients@{m\+\_\+clients}}
+\index{m\+\_\+clients@{m\+\_\+clients}!Server@{Server}}
+\subsubsection[{m\+\_\+clients}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Clients} Server\+::m\+\_\+clients\hspace{0.3cm}{\ttfamily [protected]}}\label{class_server_ab5a2930921b8b38e303934a9a4d0bc41}
+
+
+Liste aus allen verbundenen Clients. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_server_a2642184a6bcfa2be2b0670e27dcf1e18}{Server\+::\+Clients} 
+\end{DoxySeeAlso}
+\hypertarget{class_server_a1f34d45e9f5cae0325e2b5ecc80bc2b5}{}\index{Server@{Server}!m\+\_\+packet\+Handler@{m\+\_\+packet\+Handler}}
+\index{m\+\_\+packet\+Handler@{m\+\_\+packet\+Handler}!Server@{Server}}
+\subsubsection[{m\+\_\+packet\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Packet\+Handler}$\ast$ Server\+::m\+\_\+packet\+Handler\hspace{0.3cm}{\ttfamily [protected]}}\label{class_server_a1f34d45e9f5cae0325e2b5ecc80bc2b5}
+
+
+Paketverwalter für ein-\/ und ausgehende Pakete. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler}{Packet\+Handler} 
+\end{DoxySeeAlso}
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{server_8hpp}{server.\+hpp}\item 
+src/\hyperlink{server_8cpp}{server.\+cpp}\end{DoxyCompactItemize}

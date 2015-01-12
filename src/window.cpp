@@ -135,6 +135,9 @@ void Window::retrieveGameStarted()
 
 void Window::retrieveGameFinished()
 {
+    static const void * sentBy = sender();
+    if(sentBy != sender())
+        return;
     emit canClick(false);
     m_inputLocked.store(true);
     QMessageBox::information(this, "Ende!", "Das Spiel ist vorbei - es gibt keine Sets mehr");

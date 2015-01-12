@@ -1,0 +1,104 @@
+\hypertarget{class_player}{}\section{Player Klassenreferenz}
+\label{class_player}\index{Player@{Player}}
+
+
+Spieler-\/\+Klasse.  
+
+
+
+
+{\ttfamily \#include $<$player.\+hpp$>$}
+
+Klassendiagramm für Player\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_player}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_player_ae688e0cb60be7901e195d7881b4d39ce}{send\+Click\+Packet} (Q\+Byte\+Array p\+\_\+cards)
+\begin{DoxyCompactList}\small\item\em Sendet ein Paket an den \hyperlink{class_server}{Server}, in dem die ausgewählten Karten drinnenstehen.~\newline
+ Der \hyperlink{class_server}{Server} überprüft diese auf ein Set und erhöht und senkt dementsprechend die Punktzahl des Spielers. \end{DoxyCompactList}\item 
+void \hyperlink{class_player_a08220f4cd6aa057071371a7c815a63dd}{send\+Turn\+Packet} ()
+\begin{DoxyCompactList}\small\item\em Sendet ein Paket an den \hyperlink{class_server}{Server}, dass dafür steht, dass dieser Spieler eine Set-\/\+Auswahl trifft. \end{DoxyCompactList}\item 
+\hyperlink{class_player_af07248b94d3f4ad62841d6dae90f5def}{Player} (Q\+Object $\ast$p\+\_\+parent=0, Q\+Host\+Address p\+\_\+ip=Q\+Host\+Address\+::\+Local\+Host, int p\+\_\+port=1337)
+\begin{DoxyCompactList}\small\item\em Konstruktor zum Erzeugen einer Player-\/\+Klasse. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+Spieler-\/\+Klasse. 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{class_player_af07248b94d3f4ad62841d6dae90f5def}{}\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\subsubsection[{Player}]{\setlength{\rightskip}{0pt plus 5cm}Player\+::\+Player (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{p\+\_\+parent = {\ttfamily 0}, }
+\item[{Q\+Host\+Address}]{p\+\_\+ip = {\ttfamily QHostAddress\+:\+:LocalHost}, }
+\item[{int}]{p\+\_\+port = {\ttfamily 1337}}
+\end{DoxyParamCaption}
+)}\label{class_player_af07248b94d3f4ad62841d6dae90f5def}
+
+
+Konstruktor zum Erzeugen einer Player-\/\+Klasse. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+parent} & Elternteil des Players \\
+\hline
+{\em p\+\_\+ip} & I\+P-\/\+Adresse des Servers \\
+\hline
+{\em p\+\_\+port} & Port über den die Verbindung läuft \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{class_player_ae688e0cb60be7901e195d7881b4d39ce}{}\index{Player@{Player}!send\+Click\+Packet@{send\+Click\+Packet}}
+\index{send\+Click\+Packet@{send\+Click\+Packet}!Player@{Player}}
+\subsubsection[{send\+Click\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+::send\+Click\+Packet (
+\begin{DoxyParamCaption}
+\item[{Q\+Byte\+Array}]{p\+\_\+cards}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_player_ae688e0cb60be7901e195d7881b4d39ce}
+
+
+Sendet ein Paket an den \hyperlink{class_server}{Server}, in dem die ausgewählten Karten drinnenstehen.~\newline
+ Der \hyperlink{class_server}{Server} überprüft diese auf ein Set und erhöht und senkt dementsprechend die Punktzahl des Spielers. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+cards} & Angeklickte Karten \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_abd77784148000bbe33af457c09a05022}{Packet\+Handler\+::make\+Click\+Packet} 
+\end{DoxySeeAlso}
+
+
+Implementiert \hyperlink{class_client_ac3b60506d2f900a3490a05425f392914}{Client}.
+
+\hypertarget{class_player_a08220f4cd6aa057071371a7c815a63dd}{}\index{Player@{Player}!send\+Turn\+Packet@{send\+Turn\+Packet}}
+\index{send\+Turn\+Packet@{send\+Turn\+Packet}!Player@{Player}}
+\subsubsection[{send\+Turn\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}void Player\+::send\+Turn\+Packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_player_a08220f4cd6aa057071371a7c815a63dd}
+
+
+Sendet ein Paket an den \hyperlink{class_server}{Server}, dass dafür steht, dass dieser Spieler eine Set-\/\+Auswahl trifft. 
+
+
+
+Implementiert \hyperlink{class_client_a62fc6262c8e9f0e9a0b2811a9c6fa8b0}{Client}.
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{player_8hpp}{player.\+hpp}\item 
+src/\hyperlink{player_8cpp}{player.\+cpp}\end{DoxyCompactItemize}

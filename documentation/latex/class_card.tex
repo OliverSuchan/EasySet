@@ -1,0 +1,182 @@
+\hypertarget{class_card}{}\section{Card Klassenreferenz}
+\label{class_card}\index{Card@{Card}}
+
+
+Die Klasse \hyperlink{class_card}{Card} stellt das digitale pendant zu den analogen Karten des Spiels Set dar.  
+
+
+
+
+{\ttfamily \#include $<$card.\+hpp$>$}
+
+Klassendiagramm für Card\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_card}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_card_ae26b7b28f4f50dab929144c6cb5cb20a}{Card} (short p\+\_\+color, short p\+\_\+shape, short p\+\_\+number, short p\+\_\+opacity)
+\begin{DoxyCompactList}\small\item\em Konstruktor zum Erzeugen einer Card-\/\+Instanz. \end{DoxyCompactList}\item 
+\hyperlink{class_card}{Card} \hyperlink{class_card_a4fb042401330d63b6f6695076da4f78f}{operator+} (\hyperlink{class_card}{Card} \&p\+\_\+card)
+\begin{DoxyCompactList}\small\item\em Überladener Plus-\/\+Operator, um Karten wie Vektoren zu addieren. \end{DoxyCompactList}\item 
+char \hyperlink{class_card_a286395d265732984d23b851b905abb4f}{attributes\+To\+Byte} ()
+\begin{DoxyCompactList}\small\item\em Konvertiert alle Attribute zu einem Byte. \end{DoxyCompactList}\item 
+\hyperlink{class_card_a097725860cee499e9b99a5d8bb8d4562}{operator char} ()
+\begin{DoxyCompactList}\small\item\em Char-\/\+Konvertierungsoperator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+short \hyperlink{class_card_af88f3ff917c623a87d6604d1ec57fe33}{m\+\_\+color}
+\begin{DoxyCompactList}\small\item\em Farbe der Karte (Wert im Intervall I = \mbox{[}0;2\mbox{]}) \end{DoxyCompactList}\item 
+short \hyperlink{class_card_a4e8799ebd7f3faff5c3998c67c106461}{m\+\_\+shape}
+\begin{DoxyCompactList}\small\item\em Form der Karte (Wert im Intervall I = \mbox{[}0;2\mbox{]}) \end{DoxyCompactList}\item 
+short \hyperlink{class_card_ac4dc3cf042c39c920dda9ea22b9ef751}{m\+\_\+number}
+\begin{DoxyCompactList}\small\item\em Anzahl der Karte (Wert im Intervall I = \mbox{[}0;2\mbox{]}) \end{DoxyCompactList}\item 
+short \hyperlink{class_card_a9ad7a67add760db09f496f16a8873ad8}{m\+\_\+opacity}
+\begin{DoxyCompactList}\small\item\em Einfärbung der Karte (Wert im Intervall I = \mbox{[}0;2\mbox{]}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Freundbeziehungen}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_card_a553f958a25683445088050a69d3de8e9}{Window}
+\item 
+class \hyperlink{class_card_ac3456fd331a58b288082abca310c7a99}{Controller}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Die Klasse \hyperlink{class_card}{Card} stellt das digitale pendant zu den analogen Karten des Spiels Set dar. 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{class_card_ae26b7b28f4f50dab929144c6cb5cb20a}{}\index{Card@{Card}!Card@{Card}}
+\index{Card@{Card}!Card@{Card}}
+\subsubsection[{Card}]{\setlength{\rightskip}{0pt plus 5cm}Card\+::\+Card (
+\begin{DoxyParamCaption}
+\item[{short}]{p\+\_\+color, }
+\item[{short}]{p\+\_\+shape, }
+\item[{short}]{p\+\_\+number, }
+\item[{short}]{p\+\_\+opacity}
+\end{DoxyParamCaption}
+)}\label{class_card_ae26b7b28f4f50dab929144c6cb5cb20a}
+
+
+Konstruktor zum Erzeugen einer Card-\/\+Instanz. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+color} & Farbe der zu erzeugenden Karte \\
+\hline
+{\em p\+\_\+shape} & Form der zu erzeugenden Karte \\
+\hline
+{\em p\+\_\+number} & Anzahl der zu erzeugenden Karte \\
+\hline
+{\em p\+\_\+opacity} & Einfärbung der zu erzeugenden Karte \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{class_card_a286395d265732984d23b851b905abb4f}{}\index{Card@{Card}!attributes\+To\+Byte@{attributes\+To\+Byte}}
+\index{attributes\+To\+Byte@{attributes\+To\+Byte}!Card@{Card}}
+\subsubsection[{attributes\+To\+Byte}]{\setlength{\rightskip}{0pt plus 5cm}char Card\+::attributes\+To\+Byte (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_card_a286395d265732984d23b851b905abb4f}
+
+
+Konvertiert alle Attribute zu einem Byte. 
+
+\begin{DoxyReturn}{Rückgabe}
+1 Byte, das alle Attribute umfasst 
+\end{DoxyReturn}
+\hypertarget{class_card_a097725860cee499e9b99a5d8bb8d4562}{}\index{Card@{Card}!operator char@{operator char}}
+\index{operator char@{operator char}!Card@{Card}}
+\subsubsection[{operator char}]{\setlength{\rightskip}{0pt plus 5cm}Card\+::operator char (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_card_a097725860cee499e9b99a5d8bb8d4562}
+
+
+Char-\/\+Konvertierungsoperator. 
+
+\hypertarget{class_card_a4fb042401330d63b6f6695076da4f78f}{}\index{Card@{Card}!operator+@{operator+}}
+\index{operator+@{operator+}!Card@{Card}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Card} Card\+::operator+ (
+\begin{DoxyParamCaption}
+\item[{{\bf Card} \&}]{p\+\_\+card}
+\end{DoxyParamCaption}
+)}\label{class_card_a4fb042401330d63b6f6695076da4f78f}
+
+
+Überladener Plus-\/\+Operator, um Karten wie Vektoren zu addieren. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+card} & Karte die als 2. Summand dient \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Summe aus der aktuellen Karte und der übergebenen Karte 
+\end{DoxyReturn}
+
+
+\subsection{Freundbeziehungen und Funktionsdokumentation}
+\hypertarget{class_card_ac3456fd331a58b288082abca310c7a99}{}\index{Card@{Card}!Controller@{Controller}}
+\index{Controller@{Controller}!Card@{Card}}
+\subsubsection[{Controller}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Controller}\hspace{0.3cm}{\ttfamily [friend]}}\label{class_card_ac3456fd331a58b288082abca310c7a99}
+\hypertarget{class_card_a553f958a25683445088050a69d3de8e9}{}\index{Card@{Card}!Window@{Window}}
+\index{Window@{Window}!Card@{Card}}
+\subsubsection[{Window}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Window}\hspace{0.3cm}{\ttfamily [friend]}}\label{class_card_a553f958a25683445088050a69d3de8e9}
+
+
+\subsection{Dokumentation der Datenelemente}
+\hypertarget{class_card_af88f3ff917c623a87d6604d1ec57fe33}{}\index{Card@{Card}!m\+\_\+color@{m\+\_\+color}}
+\index{m\+\_\+color@{m\+\_\+color}!Card@{Card}}
+\subsubsection[{m\+\_\+color}]{\setlength{\rightskip}{0pt plus 5cm}short Card\+::m\+\_\+color\hspace{0.3cm}{\ttfamily [protected]}}\label{class_card_af88f3ff917c623a87d6604d1ec57fe33}
+
+
+Farbe der Karte (Wert im Intervall I = \mbox{[}0;2\mbox{]}) 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{enums_8hpp_ab87bacfdad76e61b9412d7124be44c1c}{Color} 
+\end{DoxySeeAlso}
+\hypertarget{class_card_ac4dc3cf042c39c920dda9ea22b9ef751}{}\index{Card@{Card}!m\+\_\+number@{m\+\_\+number}}
+\index{m\+\_\+number@{m\+\_\+number}!Card@{Card}}
+\subsubsection[{m\+\_\+number}]{\setlength{\rightskip}{0pt plus 5cm}short Card\+::m\+\_\+number\hspace{0.3cm}{\ttfamily [protected]}}\label{class_card_ac4dc3cf042c39c920dda9ea22b9ef751}
+
+
+Anzahl der Karte (Wert im Intervall I = \mbox{[}0;2\mbox{]}) 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{enums_8hpp_ad1fb407b73d9c6e54eec2180d3bc4d48}{Number} 
+\end{DoxySeeAlso}
+\hypertarget{class_card_a9ad7a67add760db09f496f16a8873ad8}{}\index{Card@{Card}!m\+\_\+opacity@{m\+\_\+opacity}}
+\index{m\+\_\+opacity@{m\+\_\+opacity}!Card@{Card}}
+\subsubsection[{m\+\_\+opacity}]{\setlength{\rightskip}{0pt plus 5cm}short Card\+::m\+\_\+opacity\hspace{0.3cm}{\ttfamily [protected]}}\label{class_card_a9ad7a67add760db09f496f16a8873ad8}
+
+
+Einfärbung der Karte (Wert im Intervall I = \mbox{[}0;2\mbox{]}) 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{enums_8hpp_a31841bed26ecf2fc5a6253eb838aac4b}{Opacity} 
+\end{DoxySeeAlso}
+\hypertarget{class_card_a4e8799ebd7f3faff5c3998c67c106461}{}\index{Card@{Card}!m\+\_\+shape@{m\+\_\+shape}}
+\index{m\+\_\+shape@{m\+\_\+shape}!Card@{Card}}
+\subsubsection[{m\+\_\+shape}]{\setlength{\rightskip}{0pt plus 5cm}short Card\+::m\+\_\+shape\hspace{0.3cm}{\ttfamily [protected]}}\label{class_card_a4e8799ebd7f3faff5c3998c67c106461}
+
+
+Form der Karte (Wert im Intervall I = \mbox{[}0;2\mbox{]}) 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{enums_8hpp_a55b506070847a13554f8b879c1bfb37c}{Shape} 
+\end{DoxySeeAlso}
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{card_8hpp}{card.\+hpp}\item 
+src/\hyperlink{card_8cpp}{card.\+cpp}\end{DoxyCompactItemize}

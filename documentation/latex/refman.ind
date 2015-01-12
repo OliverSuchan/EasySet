@@ -1,0 +1,423 @@
+\begin{theindex}
+
+  \item {$\sim$\+K\+I}
+    \subitem {K\+I}, \hyperpage{22}
+  \item {$\sim$\+Setup\+Window}
+    \subitem {Setup\+Window}, \hyperpage{34}
+
+  \indexspace
+
+  \item {attributes\+To\+Byte}
+    \subitem {Card}, \hyperpage{12}
+
+  \indexspace
+
+  \item {B\+L\+U\+E}
+    \subitem {enums.\+hpp}, \hyperpage{43}
+
+  \indexspace
+
+  \item {C\+I\+R\+C\+L\+E}
+    \subitem {enums.\+hpp}, \hyperpage{44}
+  \item {C\+L\+I\+C\+K}
+    \subitem {enums.\+hpp}, \hyperpage{44}
+  \item {can\+Click}
+    \subitem {Card\+Widget}, \hyperpage{14}
+    \subitem {Window}, \hyperpage{35}
+  \item {Card}, \hyperpage{11}
+    \subitem {attributes\+To\+Byte}, \hyperpage{12}
+    \subitem {Card}, \hyperpage{12}
+    \subitem {Controller}, \hyperpage{12}
+    \subitem {m\+\_\+color}, \hyperpage{13}
+    \subitem {m\+\_\+number}, \hyperpage{13}
+    \subitem {m\+\_\+opacity}, \hyperpage{13}
+    \subitem {m\+\_\+shape}, \hyperpage{13}
+    \subitem {operator char}, \hyperpage{12}
+    \subitem {operator+}, \hyperpage{12}
+    \subitem {Window}, \hyperpage{12}
+  \item {card\+Clicked}
+    \subitem {Window}, \hyperpage{35}
+  \item {Card\+Widget}, \hyperpage{13}
+    \subitem {can\+Click}, \hyperpage{14}
+    \subitem {Card\+Widget}, \hyperpage{14}
+    \subitem {clicked}, \hyperpage{15}
+    \subitem {unselect}, \hyperpage{15}
+  \item {Cards}
+    \subitem {Server}, \hyperpage{30}
+  \item {check}
+    \subitem {Controller}, \hyperpage{18}
+  \item {clicked}
+    \subitem {Card\+Widget}, \hyperpage{15}
+  \item {Client}, \hyperpage{15}
+    \subitem {Client}, \hyperpage{16}
+    \subitem {m\+\_\+packet\+Handler}, \hyperpage{16}
+    \subitem {on\+Ready\+Read}, \hyperpage{16}
+    \subitem {send\+Click\+Packet}, \hyperpage{16}
+    \subitem {send\+Turn\+Packet}, \hyperpage{16}
+    \subitem {Server}, \hyperpage{30}
+  \item {client\+Disconnected}
+    \subitem {Window}, \hyperpage{35}
+  \item {Clients}
+    \subitem {Server}, \hyperpage{30}
+  \item {close\+Event}
+    \subitem {Window}, \hyperpage{35}
+  \item {Color}
+    \subitem {enums.\+hpp}, \hyperpage{43}
+  \item {Controller}, \hyperpage{17}
+    \subitem {Card}, \hyperpage{12}
+    \subitem {check}, \hyperpage{18}
+    \subitem {Controller}, \hyperpage{18}
+    \subitem {draw}, \hyperpage{18}
+    \subitem {retrieve\+Click}, \hyperpage{18}
+    \subitem {retrieve\+Player\+Turn}, \hyperpage{18}
+    \subitem {send\+Game\+Started\+Packet}, \hyperpage{20}
+    \subitem {show\+Start\+Button}, \hyperpage{20}
+
+  \indexspace
+
+  \item {D\+E\+C\+K}
+    \subitem {enums.\+hpp}, \hyperpage{44}
+  \item {draw}
+    \subitem {Controller}, \hyperpage{18}
+
+  \indexspace
+
+  \item {E\+M\+P\+T\+Y}
+    \subitem {enums.\+hpp}, \hyperpage{43}
+  \item {enums.\+hpp}
+    \subitem {B\+L\+U\+E}, \hyperpage{43}
+    \subitem {C\+I\+R\+C\+L\+E}, \hyperpage{44}
+    \subitem {C\+L\+I\+C\+K}, \hyperpage{44}
+    \subitem {Color}, \hyperpage{43}
+    \subitem {D\+E\+C\+K}, \hyperpage{44}
+    \subitem {E\+M\+P\+T\+Y}, \hyperpage{43}
+    \subitem {F\+I\+E\+L\+D\+\_\+\+S\+Y\+N\+C\+H\+R\+O}, \hyperpage{44}
+    \subitem {F\+I\+L\+L\+E\+D}, \hyperpage{43}
+    \subitem {G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E}, \hyperpage{44}
+    \subitem {G\+R\+E\+E\+N}, \hyperpage{43}
+    \subitem {I\+N\+P\+U\+T\+\_\+\+S\+T\+A\+T\+E}, \hyperpage{44}
+    \subitem {Number}, \hyperpage{43}
+    \subitem {O\+N\+E}, \hyperpage{43}
+    \subitem {Opacity}, \hyperpage{43}
+    \subitem {P\+A\+L\+L\+I\+D}, \hyperpage{43}
+    \subitem {P\+L\+A\+Y\+E\+R\+\_\+\+T\+U\+R\+N}, \hyperpage{44}
+    \subitem {Packet\+Header}, \hyperpage{43}
+    \subitem {R\+E\+D}, \hyperpage{43}
+    \subitem {S\+C\+O\+R\+E\+S}, \hyperpage{44}
+    \subitem {S\+Q\+U\+A\+R\+E}, \hyperpage{44}
+    \subitem {Shape}, \hyperpage{44}
+    \subitem {T\+H\+R\+E\+E}, \hyperpage{43}
+    \subitem {T\+R\+I\+A\+N\+G\+L\+E}, \hyperpage{44}
+    \subitem {T\+W\+O}, \hyperpage{43}
+
+  \indexspace
+
+  \item {F\+I\+E\+L\+D\+\_\+\+S\+Y\+N\+C\+H\+R\+O}
+    \subitem {enums.\+hpp}, \hyperpage{44}
+  \item {F\+I\+L\+L\+E\+D}
+    \subitem {enums.\+hpp}, \hyperpage{43}
+
+  \indexspace
+
+  \item {G\+A\+M\+E\+\_\+\+S\+T\+A\+T\+E}
+    \subitem {enums.\+hpp}, \hyperpage{44}
+  \item {G\+R\+E\+E\+N}
+    \subitem {enums.\+hpp}, \hyperpage{43}
+  \item {get\+Instance}
+    \subitem {Window}, \hyperpage{37}
+
+  \indexspace
+
+  \item {I\+N\+P\+U\+T\+\_\+\+S\+T\+A\+T\+E}
+    \subitem {enums.\+hpp}, \hyperpage{44}
+  \item {Information\+Widget}, \hyperpage{20}
+    \subitem {Information\+Widget}, \hyperpage{21}
+    \subitem {set\+Deck\+Length}, \hyperpage{21}
+    \subitem {set\+Player\+Count}, \hyperpage{21}
+    \subitem {set\+Scores}, \hyperpage{21}
+
+  \indexspace
+
+  \item {K\+I}, \hyperpage{22}
+    \subitem {$\sim$\+K\+I}, \hyperpage{22}
+    \subitem {K\+I}, \hyperpage{22}
+    \subitem {retrieve\+Field}, \hyperpage{22}
+    \subitem {retrieve\+Game\+Ended}, \hyperpage{22}
+    \subitem {retrieve\+Game\+Started}, \hyperpage{22}
+    \subitem {retrieve\+Input\+Locked}, \hyperpage{22}
+    \subitem {retrieve\+Input\+Unlocked}, \hyperpage{22}
+  \item {key\+Press\+Event}
+    \subitem {Window}, \hyperpage{37}
+
+  \indexspace
+
+  \item {m\+\_\+clients}
+    \subitem {Server}, \hyperpage{32}
+  \item {m\+\_\+color}
+    \subitem {Card}, \hyperpage{13}
+  \item {m\+\_\+number}
+    \subitem {Card}, \hyperpage{13}
+  \item {m\+\_\+opacity}
+    \subitem {Card}, \hyperpage{13}
+  \item {m\+\_\+packet\+Handler}
+    \subitem {Client}, \hyperpage{16}
+    \subitem {Server}, \hyperpage{33}
+  \item {m\+\_\+players}
+    \subitem {Window}, \hyperpage{39}
+  \item {m\+\_\+shape}
+    \subitem {Card}, \hyperpage{13}
+  \item {main}
+    \subitem {main.\+cpp}, \hyperpage{45}
+  \item {main.\+cpp}
+    \subitem {main}, \hyperpage{45}
+  \item {make\+Click\+Packet}
+    \subitem {Packet\+Handler}, \hyperpage{24}
+  \item {make\+Deck\+Length\+Packet}
+    \subitem {Packet\+Handler}, \hyperpage{24}
+  \item {make\+F\+S\+Packet}
+    \subitem {Packet\+Handler}, \hyperpage{24}
+  \item {make\+Game\+Finished\+Packet}
+    \subitem {Packet\+Handler}, \hyperpage{25}
+  \item {make\+Game\+Started\+Packet}
+    \subitem {Packet\+Handler}, \hyperpage{25}
+  \item {make\+Input\+Locked\+Packet}
+    \subitem {Packet\+Handler}, \hyperpage{25}
+  \item {make\+Input\+Unlocked\+Packet}
+    \subitem {Packet\+Handler}, \hyperpage{25}
+  \item {make\+Scores\+Packet}
+    \subitem {Packet\+Handler}, \hyperpage{25}
+  \item {make\+Turn\+Packet}
+    \subitem {Packet\+Handler}, \hyperpage{25}
+
+  \indexspace
+
+  \item {new\+Con}
+    \subitem {Server}, \hyperpage{31}
+  \item {Number}
+    \subitem {enums.\+hpp}, \hyperpage{43}
+
+  \indexspace
+
+  \item {O\+N\+E}
+    \subitem {enums.\+hpp}, \hyperpage{43}
+  \item {on\+Ready\+Read}
+    \subitem {Client}, \hyperpage{16}
+    \subitem {Server}, \hyperpage{31}
+  \item {Opacity}
+    \subitem {enums.\+hpp}, \hyperpage{43}
+  \item {operator char}
+    \subitem {Card}, \hyperpage{12}
+  \item {operator+}
+    \subitem {Card}, \hyperpage{12}
+
+  \indexspace
+
+  \item {P\+A\+L\+L\+I\+D}
+    \subitem {enums.\+hpp}, \hyperpage{43}
+  \item {P\+L\+A\+Y\+E\+R\+\_\+\+T\+U\+R\+N}
+    \subitem {enums.\+hpp}, \hyperpage{44}
+  \item {Packet\+Handler}, \hyperpage{23}
+    \subitem {make\+Click\+Packet}, \hyperpage{24}
+    \subitem {make\+Deck\+Length\+Packet}, \hyperpage{24}
+    \subitem {make\+F\+S\+Packet}, \hyperpage{24}
+    \subitem {make\+Game\+Finished\+Packet}, \hyperpage{25}
+    \subitem {make\+Game\+Started\+Packet}, \hyperpage{25}
+    \subitem {make\+Input\+Locked\+Packet}, \hyperpage{25}
+    \subitem {make\+Input\+Unlocked\+Packet}, \hyperpage{25}
+    \subitem {make\+Scores\+Packet}, \hyperpage{25}
+    \subitem {make\+Turn\+Packet}, \hyperpage{25}
+    \subitem {Packet\+Handler}, \hyperpage{24}
+    \subitem {process\+Packets}, \hyperpage{26}
+    \subitem {read\+Click}, \hyperpage{26}
+    \subitem {read\+Deck\+Length}, \hyperpage{26}
+    \subitem {read\+Field}, \hyperpage{26}
+    \subitem {read\+Game\+Finished\+Packet}, \hyperpage{26}
+    \subitem {read\+Game\+Started\+Packet}, \hyperpage{26}
+    \subitem {read\+Locked\+Packet}, \hyperpage{26}
+    \subitem {read\+Scores}, \hyperpage{27}
+    \subitem {read\+Turn\+Packet}, \hyperpage{27}
+    \subitem {read\+Unlocked\+Packet}, \hyperpage{27}
+  \item {Packet\+Header}
+    \subitem {enums.\+hpp}, \hyperpage{43}
+  \item {Player}, \hyperpage{27}
+    \subitem {Player}, \hyperpage{28}
+    \subitem {send\+Click\+Packet}, \hyperpage{28}
+    \subitem {send\+Turn\+Packet}, \hyperpage{28}
+  \item {process\+Packets}
+    \subitem {Packet\+Handler}, \hyperpage{26}
+
+  \indexspace
+
+  \item {R\+E\+D}
+    \subitem {enums.\+hpp}, \hyperpage{43}
+  \item {read\+Click}
+    \subitem {Packet\+Handler}, \hyperpage{26}
+  \item {read\+Deck\+Length}
+    \subitem {Packet\+Handler}, \hyperpage{26}
+  \item {read\+Field}
+    \subitem {Packet\+Handler}, \hyperpage{26}
+  \item {read\+Game\+Finished\+Packet}
+    \subitem {Packet\+Handler}, \hyperpage{26}
+  \item {read\+Game\+Started\+Packet}
+    \subitem {Packet\+Handler}, \hyperpage{26}
+  \item {read\+Locked\+Packet}
+    \subitem {Packet\+Handler}, \hyperpage{26}
+  \item {read\+Scores}
+    \subitem {Packet\+Handler}, \hyperpage{27}
+  \item {read\+Turn\+Packet}
+    \subitem {Packet\+Handler}, \hyperpage{27}
+  \item {read\+Unlocked\+Packet}
+    \subitem {Packet\+Handler}, \hyperpage{27}
+  \item {retrieve\+Click}
+    \subitem {Controller}, \hyperpage{18}
+    \subitem {Server}, \hyperpage{31}
+  \item {retrieve\+Deck\+Length}
+    \subitem {Window}, \hyperpage{37}
+  \item {retrieve\+Field}
+    \subitem {K\+I}, \hyperpage{22}
+    \subitem {Window}, \hyperpage{37}
+  \item {retrieve\+Game\+Ended}
+    \subitem {K\+I}, \hyperpage{22}
+  \item {retrieve\+Game\+Finished}
+    \subitem {Window}, \hyperpage{37}
+  \item {retrieve\+Game\+Started}
+    \subitem {K\+I}, \hyperpage{22}
+    \subitem {Window}, \hyperpage{37}
+  \item {retrieve\+Input\+Locked}
+    \subitem {K\+I}, \hyperpage{22}
+  \item {retrieve\+Input\+Unlocked}
+    \subitem {K\+I}, \hyperpage{22}
+  \item {retrieve\+Lock}
+    \subitem {Window}, \hyperpage{38}
+  \item {retrieve\+Player\+Turn}
+    \subitem {Controller}, \hyperpage{18}
+    \subitem {Server}, \hyperpage{31}
+  \item {retrieve\+Scores}
+    \subitem {Window}, \hyperpage{38}
+  \item {retrieve\+Show\+Start\+Button}
+    \subitem {Window}, \hyperpage{38}
+  \item {retrieve\+Unlock}
+    \subitem {Window}, \hyperpage{38}
+
+  \indexspace
+
+  \item {S\+C\+O\+R\+E\+S}
+    \subitem {enums.\+hpp}, \hyperpage{44}
+  \item {S\+Q\+U\+A\+R\+E}
+    \subitem {enums.\+hpp}, \hyperpage{44}
+  \item {send\+Click\+Packet}
+    \subitem {Client}, \hyperpage{16}
+    \subitem {Player}, \hyperpage{28}
+  \item {send\+Deck\+Length\+Packet}
+    \subitem {Server}, \hyperpage{31}
+  \item {send\+F\+S\+Packet}
+    \subitem {Server}, \hyperpage{31}
+  \item {send\+Game\+Finished\+Packet}
+    \subitem {Server}, \hyperpage{31}
+  \item {send\+Game\+Started\+Packet}
+    \subitem {Controller}, \hyperpage{20}
+    \subitem {Server}, \hyperpage{32}
+  \item {send\+Input\+Locked}
+    \subitem {Server}, \hyperpage{32}
+  \item {send\+Input\+Unlocked}
+    \subitem {Server}, \hyperpage{32}
+  \item {send\+Scoreboard}
+    \subitem {Server}, \hyperpage{32}
+  \item {send\+Turn\+Packet}
+    \subitem {Client}, \hyperpage{16}
+    \subitem {Player}, \hyperpage{28}
+  \item {Server}, \hyperpage{28}
+    \subitem {Cards}, \hyperpage{30}
+    \subitem {Client}, \hyperpage{30}
+    \subitem {Clients}, \hyperpage{30}
+    \subitem {m\+\_\+clients}, \hyperpage{32}
+    \subitem {m\+\_\+packet\+Handler}, \hyperpage{33}
+    \subitem {new\+Con}, \hyperpage{31}
+    \subitem {on\+Ready\+Read}, \hyperpage{31}
+    \subitem {retrieve\+Click}, \hyperpage{31}
+    \subitem {retrieve\+Player\+Turn}, \hyperpage{31}
+    \subitem {send\+Deck\+Length\+Packet}, \hyperpage{31}
+    \subitem {send\+F\+S\+Packet}, \hyperpage{31}
+    \subitem {send\+Game\+Finished\+Packet}, \hyperpage{31}
+    \subitem {send\+Game\+Started\+Packet}, \hyperpage{32}
+    \subitem {send\+Input\+Locked}, \hyperpage{32}
+    \subitem {send\+Input\+Unlocked}, \hyperpage{32}
+    \subitem {send\+Scoreboard}, \hyperpage{32}
+    \subitem {Server}, \hyperpage{30}
+  \item {set\+Deck\+Length}
+    \subitem {Information\+Widget}, \hyperpage{21}
+  \item {set\+Player\+Count}
+    \subitem {Information\+Widget}, \hyperpage{21}
+  \item {set\+Scores}
+    \subitem {Information\+Widget}, \hyperpage{21}
+  \item {Setup\+Window}, \hyperpage{33}
+    \subitem {$\sim$\+Setup\+Window}, \hyperpage{34}
+    \subitem {Setup\+Window}, \hyperpage{33}
+  \item {Shape}
+    \subitem {enums.\+hpp}, \hyperpage{44}
+  \item {show\+Start\+Button}
+    \subitem {Controller}, \hyperpage{20}
+  \item {src/card.\+cpp}, \hyperpage{41}
+  \item {src/card.\+hpp}, \hyperpage{41}
+  \item {src/cardwidget.\+cpp}, \hyperpage{41}
+  \item {src/cardwidget.\+hpp}, \hyperpage{41}
+  \item {src/client.\+cpp}, \hyperpage{42}
+  \item {src/client.\+hpp}, \hyperpage{42}
+  \item {src/controller.\+cpp}, \hyperpage{42}
+  \item {src/controller.\+hpp}, \hyperpage{42}
+  \item {src/enums.\+hpp}, \hyperpage{43}
+  \item {src/informationwidget.\+cpp}, \hyperpage{44}
+  \item {src/informationwidget.\+hpp}, \hyperpage{44}
+  \item {src/ki.\+cpp}, \hyperpage{44}
+  \item {src/ki.\+hpp}, \hyperpage{45}
+  \item {src/main.\+cpp}, \hyperpage{45}
+  \item {src/packethandler.\+cpp}, \hyperpage{45}
+  \item {src/packethandler.\+hpp}, \hyperpage{45}
+  \item {src/player.\+cpp}, \hyperpage{46}
+  \item {src/player.\+hpp}, \hyperpage{46}
+  \item {src/server.\+cpp}, \hyperpage{46}
+  \item {src/server.\+hpp}, \hyperpage{46}
+  \item {src/setupwindow.\+cpp}, \hyperpage{46}
+  \item {src/setupwindow.\+hpp}, \hyperpage{47}
+  \item {src/window.\+cpp}, \hyperpage{47}
+  \item {src/window.\+hpp}, \hyperpage{47}
+
+  \indexspace
+
+  \item {T\+H\+R\+E\+E}
+    \subitem {enums.\+hpp}, \hyperpage{43}
+  \item {T\+R\+I\+A\+N\+G\+L\+E}
+    \subitem {enums.\+hpp}, \hyperpage{44}
+  \item {T\+W\+O}
+    \subitem {enums.\+hpp}, \hyperpage{43}
+
+  \indexspace
+
+  \item {Ui}, \hyperpage{9}
+  \item {unselect}
+    \subitem {Card\+Widget}, \hyperpage{15}
+  \item {unselect\+All}
+    \subitem {Window}, \hyperpage{38}
+
+  \indexspace
+
+  \item {Window}, \hyperpage{34}
+    \subitem {can\+Click}, \hyperpage{35}
+    \subitem {Card}, \hyperpage{12}
+    \subitem {card\+Clicked}, \hyperpage{35}
+    \subitem {client\+Disconnected}, \hyperpage{35}
+    \subitem {close\+Event}, \hyperpage{35}
+    \subitem {get\+Instance}, \hyperpage{37}
+    \subitem {key\+Press\+Event}, \hyperpage{37}
+    \subitem {m\+\_\+players}, \hyperpage{39}
+    \subitem {retrieve\+Deck\+Length}, \hyperpage{37}
+    \subitem {retrieve\+Field}, \hyperpage{37}
+    \subitem {retrieve\+Game\+Finished}, \hyperpage{37}
+    \subitem {retrieve\+Game\+Started}, \hyperpage{37}
+    \subitem {retrieve\+Lock}, \hyperpage{38}
+    \subitem {retrieve\+Scores}, \hyperpage{38}
+    \subitem {retrieve\+Show\+Start\+Button}, \hyperpage{38}
+    \subitem {retrieve\+Unlock}, \hyperpage{38}
+    \subitem {unselect\+All}, \hyperpage{38}
+
+\end{theindex}

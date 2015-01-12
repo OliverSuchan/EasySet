@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>EasySet: Controller Klassenreferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="EasySet-Icon.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">EasySet
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="namespaces.html"><span>Namensbereiche</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klassen</span></a></li>
+      <li><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Auflistung&#160;der&#160;Klassen</span></a></li>
+      <li><a href="classes.html"><span>Klassen-Verzeichnis</span></a></li>
+      <li><a href="hierarchy.html"><span>Klassenhierarchie</span></a></li>
+      <li><a href="functions.html"><span>Klassen-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_controller.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-slots">Öffentliche Slots</a> &#124;
+<a href="#signals">Signale</a> &#124;
+<a href="#pub-methods">Öffentliche Methoden</a> &#124;
+<a href="#pub-static-methods">Öffentliche, statische Methoden</a> &#124;
+<a href="class_controller-members.html">Aufstellung aller Elemente</a>  </div>
+  <div class="headertitle">
+<div class="title">Controller Klassenreferenz</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Die Klasse <a class="el" href="class_controller.html" title="Die Klasse Controller ist für den kompletten Spielverlauf zuständig.  Sie regelt, wann welcher Client...">Controller</a> ist für den kompletten Spielverlauf zuständig.<br />
+ Sie regelt, wann welcher <a class="el" href="class_client.html" title="Die abstrakte Klasse Client kümmert sich um die Verbindung zum Server und macht so ein Spielen möglic...">Client</a> welche Pakete empfängt, wann das Spiel zu Ende ist/anfängt und<br />
+ wenn Karten nachgelegt werden sollen.  
+ <a href="class_controller.html#details">Mehr ...</a></p>
+
+<p><code>#include &lt;<a class="el" href="controller_8hpp_source.html">controller.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Klassendiagramm für Controller:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_controller.png" usemap="#Controller_map" alt=""/>
+  <map id="Controller_map" name="Controller_map">
+<area href="class_server.html" title="Die abstrakte Klasse Server, steht für den Server des Spiels. " alt="Server" shape="rect" coords="0,56,82,80"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
+Öffentliche Slots</h2></td></tr>
+<tr class="memitem:ad54697994dab06b6340cd674af53f7e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#ad54697994dab06b6340cd674af53f7e2">draw</a> (unsigned int p_count=3)</td></tr>
+<tr class="memdesc:ad54697994dab06b6340cd674af53f7e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zieht eine bestimmte Anzahl zufälliger Karten aus dem Deck und legt sie aufs Spielfeld.<br />
+ Danach wird eine Spielfeld-Synchronisation ausgeführt.  <a href="#ad54697994dab06b6340cd674af53f7e2">Mehr ...</a><br /></td></tr>
+<tr class="separator:ad54697994dab06b6340cd674af53f7e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0283cf55f555625b3df2cb0b3557d61b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a0283cf55f555625b3df2cb0b3557d61b">retrieveClick</a> (QTcpSocket *p_client, QByteArray p_cards)</td></tr>
+<tr class="memdesc:a0283cf55f555625b3df2cb0b3557d61b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wird aufgerufen, wenn ein Set ausgewählt wurde.<br />
+ Das Set wird überprüft und dementsprechend Punkte gutgeschrieben oder abgezogen.  <a href="#a0283cf55f555625b3df2cb0b3557d61b">Mehr ...</a><br /></td></tr>
+<tr class="separator:a0283cf55f555625b3df2cb0b3557d61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74bfe4153a8b5d66621bb19c76767d8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a74bfe4153a8b5d66621bb19c76767d8c">retrievePlayerTurn</a> (QTcpSocket *p_socket)</td></tr>
+<tr class="memdesc:a74bfe4153a8b5d66621bb19c76767d8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wird aufgerufen, sobald ein Spieler ein Set auswählen möchte.  <a href="#a74bfe4153a8b5d66621bb19c76767d8c">Mehr ...</a><br /></td></tr>
+<tr class="separator:a74bfe4153a8b5d66621bb19c76767d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_slots_class_server"><td colspan="2" onclick="javascript:toggleInherit('pub_slots_class_server')"><img src="closed.png" alt="-"/>&#160;Öffentliche Slots geerbt von <a class="el" href="class_server.html">Server</a></td></tr>
+<tr class="memitem:a278a1ed6357a7d773c1d9d452f7d8cf1 inherit pub_slots_class_server"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server.html#a278a1ed6357a7d773c1d9d452f7d8cf1">newCon</a> ()</td></tr>
+<tr class="memdesc:a278a1ed6357a7d773c1d9d452f7d8cf1 inherit pub_slots_class_server"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wird aufgerufen, wenn eine neue Verbindung zur Verfügung steht.  <a href="#a278a1ed6357a7d773c1d9d452f7d8cf1">Mehr ...</a><br /></td></tr>
+<tr class="separator:a278a1ed6357a7d773c1d9d452f7d8cf1 inherit pub_slots_class_server"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac67d866fb14c4644acd1098bacfadeee inherit pub_slots_class_server"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server.html#ac67d866fb14c4644acd1098bacfadeee">onReadyRead</a> ()</td></tr>
+<tr class="memdesc:ac67d866fb14c4644acd1098bacfadeee inherit pub_slots_class_server"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wird aufgerufen, sobald der Buffer mit den eingehenden Paketen lesebereit ist.  <a href="#ac67d866fb14c4644acd1098bacfadeee">Mehr ...</a><br /></td></tr>
+<tr class="separator:ac67d866fb14c4644acd1098bacfadeee inherit pub_slots_class_server"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabd6ee61f3530f06cf7664a283f40f33 inherit pub_slots_class_server"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server.html#aabd6ee61f3530f06cf7664a283f40f33">retrieveClick</a> (QTcpSocket *p_client, QByteArray p_cards)=0</td></tr>
+<tr class="memdesc:aabd6ee61f3530f06cf7664a283f40f33 inherit pub_slots_class_server"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wird aufgerufen, wenn ein Set ausgewählt wurde.<br />
+ Das Set wird überprüft und dementsprechend Punkte gutgeschrieben oder abgezogen.  <a href="#aabd6ee61f3530f06cf7664a283f40f33">Mehr ...</a><br /></td></tr>
+<tr class="separator:aabd6ee61f3530f06cf7664a283f40f33 inherit pub_slots_class_server"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5455bcd1eeb8acbf5d3b6d91420b44d4 inherit pub_slots_class_server"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server.html#a5455bcd1eeb8acbf5d3b6d91420b44d4">retrievePlayerTurn</a> (QTcpSocket *p_socket)=0</td></tr>
+<tr class="memdesc:a5455bcd1eeb8acbf5d3b6d91420b44d4 inherit pub_slots_class_server"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wird aufgerufen, sobald ein Spieler ein Set auswählen möchte.  <a href="#a5455bcd1eeb8acbf5d3b6d91420b44d4">Mehr ...</a><br /></td></tr>
+<tr class="separator:a5455bcd1eeb8acbf5d3b6d91420b44d4 inherit pub_slots_class_server"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
+Signale</h2></td></tr>
+<tr class="memitem:a7b451f4eb09398e825910d02e73f8789"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a7b451f4eb09398e825910d02e73f8789">showStartButton</a> ()</td></tr>
+<tr class="memdesc:a7b451f4eb09398e825910d02e73f8789"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wird emittiert, um den Startbutton auf dem Hauptfenster anzuzeigen.  <a href="#a7b451f4eb09398e825910d02e73f8789">Mehr ...</a><br /></td></tr>
+<tr class="separator:a7b451f4eb09398e825910d02e73f8789"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Öffentliche Methoden</h2></td></tr>
+<tr class="memitem:a07ee1874817ee0abd630e846e7b37ea9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a07ee1874817ee0abd630e846e7b37ea9">sendGameStartedPacket</a> ()</td></tr>
+<tr class="memdesc:a07ee1874817ee0abd630e846e7b37ea9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sendet das Paket, um das Spiel zu starten.  <a href="#a07ee1874817ee0abd630e846e7b37ea9">Mehr ...</a><br /></td></tr>
+<tr class="separator:a07ee1874817ee0abd630e846e7b37ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3d04afa037846c8eea68ccb37159760"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#aa3d04afa037846c8eea68ccb37159760">Controller</a> (QObject *p_parent=0)</td></tr>
+<tr class="memdesc:aa3d04afa037846c8eea68ccb37159760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor zum Erzeugen einer Controller-Instanz.  <a href="#aa3d04afa037846c8eea68ccb37159760">Mehr ...</a><br /></td></tr>
+<tr class="separator:aa3d04afa037846c8eea68ccb37159760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_server"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_server')"><img src="closed.png" alt="-"/>&#160;Öffentliche Methoden geerbt von <a class="el" href="class_server.html">Server</a></td></tr>
+<tr class="memitem:a9fc4c94bf5687657b7d1eea35334ed44 inherit pub_methods_class_server"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server.html#a9fc4c94bf5687657b7d1eea35334ed44">Server</a> (QObject *parent=0, int p_port=1337)</td></tr>
+<tr class="memdesc:a9fc4c94bf5687657b7d1eea35334ed44 inherit pub_methods_class_server"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor zum Erzeugen einer Server-Instanz.  <a href="#a9fc4c94bf5687657b7d1eea35334ed44">Mehr ...</a><br /></td></tr>
+<tr class="separator:a9fc4c94bf5687657b7d1eea35334ed44 inherit pub_methods_class_server"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Öffentliche, statische Methoden</h2></td></tr>
+<tr class="memitem:a631b306cacf6c59b6185152f8ea25fa3"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a631b306cacf6c59b6185152f8ea25fa3">check</a> (<a class="el" href="class_server.html#a2b2ff2c4678bdca3599c3feb5efdaff7">Cards</a> &amp;p_cards)</td></tr>
+<tr class="memdesc:a631b306cacf6c59b6185152f8ea25fa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Überprüft ob eine Liste aus Karten ein Set bilden.  <a href="#a631b306cacf6c59b6185152f8ea25fa3">Mehr ...</a><br /></td></tr>
+<tr class="separator:a631b306cacf6c59b6185152f8ea25fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Weitere Geerbte Elemente</h2></td></tr>
+<tr class="inherit_header pro_types_class_server"><td colspan="2" onclick="javascript:toggleInherit('pro_types_class_server')"><img src="closed.png" alt="-"/>&#160;Geschützte Typen geerbt von <a class="el" href="class_server.html">Server</a></td></tr>
+<tr class="memitem:a2b2ff2c4678bdca3599c3feb5efdaff7 inherit pro_types_class_server"><td class="memItemLeft" align="right" valign="top">typedef std::list&lt; <a class="el" href="class_card.html">Card</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server.html#a2b2ff2c4678bdca3599c3feb5efdaff7">Cards</a></td></tr>
+<tr class="memdesc:a2b2ff2c4678bdca3599c3feb5efdaff7 inherit pro_types_class_server"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typdefinition Cards.  <a href="#a2b2ff2c4678bdca3599c3feb5efdaff7">Mehr ...</a><br /></td></tr>
+<tr class="separator:a2b2ff2c4678bdca3599c3feb5efdaff7 inherit pro_types_class_server"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31786b51863a753101d409d1e14c0b9a inherit pro_types_class_server"><td class="memItemLeft" align="right" valign="top">typedef std::tuple&lt; QTcpSocket *, short, <a class="el" href="class_server.html#a2b2ff2c4678bdca3599c3feb5efdaff7">Cards</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server.html#a31786b51863a753101d409d1e14c0b9a">Client</a></td></tr>
+<tr class="memdesc:a31786b51863a753101d409d1e14c0b9a inherit pro_types_class_server"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typdefinition <a class="el" href="class_client.html" title="Die abstrakte Klasse Client kümmert sich um die Verbindung zum Server und macht so ein Spielen möglic...">Client</a>.  <a href="#a31786b51863a753101d409d1e14c0b9a">Mehr ...</a><br /></td></tr>
+<tr class="separator:a31786b51863a753101d409d1e14c0b9a inherit pro_types_class_server"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2642184a6bcfa2be2b0670e27dcf1e18 inherit pro_types_class_server"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="class_server.html#a31786b51863a753101d409d1e14c0b9a">Client</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server.html#a2642184a6bcfa2be2b0670e27dcf1e18">Clients</a></td></tr>
+<tr class="memdesc:a2642184a6bcfa2be2b0670e27dcf1e18 inherit pro_types_class_server"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typdefinition Clients.  <a href="#a2642184a6bcfa2be2b0670e27dcf1e18">Mehr ...</a><br /></td></tr>
+<tr class="separator:a2642184a6bcfa2be2b0670e27dcf1e18 inherit pro_types_class_server"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_class_server"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_server')"><img src="closed.png" alt="-"/>&#160;Geschützte Attribute geerbt von <a class="el" href="class_server.html">Server</a></td></tr>
+<tr class="memitem:ab5a2930921b8b38e303934a9a4d0bc41 inherit pro_attribs_class_server"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_server.html#a2642184a6bcfa2be2b0670e27dcf1e18">Clients</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server.html#ab5a2930921b8b38e303934a9a4d0bc41">m_clients</a></td></tr>
+<tr class="memdesc:ab5a2930921b8b38e303934a9a4d0bc41 inherit pro_attribs_class_server"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liste aus allen verbundenen Clients.  <a href="#ab5a2930921b8b38e303934a9a4d0bc41">Mehr ...</a><br /></td></tr>
+<tr class="separator:ab5a2930921b8b38e303934a9a4d0bc41 inherit pro_attribs_class_server"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f34d45e9f5cae0325e2b5ecc80bc2b5 inherit pro_attribs_class_server"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_packet_handler.html">PacketHandler</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server.html#a1f34d45e9f5cae0325e2b5ecc80bc2b5">m_packetHandler</a></td></tr>
+<tr class="memdesc:a1f34d45e9f5cae0325e2b5ecc80bc2b5 inherit pro_attribs_class_server"><td class="mdescLeft">&#160;</td><td class="mdescRight">Paketverwalter für ein- und ausgehende Pakete.  <a href="#a1f34d45e9f5cae0325e2b5ecc80bc2b5">Mehr ...</a><br /></td></tr>
+<tr class="separator:a1f34d45e9f5cae0325e2b5ecc80bc2b5 inherit pro_attribs_class_server"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Die Klasse <a class="el" href="class_controller.html" title="Die Klasse Controller ist für den kompletten Spielverlauf zuständig.  Sie regelt, wann welcher Client...">Controller</a> ist für den kompletten Spielverlauf zuständig.<br />
+ Sie regelt, wann welcher <a class="el" href="class_client.html" title="Die abstrakte Klasse Client kümmert sich um die Verbindung zum Server und macht so ein Spielen möglic...">Client</a> welche Pakete empfängt, wann das Spiel zu Ende ist/anfängt und<br />
+ wenn Karten nachgelegt werden sollen. </p>
+</div><h2 class="groupheader">Beschreibung der Konstruktoren und Destruktoren</h2>
+<a class="anchor" id="aa3d04afa037846c8eea68ccb37159760"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Controller::Controller </td>
+          <td>(</td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>p_parent</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Konstruktor zum Erzeugen einer Controller-Instanz. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_parent</td><td>Elternteil des Controllers </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentation der Elementfunktionen</h2>
+<a class="anchor" id="a631b306cacf6c59b6185152f8ea25fa3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Controller::check </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_server.html#a2b2ff2c4678bdca3599c3feb5efdaff7">Server::Cards</a> &amp;&#160;</td>
+          <td class="paramname"><em>p_cards</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Überprüft ob eine Liste aus Karten ein Set bilden. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_cards</td><td>Liste aus zu überprüfenden Karten </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Wahrheitswert der angibt, ob die Karten ein Set bilden </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad54697994dab06b6340cd674af53f7e2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::draw </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>p_count</em> = <code>3</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Zieht eine bestimmte Anzahl zufälliger Karten aus dem Deck und legt sie aufs Spielfeld.<br />
+ Danach wird eine Spielfeld-Synchronisation ausgeführt. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_count</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0283cf55f555625b3df2cb0b3557d61b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::retrieveClick </td>
+          <td>(</td>
+          <td class="paramtype">QTcpSocket *&#160;</td>
+          <td class="paramname"><em>p_client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QByteArray&#160;</td>
+          <td class="paramname"><em>p_cards</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wird aufgerufen, wenn ein Set ausgewählt wurde.<br />
+ Das Set wird überprüft und dementsprechend Punkte gutgeschrieben oder abgezogen. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_client</td><td>Spieler, der das Set ausgewählt hat </td></tr>
+    <tr><td class="paramname">p_cards</td><td>Die ausgewählten Karten </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Siehe auch</dt><dd><a class="el" href="class_packet_handler.html#a8cb91da2e7e174f5b781d5338a54427e" title="Signal das emittiert wird, wenn ein Klick-Paket verarbeitet wird. ">PacketHandler::readClick</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a74bfe4153a8b5d66621bb19c76767d8c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::retrievePlayerTurn </td>
+          <td>(</td>
+          <td class="paramtype">QTcpSocket *&#160;</td>
+          <td class="paramname"><em>p_socket</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wird aufgerufen, sobald ein Spieler ein Set auswählen möchte. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_socket</td><td><a class="el" href="class_client.html" title="Die abstrakte Klasse Client kümmert sich um die Verbindung zum Server und macht so ein Spielen möglic...">Client</a>, dem das Anklicken der Karten gewährt ist </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Siehe auch</dt><dd><a class="el" href="class_packet_handler.html#aceaa87f977376e769e840db3e0756bfe" title="Signal das emittiert wird, wenn das Spieler-Am-Zug-Paket verarbeitet wird. ">PacketHandler::readTurnPacket</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a07ee1874817ee0abd630e846e7b37ea9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::sendGameStartedPacket </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sendet das Paket, um das Spiel zu starten. </p>
+<dl class="section see"><dt>Siehe auch</dt><dd><a class="el" href="class_packet_handler.html#aef3b383774fb1894dcd99dd40b3f735a" title="Erzeugt eine Paket das den Start des Spiels darstellt. ">PacketHandler::makeGameStartedPacket</a> </dd></dl>
+
+<p>Implementiert <a class="el" href="class_server.html#a1be346a3252468e445f8f809d1c912e7">Server</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7b451f4eb09398e825910d02e73f8789"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::showStartButton </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wird emittiert, um den Startbutton auf dem Hauptfenster anzuzeigen. </p>
+<dl class="section see"><dt>Siehe auch</dt><dd><a class="el" href="class_window.html#ab182caf7adf8a0227b8758cc37127b10" title="Wird aufgerufen, wenn der Start-Button angezeigt werden soll. ">Window::retrieveShowStartButton</a> </dd></dl>
+
+</div>
+</div>
+<hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
+<li>src/<a class="el" href="controller_8hpp_source.html">controller.hpp</a></li>
+<li>src/<a class="el" href="controller_8cpp.html">controller.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_controller.html">Controller</a></li>
+    <li class="footer">Erzeugt am Mon Jan 12 2015 01:04:01 für EasySet von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

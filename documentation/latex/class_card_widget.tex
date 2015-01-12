@@ -1,0 +1,130 @@
+\hypertarget{class_card_widget}{}\section{Card\+Widget Klassenreferenz}
+\label{class_card_widget}\index{Card\+Widget@{Card\+Widget}}
+
+
+Die grafische Implementierung der Klasse \hyperlink{class_card}{Card}.  
+
+
+
+
+{\ttfamily \#include $<$cardwidget.\+hpp$>$}
+
+Klassendiagramm für Card\+Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_card_widget}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_card_widget_abdf86e7c69cb8d15076a84f61d277797}{unselect} ()
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, wenn eine Karte \char`\"{}entwählt\char`\"{} werden soll. \end{DoxyCompactList}\item 
+void \hyperlink{class_card_widget_a67c140043176fa3a911b05d5c11b2115}{can\+Click} (bool p\+\_\+val)
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, um festzulegen, ob man das Card\+Widgets anklicken kann oder eben nicht. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signale}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_card_widget_ab3f3a9b457b76a117c218cc1993ee1e4}{clicked} ()
+\begin{DoxyCompactList}\small\item\em Signal das emittiert wird, sobald ein Mausklick durchgeführt wird. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_card_widget_a7e385234a42404db9e4d14a9d4241e66}{Card\+Widget} (short p\+\_\+color, short p\+\_\+shape, short p\+\_\+number, short p\+\_\+opacity, Q\+Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Konstruktor um eine Card\+Widget-\/\+Instanz zu erzeugen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+Die grafische Implementierung der Klasse \hyperlink{class_card}{Card}. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_card}{Card} 
+\end{DoxySeeAlso}
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{class_card_widget_a7e385234a42404db9e4d14a9d4241e66}{}\index{Card\+Widget@{Card\+Widget}!Card\+Widget@{Card\+Widget}}
+\index{Card\+Widget@{Card\+Widget}!Card\+Widget@{Card\+Widget}}
+\subsubsection[{Card\+Widget}]{\setlength{\rightskip}{0pt plus 5cm}Card\+Widget\+::\+Card\+Widget (
+\begin{DoxyParamCaption}
+\item[{short}]{p\+\_\+color, }
+\item[{short}]{p\+\_\+shape, }
+\item[{short}]{p\+\_\+number, }
+\item[{short}]{p\+\_\+opacity, }
+\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{class_card_widget_a7e385234a42404db9e4d14a9d4241e66}
+
+
+Konstruktor um eine Card\+Widget-\/\+Instanz zu erzeugen. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+color} & Farbe des Card\+Wudgets \\
+\hline
+{\em p\+\_\+shape} & Form des Card\+Widgets \\
+\hline
+{\em p\+\_\+number} & Anzahl des Card\+Widgets \\
+\hline
+{\em p\+\_\+opacity} & Einfärbung des Card\+Widgets \\
+\hline
+{\em parent} & Elternteil des Card\+Widgets \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{enums_8hpp_ab87bacfdad76e61b9412d7124be44c1c}{Color} 
+
+\hyperlink{enums_8hpp_a55b506070847a13554f8b879c1bfb37c}{Shape} 
+
+\hyperlink{enums_8hpp_ad1fb407b73d9c6e54eec2180d3bc4d48}{Number} 
+
+\hyperlink{enums_8hpp_a31841bed26ecf2fc5a6253eb838aac4b}{Opacity} 
+\end{DoxySeeAlso}
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{class_card_widget_a67c140043176fa3a911b05d5c11b2115}{}\index{Card\+Widget@{Card\+Widget}!can\+Click@{can\+Click}}
+\index{can\+Click@{can\+Click}!Card\+Widget@{Card\+Widget}}
+\subsubsection[{can\+Click}]{\setlength{\rightskip}{0pt plus 5cm}void Card\+Widget\+::can\+Click (
+\begin{DoxyParamCaption}
+\item[{bool}]{p\+\_\+val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{class_card_widget_a67c140043176fa3a911b05d5c11b2115}
+
+
+Wird aufgerufen, um festzulegen, ob man das Card\+Widgets anklicken kann oder eben nicht. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+val} & Wahrheitswert der angibt, ob man das Card\+Widgets anklicken kann \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_card_widget_ab3f3a9b457b76a117c218cc1993ee1e4}{}\index{Card\+Widget@{Card\+Widget}!clicked@{clicked}}
+\index{clicked@{clicked}!Card\+Widget@{Card\+Widget}}
+\subsubsection[{clicked}]{\setlength{\rightskip}{0pt plus 5cm}void Card\+Widget\+::clicked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{class_card_widget_ab3f3a9b457b76a117c218cc1993ee1e4}
+
+
+Signal das emittiert wird, sobald ein Mausklick durchgeführt wird. 
+
+\hypertarget{class_card_widget_abdf86e7c69cb8d15076a84f61d277797}{}\index{Card\+Widget@{Card\+Widget}!unselect@{unselect}}
+\index{unselect@{unselect}!Card\+Widget@{Card\+Widget}}
+\subsubsection[{unselect}]{\setlength{\rightskip}{0pt plus 5cm}void Card\+Widget\+::unselect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{class_card_widget_abdf86e7c69cb8d15076a84f61d277797}
+
+
+Wird aufgerufen, wenn eine Karte \char`\"{}entwählt\char`\"{} werden soll. 
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{cardwidget_8hpp}{cardwidget.\+hpp}\item 
+src/\hyperlink{cardwidget_8cpp}{cardwidget.\+cpp}\end{DoxyCompactItemize}

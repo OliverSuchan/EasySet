@@ -305,6 +305,7 @@ void Controller::retrieveClick(QTcpSocket *p_client, QByteArray p_cards)
     else
     {
         std::get<1>(client)--;
+        deductScore();
         sendScoreboard();
     }
     if(m_field.size() > 12)

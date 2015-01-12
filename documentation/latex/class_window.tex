@@ -1,0 +1,313 @@
+\hypertarget{class_window}{}\section{Window Klassenreferenz}
+\label{class_window}\index{Window@{Window}}
+
+
+Die Singleton-\/\+Klasse \hyperlink{class_window}{Window} ist die Haupt\+G\+U\+I.~\newline
+ Dort findet das Spiel so wirklich für die Spieler statt.  
+
+
+
+
+{\ttfamily \#include $<$window.\+hpp$>$}
+
+Klassendiagramm für Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_window}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_window_a5b62d2f0db72e3aad9d9b434fb692099}{card\+Clicked} ()
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, wenn eine Karte angeklickt wird. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_acbd3c3b8edec3bd791c9f8d3e1ed3042}{client\+Disconnected} ()
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, wenn die Verbindung zum \hyperlink{class_server}{Server} unterbrochen/ getrennt wird. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_a0c75a360bfab238425c2e0616151fb56}{retrieve\+Field} (Q\+Byte\+Array p\+\_\+field)
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, wenn das Spielfeldsynchronisations-\/\+Paket empfangen wird. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_af7ad0380c530c760cf23a63a41dc47f6}{retrieve\+Deck\+Length} (short p\+\_\+deck\+Length)
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, wenn das Deckgröße-\/\+Paket empfangen wird. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_a4f216b408b601635457f24f1662cb07b}{retrieve\+Scores} (Q\+Byte\+Array p\+\_\+scores)
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, wenn das Punktestand-\/\+Paket empfangen wird. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_a9ee18fce7c1aa1c4699b2e279b71f3a8}{retrieve\+Game\+Started} ()
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, wenn das Spielstarten-\/\+Paket empfangen wird. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_ae8cc4019b78c72f11011af84c2f7dd5a}{retrieve\+Game\+Finished} ()
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, wenn das Spielbeenden-\/\+Paket empfangen wird. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_ab182caf7adf8a0227b8758cc37127b10}{retrieve\+Show\+Start\+Button} ()
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, wenn der Start-\/\+Button angezeigt werden soll. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_a73d77bc7266516a16a9cdeb35db957f5}{retrieve\+Unlock} ()
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, wenn das Eingabenentsperr-\/\+Paket emfpangen wird. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_a3b749278c0ca463b77df58e7e946142f}{retrieve\+Lock} ()
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, wenn das Eingabesperr-\/\+Paket empfangen wird. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signale}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_window_aeec812dd91b692fd9b28296aae58dd22}{unselect\+All} ()
+\begin{DoxyCompactList}\small\item\em Signal das alle Karten entwählt. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_ab5e88ca55b5471f875b222ed853a4e4e}{can\+Click} (bool p\+\_\+val)
+\begin{DoxyCompactList}\small\item\em Signal das den Status der Karten -\/ ob man diese anklicken kann oder nicht -\/ festlegt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_window}{Window} \& \hyperlink{class_window_a27532de1433b896e6586c3a9e045349d}{get\+Instance} ()
+\begin{DoxyCompactList}\small\item\em Liefert die Instanz der Singleton-\/\+Klasse \hyperlink{class_window}{Window}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Öffentliche Attribute}
+\begin{DoxyCompactItemize}
+\item 
+std\+::list$<$ std\+::tuple$<$ \hyperlink{class_player}{Player} $\ast$, Qt\+::\+Key $>$ $>$ \hyperlink{class_window_af408d7d1516a7352c3076e71b8fad7d9}{m\+\_\+players}
+\begin{DoxyCompactList}\small\item\em Liste aus allen aktuellen, lokalen Spielern und deren ausgewählte Taste. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_window_abbf36419d16aa9effd72df4fd8a742fe}{close\+Event} (Q\+Close\+Event $\ast$p\+\_\+close\+Event)
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, wenn der Schließen-\/\+Button des Fensters geklickt wird. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_a580e4141cd01cb4d6d203cfe5c56352b}{key\+Press\+Event} (Q\+Key\+Event $\ast$p\+\_\+key\+Event)
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, wenn eine Taste auf der Tastatur gedrückt wird. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Die Singleton-\/\+Klasse \hyperlink{class_window}{Window} ist die Haupt\+G\+U\+I.~\newline
+ Dort findet das Spiel so wirklich für die Spieler statt. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{class_window_ab5e88ca55b5471f875b222ed853a4e4e}{}\index{Window@{Window}!can\+Click@{can\+Click}}
+\index{can\+Click@{can\+Click}!Window@{Window}}
+\subsubsection[{can\+Click}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::can\+Click (
+\begin{DoxyParamCaption}
+\item[{bool}]{p\+\_\+val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{class_window_ab5e88ca55b5471f875b222ed853a4e4e}
+
+
+Signal das den Status der Karten -\/ ob man diese anklicken kann oder nicht -\/ festlegt. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+val} & Wahrheitswert der angibt, ob die Karten anklickbar sind oder nicht \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_window_a5b62d2f0db72e3aad9d9b434fb692099}{}\index{Window@{Window}!card\+Clicked@{card\+Clicked}}
+\index{card\+Clicked@{card\+Clicked}!Window@{Window}}
+\subsubsection[{card\+Clicked}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::card\+Clicked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{class_window_a5b62d2f0db72e3aad9d9b434fb692099}
+
+
+Wird aufgerufen, wenn eine Karte angeklickt wird. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_card_widget_ab3f3a9b457b76a117c218cc1993ee1e4}{Card\+Widget\+::clicked} 
+\end{DoxySeeAlso}
+\hypertarget{class_window_acbd3c3b8edec3bd791c9f8d3e1ed3042}{}\index{Window@{Window}!client\+Disconnected@{client\+Disconnected}}
+\index{client\+Disconnected@{client\+Disconnected}!Window@{Window}}
+\subsubsection[{client\+Disconnected}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::client\+Disconnected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{class_window_acbd3c3b8edec3bd791c9f8d3e1ed3042}
+
+
+Wird aufgerufen, wenn die Verbindung zum \hyperlink{class_server}{Server} unterbrochen/ getrennt wird. 
+
+\hypertarget{class_window_abbf36419d16aa9effd72df4fd8a742fe}{}\index{Window@{Window}!close\+Event@{close\+Event}}
+\index{close\+Event@{close\+Event}!Window@{Window}}
+\subsubsection[{close\+Event}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::close\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Close\+Event $\ast$}]{p\+\_\+close\+Event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_window_abbf36419d16aa9effd72df4fd8a742fe}
+
+
+Wird aufgerufen, wenn der Schließen-\/\+Button des Fensters geklickt wird. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+close\+Event} & Schließ-\/\+Event \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_window_a27532de1433b896e6586c3a9e045349d}{}\index{Window@{Window}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Window@{Window}}
+\subsubsection[{get\+Instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window} \& Window\+::get\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_window_a27532de1433b896e6586c3a9e045349d}
+
+
+Liefert die Instanz der Singleton-\/\+Klasse \hyperlink{class_window}{Window}. 
+
+\begin{DoxyReturn}{Rückgabe}
+Window-\/\+Instanz 
+\end{DoxyReturn}
+\hypertarget{class_window_a580e4141cd01cb4d6d203cfe5c56352b}{}\index{Window@{Window}!key\+Press\+Event@{key\+Press\+Event}}
+\index{key\+Press\+Event@{key\+Press\+Event}!Window@{Window}}
+\subsubsection[{key\+Press\+Event}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::key\+Press\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Key\+Event $\ast$}]{p\+\_\+key\+Event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_window_a580e4141cd01cb4d6d203cfe5c56352b}
+
+
+Wird aufgerufen, wenn eine Taste auf der Tastatur gedrückt wird. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+key\+Event} & Tasten-\/\+Event \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_window_af7ad0380c530c760cf23a63a41dc47f6}{}\index{Window@{Window}!retrieve\+Deck\+Length@{retrieve\+Deck\+Length}}
+\index{retrieve\+Deck\+Length@{retrieve\+Deck\+Length}!Window@{Window}}
+\subsubsection[{retrieve\+Deck\+Length}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::retrieve\+Deck\+Length (
+\begin{DoxyParamCaption}
+\item[{short}]{p\+\_\+deck\+Length}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{class_window_af7ad0380c530c760cf23a63a41dc47f6}
+
+
+Wird aufgerufen, wenn das Deckgröße-\/\+Paket empfangen wird. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+deck\+Length} & Deckgröße \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_abc467ba059a00877d8fae31672395ac4}{Packet\+Handler\+::read\+Deck\+Length} 
+\end{DoxySeeAlso}
+\hypertarget{class_window_a0c75a360bfab238425c2e0616151fb56}{}\index{Window@{Window}!retrieve\+Field@{retrieve\+Field}}
+\index{retrieve\+Field@{retrieve\+Field}!Window@{Window}}
+\subsubsection[{retrieve\+Field}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::retrieve\+Field (
+\begin{DoxyParamCaption}
+\item[{Q\+Byte\+Array}]{p\+\_\+field}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{class_window_a0c75a360bfab238425c2e0616151fb56}
+
+
+Wird aufgerufen, wenn das Spielfeldsynchronisations-\/\+Paket empfangen wird. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+field} & Spielfeld \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_a7434b94845f0389703fa4d85e8487372}{Packet\+Handler\+::read\+Field} 
+\end{DoxySeeAlso}
+\hypertarget{class_window_ae8cc4019b78c72f11011af84c2f7dd5a}{}\index{Window@{Window}!retrieve\+Game\+Finished@{retrieve\+Game\+Finished}}
+\index{retrieve\+Game\+Finished@{retrieve\+Game\+Finished}!Window@{Window}}
+\subsubsection[{retrieve\+Game\+Finished}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::retrieve\+Game\+Finished (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{class_window_ae8cc4019b78c72f11011af84c2f7dd5a}
+
+
+Wird aufgerufen, wenn das Spielbeenden-\/\+Paket empfangen wird. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_aa47688eb98584d262f5ba2f98f019105}{Packet\+Handler\+::read\+Game\+Finished\+Packet} 
+\end{DoxySeeAlso}
+\hypertarget{class_window_a9ee18fce7c1aa1c4699b2e279b71f3a8}{}\index{Window@{Window}!retrieve\+Game\+Started@{retrieve\+Game\+Started}}
+\index{retrieve\+Game\+Started@{retrieve\+Game\+Started}!Window@{Window}}
+\subsubsection[{retrieve\+Game\+Started}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::retrieve\+Game\+Started (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{class_window_a9ee18fce7c1aa1c4699b2e279b71f3a8}
+
+
+Wird aufgerufen, wenn das Spielstarten-\/\+Paket empfangen wird. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_a84c59146583fc6ee254940cce4377b54}{Packet\+Handler\+::read\+Game\+Started\+Packet} 
+\end{DoxySeeAlso}
+\hypertarget{class_window_a3b749278c0ca463b77df58e7e946142f}{}\index{Window@{Window}!retrieve\+Lock@{retrieve\+Lock}}
+\index{retrieve\+Lock@{retrieve\+Lock}!Window@{Window}}
+\subsubsection[{retrieve\+Lock}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::retrieve\+Lock (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{class_window_a3b749278c0ca463b77df58e7e946142f}
+
+
+Wird aufgerufen, wenn das Eingabesperr-\/\+Paket empfangen wird. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_acba72c3a586146653ad0b6c0851dbc0c}{Packet\+Handler\+::read\+Locked\+Packet} 
+\end{DoxySeeAlso}
+\hypertarget{class_window_a4f216b408b601635457f24f1662cb07b}{}\index{Window@{Window}!retrieve\+Scores@{retrieve\+Scores}}
+\index{retrieve\+Scores@{retrieve\+Scores}!Window@{Window}}
+\subsubsection[{retrieve\+Scores}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::retrieve\+Scores (
+\begin{DoxyParamCaption}
+\item[{Q\+Byte\+Array}]{p\+\_\+scores}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{class_window_a4f216b408b601635457f24f1662cb07b}
+
+
+Wird aufgerufen, wenn das Punktestand-\/\+Paket empfangen wird. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+scores} & Punktestand \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_a766789a5ff926bee167e308b620f8807}{Packet\+Handler\+::read\+Scores} 
+\end{DoxySeeAlso}
+\hypertarget{class_window_ab182caf7adf8a0227b8758cc37127b10}{}\index{Window@{Window}!retrieve\+Show\+Start\+Button@{retrieve\+Show\+Start\+Button}}
+\index{retrieve\+Show\+Start\+Button@{retrieve\+Show\+Start\+Button}!Window@{Window}}
+\subsubsection[{retrieve\+Show\+Start\+Button}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::retrieve\+Show\+Start\+Button (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{class_window_ab182caf7adf8a0227b8758cc37127b10}
+
+
+Wird aufgerufen, wenn der Start-\/\+Button angezeigt werden soll. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_controller_a7b451f4eb09398e825910d02e73f8789}{Controller\+::show\+Start\+Button} 
+\end{DoxySeeAlso}
+\hypertarget{class_window_a73d77bc7266516a16a9cdeb35db957f5}{}\index{Window@{Window}!retrieve\+Unlock@{retrieve\+Unlock}}
+\index{retrieve\+Unlock@{retrieve\+Unlock}!Window@{Window}}
+\subsubsection[{retrieve\+Unlock}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::retrieve\+Unlock (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{class_window_a73d77bc7266516a16a9cdeb35db957f5}
+
+
+Wird aufgerufen, wenn das Eingabenentsperr-\/\+Paket emfpangen wird. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_a309f2c1cd016039c1fe8b38d75b3ef7c}{Packet\+Handler\+::read\+Unlocked\+Packet} 
+\end{DoxySeeAlso}
+\hypertarget{class_window_aeec812dd91b692fd9b28296aae58dd22}{}\index{Window@{Window}!unselect\+All@{unselect\+All}}
+\index{unselect\+All@{unselect\+All}!Window@{Window}}
+\subsubsection[{unselect\+All}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::unselect\+All (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{class_window_aeec812dd91b692fd9b28296aae58dd22}
+
+
+Signal das alle Karten entwählt. 
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\hypertarget{class_window_af408d7d1516a7352c3076e71b8fad7d9}{}\index{Window@{Window}!m\+\_\+players@{m\+\_\+players}}
+\index{m\+\_\+players@{m\+\_\+players}!Window@{Window}}
+\subsubsection[{m\+\_\+players}]{\setlength{\rightskip}{0pt plus 5cm}std\+::list$<$std\+::tuple$<${\bf Player}$\ast$, Qt\+::\+Key$>$ $>$ Window\+::m\+\_\+players}\label{class_window_af408d7d1516a7352c3076e71b8fad7d9}
+
+
+Liste aus allen aktuellen, lokalen Spielern und deren ausgewählte Taste. 
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{window_8hpp}{window.\+hpp}\item 
+src/\hyperlink{window_8cpp}{window.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>EasySet: src/client.hpp Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="EasySet-Icon.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">EasySet
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="namespaces.html"><span>Namensbereiche</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('client_8hpp_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">client.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="client_8hpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;QTcpSocket&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QHostAddress&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">class </span><a class="code" href="class_packet_handler.html">PacketHandler</a>;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">class </span><a class="code" href="class_card.html">Card</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_client.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_client.html">Client</a> : <span class="keyword">public</span> QTcpSocket</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_client.html#a4f9222fa01234b1ebdbe909f13e15744">   21</a></span>&#160;    <a class="code" href="class_packet_handler.html">PacketHandler</a> *<a class="code" href="class_client.html#a4f9222fa01234b1ebdbe909f13e15744">m_packetHandler</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_client.html#ade80139efef3b5a858968ccf20563709">Client</a>(QObject *p_parent = 0, QHostAddress p_ip = QHostAddress::LocalHost, <span class="keywordtype">int</span> p_port = 1337);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_client.html#ac3b60506d2f900a3490a05425f392914">sendClickPacket</a>(QByteArray p_cards) = 0;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_client.html#a62fc6262c8e9f0e9a0b2811a9c6fa8b0">sendTurnPacket</a>() = 0;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_client.html#a1e1df136ba1989a25261aed93a46c6a1">onReadyRead</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="packethandler_8hpp.html">packethandler.hpp</a>&quot;</span></div>
+<div class="ttc" id="packethandler_8hpp_html"><div class="ttname"><a href="packethandler_8hpp.html">packethandler.hpp</a></div></div>
+<div class="ttc" id="class_client_html"><div class="ttname"><a href="class_client.html">Client</a></div><div class="ttdoc">Die abstrakte Klasse Client kümmert sich um die Verbindung zum Server und macht so ein Spielen möglic...</div><div class="ttdef"><b>Definition:</b> client.hpp:12</div></div>
+<div class="ttc" id="class_client_html_a62fc6262c8e9f0e9a0b2811a9c6fa8b0"><div class="ttname"><a href="class_client.html#a62fc6262c8e9f0e9a0b2811a9c6fa8b0">Client::sendTurnPacket</a></div><div class="ttdeci">virtual void sendTurnPacket()=0</div><div class="ttdoc">Sendet ein Paket an den Server das angibt, dass der aktuelle Socket am Zug ist.  (Muss von Klasse Pla...</div></div>
+<div class="ttc" id="class_packet_handler_html"><div class="ttname"><a href="class_packet_handler.html">PacketHandler</a></div><div class="ttdoc">Die PacketHandler-Klasse dient zur Verwaltung von ein- bzw. ausgehenden Paketen.  Werden bestimmte Pa...</div><div class="ttdef"><b>Definition:</b> packethandler.hpp:14</div></div>
+<div class="ttc" id="class_client_html_ac3b60506d2f900a3490a05425f392914"><div class="ttname"><a href="class_client.html#ac3b60506d2f900a3490a05425f392914">Client::sendClickPacket</a></div><div class="ttdeci">virtual void sendClickPacket(QByteArray p_cards)=0</div><div class="ttdoc">Sendet ein Klick-Paket - mit den ausgewählten Karten - an den Server.  (Muss von Klasse Player defini...</div></div>
+<div class="ttc" id="class_client_html_a1e1df136ba1989a25261aed93a46c6a1"><div class="ttname"><a href="class_client.html#a1e1df136ba1989a25261aed93a46c6a1">Client::onReadyRead</a></div><div class="ttdeci">void onReadyRead()</div><div class="ttdoc">Wird aufgerufen, sobald der Buffer mit den eingehenden Paketen lesebereit ist. </div><div class="ttdef"><b>Definition:</b> client.cpp:20</div></div>
+<div class="ttc" id="class_client_html_ade80139efef3b5a858968ccf20563709"><div class="ttname"><a href="class_client.html#ade80139efef3b5a858968ccf20563709">Client::Client</a></div><div class="ttdeci">Client(QObject *p_parent=0, QHostAddress p_ip=QHostAddress::LocalHost, int p_port=1337)</div><div class="ttdoc">Konstruktor zum Erzeugen einer Client-Instanz. </div><div class="ttdef"><b>Definition:</b> client.cpp:3</div></div>
+<div class="ttc" id="class_card_html"><div class="ttname"><a href="class_card.html">Card</a></div><div class="ttdoc">Die Klasse Card stellt das digitale pendant zu den analogen Karten des Spiels Set dar...</div><div class="ttdef"><b>Definition:</b> card.hpp:8</div></div>
+<div class="ttc" id="class_client_html_a4f9222fa01234b1ebdbe909f13e15744"><div class="ttname"><a href="class_client.html#a4f9222fa01234b1ebdbe909f13e15744">Client::m_packetHandler</a></div><div class="ttdeci">PacketHandler * m_packetHandler</div><div class="ttdoc">Paketverwalter für ein- und ausgehende Pakete. </div><div class="ttdef"><b>Definition:</b> client.hpp:21</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="client_8hpp.html">client.hpp</a></li>
+    <li class="footer">Erzeugt am Mon Jan 12 2015 01:03:58 für EasySet von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

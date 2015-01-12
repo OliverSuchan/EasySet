@@ -7,6 +7,7 @@
 #include <QDesktopWidget>
 #include "window.hpp"
 #include "player.hpp"
+#include "ki.hpp"
 #include "controller.hpp"
 
 namespace Ui {
@@ -97,4 +98,5 @@ private slots:
      * @brief Wird aufgerufen, wenn der "Fertig"-Button geklickt wird
      */
     void on_pushButton_8_clicked();
+    void on_pushButton_9_clicked();
 };

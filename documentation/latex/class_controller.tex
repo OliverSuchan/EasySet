@@ -1,0 +1,191 @@
+\hypertarget{class_controller}{}\section{Controller Klassenreferenz}
+\label{class_controller}\index{Controller@{Controller}}
+
+
+Die Klasse \hyperlink{class_controller}{Controller} ist für den kompletten Spielverlauf zuständig.~\newline
+ Sie regelt, wann welcher \hyperlink{class_client}{Client} welche Pakete empfängt, wann das Spiel zu Ende ist/anfängt und~\newline
+ wenn Karten nachgelegt werden sollen.  
+
+
+
+
+{\ttfamily \#include $<$controller.\+hpp$>$}
+
+Klassendiagramm für Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_controller}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_controller_ad54697994dab06b6340cd674af53f7e2}{draw} (unsigned int p\+\_\+count=3)
+\begin{DoxyCompactList}\small\item\em Zieht eine bestimmte Anzahl zufälliger Karten aus dem Deck und legt sie aufs Spielfeld.~\newline
+ Danach wird eine Spielfeld-\/\+Synchronisation ausgeführt. \end{DoxyCompactList}\item 
+void \hyperlink{class_controller_a0283cf55f555625b3df2cb0b3557d61b}{retrieve\+Click} (Q\+Tcp\+Socket $\ast$p\+\_\+client, Q\+Byte\+Array p\+\_\+cards)
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, wenn ein Set ausgewählt wurde.~\newline
+ Das Set wird überprüft und dementsprechend Punkte gutgeschrieben oder abgezogen. \end{DoxyCompactList}\item 
+void \hyperlink{class_controller_a74bfe4153a8b5d66621bb19c76767d8c}{retrieve\+Player\+Turn} (Q\+Tcp\+Socket $\ast$p\+\_\+socket)
+\begin{DoxyCompactList}\small\item\em Wird aufgerufen, sobald ein Spieler ein Set auswählen möchte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signale}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_controller_a7b451f4eb09398e825910d02e73f8789}{show\+Start\+Button} ()
+\begin{DoxyCompactList}\small\item\em Wird emittiert, um den Startbutton auf dem Hauptfenster anzuzeigen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_controller_a07ee1874817ee0abd630e846e7b37ea9}{send\+Game\+Started\+Packet} ()
+\begin{DoxyCompactList}\small\item\em Sendet das Paket, um das Spiel zu starten. \end{DoxyCompactList}\item 
+\hyperlink{class_controller_aa3d04afa037846c8eea68ccb37159760}{Controller} (Q\+Object $\ast$p\+\_\+parent=0)
+\begin{DoxyCompactList}\small\item\em Konstruktor zum Erzeugen einer Controller-\/\+Instanz. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{class_controller_a631b306cacf6c59b6185152f8ea25fa3}{check} (\hyperlink{class_server_a2b2ff2c4678bdca3599c3feb5efdaff7}{Cards} \&p\+\_\+cards)
+\begin{DoxyCompactList}\small\item\em Überprüft ob eine Liste aus Karten ein Set bilden. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+Die Klasse \hyperlink{class_controller}{Controller} ist für den kompletten Spielverlauf zuständig.~\newline
+ Sie regelt, wann welcher \hyperlink{class_client}{Client} welche Pakete empfängt, wann das Spiel zu Ende ist/anfängt und~\newline
+ wenn Karten nachgelegt werden sollen. 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{class_controller_aa3d04afa037846c8eea68ccb37159760}{}\index{Controller@{Controller}!Controller@{Controller}}
+\index{Controller@{Controller}!Controller@{Controller}}
+\subsubsection[{Controller}]{\setlength{\rightskip}{0pt plus 5cm}Controller\+::\+Controller (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{p\+\_\+parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{class_controller_aa3d04afa037846c8eea68ccb37159760}
+
+
+Konstruktor zum Erzeugen einer Controller-\/\+Instanz. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+parent} & Elternteil des Controllers \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{class_controller_a631b306cacf6c59b6185152f8ea25fa3}{}\index{Controller@{Controller}!check@{check}}
+\index{check@{check}!Controller@{Controller}}
+\subsubsection[{check}]{\setlength{\rightskip}{0pt plus 5cm}bool Controller\+::check (
+\begin{DoxyParamCaption}
+\item[{{\bf Server\+::\+Cards} \&}]{p\+\_\+cards}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_controller_a631b306cacf6c59b6185152f8ea25fa3}
+
+
+Überprüft ob eine Liste aus Karten ein Set bilden. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+cards} & Liste aus zu überprüfenden Karten \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Wahrheitswert der angibt, ob die Karten ein Set bilden 
+\end{DoxyReturn}
+\hypertarget{class_controller_ad54697994dab06b6340cd674af53f7e2}{}\index{Controller@{Controller}!draw@{draw}}
+\index{draw@{draw}!Controller@{Controller}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}void Controller\+::draw (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{p\+\_\+count = {\ttfamily 3}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{class_controller_ad54697994dab06b6340cd674af53f7e2}
+
+
+Zieht eine bestimmte Anzahl zufälliger Karten aus dem Deck und legt sie aufs Spielfeld.~\newline
+ Danach wird eine Spielfeld-\/\+Synchronisation ausgeführt. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+count} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_controller_a0283cf55f555625b3df2cb0b3557d61b}{}\index{Controller@{Controller}!retrieve\+Click@{retrieve\+Click}}
+\index{retrieve\+Click@{retrieve\+Click}!Controller@{Controller}}
+\subsubsection[{retrieve\+Click}]{\setlength{\rightskip}{0pt plus 5cm}void Controller\+::retrieve\+Click (
+\begin{DoxyParamCaption}
+\item[{Q\+Tcp\+Socket $\ast$}]{p\+\_\+client, }
+\item[{Q\+Byte\+Array}]{p\+\_\+cards}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{class_controller_a0283cf55f555625b3df2cb0b3557d61b}
+
+
+Wird aufgerufen, wenn ein Set ausgewählt wurde.~\newline
+ Das Set wird überprüft und dementsprechend Punkte gutgeschrieben oder abgezogen. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+client} & Spieler, der das Set ausgewählt hat \\
+\hline
+{\em p\+\_\+cards} & Die ausgewählten Karten \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_a8cb91da2e7e174f5b781d5338a54427e}{Packet\+Handler\+::read\+Click} 
+\end{DoxySeeAlso}
+\hypertarget{class_controller_a74bfe4153a8b5d66621bb19c76767d8c}{}\index{Controller@{Controller}!retrieve\+Player\+Turn@{retrieve\+Player\+Turn}}
+\index{retrieve\+Player\+Turn@{retrieve\+Player\+Turn}!Controller@{Controller}}
+\subsubsection[{retrieve\+Player\+Turn}]{\setlength{\rightskip}{0pt plus 5cm}void Controller\+::retrieve\+Player\+Turn (
+\begin{DoxyParamCaption}
+\item[{Q\+Tcp\+Socket $\ast$}]{p\+\_\+socket}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{class_controller_a74bfe4153a8b5d66621bb19c76767d8c}
+
+
+Wird aufgerufen, sobald ein Spieler ein Set auswählen möchte. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+socket} & \hyperlink{class_client}{Client}, dem das Anklicken der Karten gewährt ist \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_aceaa87f977376e769e840db3e0756bfe}{Packet\+Handler\+::read\+Turn\+Packet} 
+\end{DoxySeeAlso}
+\hypertarget{class_controller_a07ee1874817ee0abd630e846e7b37ea9}{}\index{Controller@{Controller}!send\+Game\+Started\+Packet@{send\+Game\+Started\+Packet}}
+\index{send\+Game\+Started\+Packet@{send\+Game\+Started\+Packet}!Controller@{Controller}}
+\subsubsection[{send\+Game\+Started\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}void Controller\+::send\+Game\+Started\+Packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_controller_a07ee1874817ee0abd630e846e7b37ea9}
+
+
+Sendet das Paket, um das Spiel zu starten. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_packet_handler_aef3b383774fb1894dcd99dd40b3f735a}{Packet\+Handler\+::make\+Game\+Started\+Packet} 
+\end{DoxySeeAlso}
+
+
+Implementiert \hyperlink{class_server_a1be346a3252468e445f8f809d1c912e7}{Server}.
+
+\hypertarget{class_controller_a7b451f4eb09398e825910d02e73f8789}{}\index{Controller@{Controller}!show\+Start\+Button@{show\+Start\+Button}}
+\index{show\+Start\+Button@{show\+Start\+Button}!Controller@{Controller}}
+\subsubsection[{show\+Start\+Button}]{\setlength{\rightskip}{0pt plus 5cm}void Controller\+::show\+Start\+Button (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{class_controller_a7b451f4eb09398e825910d02e73f8789}
+
+
+Wird emittiert, um den Startbutton auf dem Hauptfenster anzuzeigen. 
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{class_window_ab182caf7adf8a0227b8758cc37127b10}{Window\+::retrieve\+Show\+Start\+Button} 
+\end{DoxySeeAlso}
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{controller_8hpp}{controller.\+hpp}\item 
+src/\hyperlink{controller_8cpp}{controller.\+cpp}\end{DoxyCompactItemize}

@@ -89,13 +89,6 @@ private:
     void sendInputUnlocked(QTcpSocket *p_socket = nullptr);
 
     /**
-     * @brief Überprüft ob eine Liste aus Karten ein Set bilden
-     * @param p_cards Liste aus zu überprüfenden Karten
-     * @return Wahrheitswert der angibt, ob die Karten ein Set bilden
-     */
-    bool check(Cards &p_cards);
-
-    /**
      * @brief Berechnet die Anzahl der auf dem Spielfeld liegenden Sets
      * @return Anzahl der Sets auf dem Spielfeld
      */
@@ -127,6 +120,13 @@ public:
      * @see PacketHandler::makeGameStartedPacket
      */
     void sendGameStartedPacket();
+
+    /**
+     * @brief Überprüft ob eine Liste aus Karten ein Set bilden
+     * @param p_cards Liste aus zu überprüfenden Karten
+     * @return Wahrheitswert der angibt, ob die Karten ein Set bilden
+     */
+    static bool check(Cards &p_cards);
 
     /**
      * @brief Konstruktor zum Erzeugen einer Controller-Instanz

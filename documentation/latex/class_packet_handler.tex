@@ -1,0 +1,393 @@
+\hypertarget{class_packet_handler}{}\section{Packet\+Handler Klassenreferenz}
+\label{class_packet_handler}\index{Packet\+Handler@{Packet\+Handler}}
+
+
+Die Packet\+Handler-\/\+Klasse dient zur Verwaltung von ein-\/ bzw. ausgehenden Paketen.~\newline
+ Werden bestimmte Pakettypen erkannt, so werden die entsprechenden Signale emittiert,~\newline
+ und dadurch die Slots in den externen Klassen aufgerufen.  
+
+
+
+
+{\ttfamily \#include $<$packethandler.\+hpp$>$}
+
+Klassendiagramm für Packet\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_packet_handler}
+\end{center}
+\end{figure}
+\subsection*{Signale}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_packet_handler_a7434b94845f0389703fa4d85e8487372}{read\+Field} (Q\+Byte\+Array p\+\_\+field)
+\begin{DoxyCompactList}\small\item\em Signal das emittiert wird, wenn das Spielfeldsynchronisations-\/\+Paket verarbeitet wird. \end{DoxyCompactList}\item 
+void \hyperlink{class_packet_handler_a766789a5ff926bee167e308b620f8807}{read\+Scores} (Q\+Byte\+Array p\+\_\+scores)
+\begin{DoxyCompactList}\small\item\em Signal das emittiert wird, wenn das Punktestandsynchronisations-\/\+Paket verarbeitet wird. \end{DoxyCompactList}\item 
+void \hyperlink{class_packet_handler_a8cb91da2e7e174f5b781d5338a54427e}{read\+Click} (Q\+Tcp\+Socket $\ast$p\+\_\+socket, Q\+Byte\+Array p\+\_\+cards)
+\begin{DoxyCompactList}\small\item\em Signal das emittiert wird, wenn ein Klick-\/\+Paket verarbeitet wird. \end{DoxyCompactList}\item 
+void \hyperlink{class_packet_handler_a84c59146583fc6ee254940cce4377b54}{read\+Game\+Started\+Packet} ()
+\begin{DoxyCompactList}\small\item\em Signal das emittiert wird, wenn das Spielstarten-\/\+Paket verarbeitet wird. \end{DoxyCompactList}\item 
+void \hyperlink{class_packet_handler_aa47688eb98584d262f5ba2f98f019105}{read\+Game\+Finished\+Packet} ()
+\begin{DoxyCompactList}\small\item\em Signal das emittiert wird, wenn das Spielbeenden-\/\+Paket verarbeitet wird. \end{DoxyCompactList}\item 
+void \hyperlink{class_packet_handler_abc467ba059a00877d8fae31672395ac4}{read\+Deck\+Length} (short p\+\_\+deck\+Length)
+\begin{DoxyCompactList}\small\item\em Signal das emittiert wird, wenn das Deckgrößen-\/\+Paket verarbeitet wird. \end{DoxyCompactList}\item 
+void \hyperlink{class_packet_handler_acba72c3a586146653ad0b6c0851dbc0c}{read\+Locked\+Packet} ()
+\begin{DoxyCompactList}\small\item\em Signal das emittiert wird, wenn das Eingabensperr-\/\+Paket verarbeitet wird. \end{DoxyCompactList}\item 
+void \hyperlink{class_packet_handler_a309f2c1cd016039c1fe8b38d75b3ef7c}{read\+Unlocked\+Packet} ()
+\begin{DoxyCompactList}\small\item\em Signal das emittiert wird, wenn das Eingabenentsperr-\/\+Paket verarbeitet wird. \end{DoxyCompactList}\item 
+void \hyperlink{class_packet_handler_aceaa87f977376e769e840db3e0756bfe}{read\+Turn\+Packet} (Q\+Tcp\+Socket $\ast$p\+\_\+socket)
+\begin{DoxyCompactList}\small\item\em Signal das emittiert wird, wenn das Spieler-\/\+Am-\/\+Zug-\/\+Paket verarbeitet wird. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_packet_handler_a4728b3f54723e7f05e947eb56433d4b5}{Packet\+Handler} (Q\+Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Konstruktor zum Erzeugen einer Packet\+Handler-\/\+Instanz. \end{DoxyCompactList}\item 
+void \hyperlink{class_packet_handler_a4d948da50131eeef0d977e0693ff9741}{process\+Packets} (Q\+Byte\+Array p\+\_\+packets, Q\+Tcp\+Socket $\ast$p\+\_\+socket=nullptr)
+\begin{DoxyCompactList}\small\item\em Teilt den Datenstrom in die einzelnen Pakete auf und verarbeitet diese dann. \end{DoxyCompactList}\item 
+Q\+Byte\+Array \hyperlink{class_packet_handler_a9e2e51aa1b548ec1b209ee682bdd4c54}{make\+F\+S\+Packet} (std\+::list$<$ \hyperlink{class_card}{Card} $\ast$ $>$ \&p\+\_\+field)
+\begin{DoxyCompactList}\small\item\em Erzeugt ein Paket für die Spielfeldsynchronisation, anhand einer Liste aus Karte. \end{DoxyCompactList}\item 
+Q\+Byte\+Array \hyperlink{class_packet_handler_abd77784148000bbe33af457c09a05022}{make\+Click\+Packet} (Q\+Byte\+Array p\+\_\+cards)
+\begin{DoxyCompactList}\small\item\em Erzeugt ein Paket das eine Set-\/\+Auswahl darstellt. \end{DoxyCompactList}\item 
+Q\+Byte\+Array \hyperlink{class_packet_handler_a256842b9c4243360441366ae04838b0d}{make\+Scores\+Packet} (Q\+Byte\+Array p\+\_\+scores)
+\begin{DoxyCompactList}\small\item\em Erzeugt ein Paket, für die Punkte-\/\+Synchronisation. \end{DoxyCompactList}\item 
+Q\+Byte\+Array \hyperlink{class_packet_handler_aef3b383774fb1894dcd99dd40b3f735a}{make\+Game\+Started\+Packet} ()
+\begin{DoxyCompactList}\small\item\em Erzeugt eine Paket das den Start des Spiels darstellt. \end{DoxyCompactList}\item 
+Q\+Byte\+Array \hyperlink{class_packet_handler_ad8cdb7008eb99e5dfc5383746d18b4f3}{make\+Game\+Finished\+Packet} ()
+\begin{DoxyCompactList}\small\item\em Erzeugt ein Paket, um das Spielende anzusagen. \end{DoxyCompactList}\item 
+Q\+Byte\+Array \hyperlink{class_packet_handler_a3de99e5e6f714e26f558c99bfdfc6968}{make\+Deck\+Length\+Packet} (short p\+\_\+deck\+Length)
+\begin{DoxyCompactList}\small\item\em Erzeugt ein Paket das die Anzahl der im Deck beinhalteten Karten darstellt. \end{DoxyCompactList}\item 
+Q\+Byte\+Array \hyperlink{class_packet_handler_ad64f92836fdc7415ce7b012065bd985b}{make\+Input\+Locked\+Packet} ()
+\begin{DoxyCompactList}\small\item\em Erzeugt ein Paket das die Sperrung der Eingaben bewirkt. \end{DoxyCompactList}\item 
+Q\+Byte\+Array \hyperlink{class_packet_handler_a49c990160b529af585b201b8690058ef}{make\+Input\+Unlocked\+Packet} ()
+\begin{DoxyCompactList}\small\item\em Erzeugt ein Paket das die Entsperrung der Eingaben bewirkt. \end{DoxyCompactList}\item 
+Q\+Byte\+Array \hyperlink{class_packet_handler_a76a8c456652beb81888ddb02718db34c}{make\+Turn\+Packet} ()
+\begin{DoxyCompactList}\small\item\em Erzeugt ein Paket das angibt, dass ein Spieler ein Set auswählen möchte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Die Packet\+Handler-\/\+Klasse dient zur Verwaltung von ein-\/ bzw. ausgehenden Paketen.~\newline
+ Werden bestimmte Pakettypen erkannt, so werden die entsprechenden Signale emittiert,~\newline
+ und dadurch die Slots in den externen Klassen aufgerufen. 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{class_packet_handler_a4728b3f54723e7f05e947eb56433d4b5}{}\index{Packet\+Handler@{Packet\+Handler}!Packet\+Handler@{Packet\+Handler}}
+\index{Packet\+Handler@{Packet\+Handler}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{Packet\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}Packet\+Handler\+::\+Packet\+Handler (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{class_packet_handler_a4728b3f54723e7f05e947eb56433d4b5}
+
+
+Konstruktor zum Erzeugen einer Packet\+Handler-\/\+Instanz. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em parent} & Elternteil des Packet\+Handlers \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{class_packet_handler_abd77784148000bbe33af457c09a05022}{}\index{Packet\+Handler@{Packet\+Handler}!make\+Click\+Packet@{make\+Click\+Packet}}
+\index{make\+Click\+Packet@{make\+Click\+Packet}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{make\+Click\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Byte\+Array Packet\+Handler\+::make\+Click\+Packet (
+\begin{DoxyParamCaption}
+\item[{Q\+Byte\+Array}]{p\+\_\+cards}
+\end{DoxyParamCaption}
+)}\label{class_packet_handler_abd77784148000bbe33af457c09a05022}
+
+
+Erzeugt ein Paket das eine Set-\/\+Auswahl darstellt. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+cards} & Ausgewählte Karten \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Paket 
+\end{DoxyReturn}
+\hypertarget{class_packet_handler_a3de99e5e6f714e26f558c99bfdfc6968}{}\index{Packet\+Handler@{Packet\+Handler}!make\+Deck\+Length\+Packet@{make\+Deck\+Length\+Packet}}
+\index{make\+Deck\+Length\+Packet@{make\+Deck\+Length\+Packet}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{make\+Deck\+Length\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Byte\+Array Packet\+Handler\+::make\+Deck\+Length\+Packet (
+\begin{DoxyParamCaption}
+\item[{short}]{p\+\_\+deck\+Length}
+\end{DoxyParamCaption}
+)}\label{class_packet_handler_a3de99e5e6f714e26f558c99bfdfc6968}
+
+
+Erzeugt ein Paket das die Anzahl der im Deck beinhalteten Karten darstellt. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+deck\+Length} & Deckgröße \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Paket 
+\end{DoxyReturn}
+\hypertarget{class_packet_handler_a9e2e51aa1b548ec1b209ee682bdd4c54}{}\index{Packet\+Handler@{Packet\+Handler}!make\+F\+S\+Packet@{make\+F\+S\+Packet}}
+\index{make\+F\+S\+Packet@{make\+F\+S\+Packet}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{make\+F\+S\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Byte\+Array Packet\+Handler\+::make\+F\+S\+Packet (
+\begin{DoxyParamCaption}
+\item[{std\+::list$<$ {\bf Card} $\ast$ $>$ \&}]{p\+\_\+field}
+\end{DoxyParamCaption}
+)}\label{class_packet_handler_a9e2e51aa1b548ec1b209ee682bdd4c54}
+
+
+Erzeugt ein Paket für die Spielfeldsynchronisation, anhand einer Liste aus Karte. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+field} & Liste aus Karten -\/ Spielfeld \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Paket 
+\end{DoxyReturn}
+\hypertarget{class_packet_handler_ad8cdb7008eb99e5dfc5383746d18b4f3}{}\index{Packet\+Handler@{Packet\+Handler}!make\+Game\+Finished\+Packet@{make\+Game\+Finished\+Packet}}
+\index{make\+Game\+Finished\+Packet@{make\+Game\+Finished\+Packet}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{make\+Game\+Finished\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Byte\+Array Packet\+Handler\+::make\+Game\+Finished\+Packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_packet_handler_ad8cdb7008eb99e5dfc5383746d18b4f3}
+
+
+Erzeugt ein Paket, um das Spielende anzusagen. 
+
+\begin{DoxyReturn}{Rückgabe}
+Paket 
+\end{DoxyReturn}
+\hypertarget{class_packet_handler_aef3b383774fb1894dcd99dd40b3f735a}{}\index{Packet\+Handler@{Packet\+Handler}!make\+Game\+Started\+Packet@{make\+Game\+Started\+Packet}}
+\index{make\+Game\+Started\+Packet@{make\+Game\+Started\+Packet}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{make\+Game\+Started\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Byte\+Array Packet\+Handler\+::make\+Game\+Started\+Packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_packet_handler_aef3b383774fb1894dcd99dd40b3f735a}
+
+
+Erzeugt eine Paket das den Start des Spiels darstellt. 
+
+\begin{DoxyReturn}{Rückgabe}
+Paket 
+\end{DoxyReturn}
+\hypertarget{class_packet_handler_ad64f92836fdc7415ce7b012065bd985b}{}\index{Packet\+Handler@{Packet\+Handler}!make\+Input\+Locked\+Packet@{make\+Input\+Locked\+Packet}}
+\index{make\+Input\+Locked\+Packet@{make\+Input\+Locked\+Packet}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{make\+Input\+Locked\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Byte\+Array Packet\+Handler\+::make\+Input\+Locked\+Packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_packet_handler_ad64f92836fdc7415ce7b012065bd985b}
+
+
+Erzeugt ein Paket das die Sperrung der Eingaben bewirkt. 
+
+\begin{DoxyReturn}{Rückgabe}
+Paket 
+\end{DoxyReturn}
+\hypertarget{class_packet_handler_a49c990160b529af585b201b8690058ef}{}\index{Packet\+Handler@{Packet\+Handler}!make\+Input\+Unlocked\+Packet@{make\+Input\+Unlocked\+Packet}}
+\index{make\+Input\+Unlocked\+Packet@{make\+Input\+Unlocked\+Packet}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{make\+Input\+Unlocked\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Byte\+Array Packet\+Handler\+::make\+Input\+Unlocked\+Packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_packet_handler_a49c990160b529af585b201b8690058ef}
+
+
+Erzeugt ein Paket das die Entsperrung der Eingaben bewirkt. 
+
+\begin{DoxyReturn}{Rückgabe}
+Paket 
+\end{DoxyReturn}
+\hypertarget{class_packet_handler_a256842b9c4243360441366ae04838b0d}{}\index{Packet\+Handler@{Packet\+Handler}!make\+Scores\+Packet@{make\+Scores\+Packet}}
+\index{make\+Scores\+Packet@{make\+Scores\+Packet}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{make\+Scores\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Byte\+Array Packet\+Handler\+::make\+Scores\+Packet (
+\begin{DoxyParamCaption}
+\item[{Q\+Byte\+Array}]{p\+\_\+scores}
+\end{DoxyParamCaption}
+)}\label{class_packet_handler_a256842b9c4243360441366ae04838b0d}
+
+
+Erzeugt ein Paket, für die Punkte-\/\+Synchronisation. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+scores} & Die Punkte aller Spieler \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Paket 
+\end{DoxyReturn}
+\hypertarget{class_packet_handler_a76a8c456652beb81888ddb02718db34c}{}\index{Packet\+Handler@{Packet\+Handler}!make\+Turn\+Packet@{make\+Turn\+Packet}}
+\index{make\+Turn\+Packet@{make\+Turn\+Packet}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{make\+Turn\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Byte\+Array Packet\+Handler\+::make\+Turn\+Packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_packet_handler_a76a8c456652beb81888ddb02718db34c}
+
+
+Erzeugt ein Paket das angibt, dass ein Spieler ein Set auswählen möchte. 
+
+\begin{DoxyReturn}{Rückgabe}
+Paket 
+\end{DoxyReturn}
+\hypertarget{class_packet_handler_a4d948da50131eeef0d977e0693ff9741}{}\index{Packet\+Handler@{Packet\+Handler}!process\+Packets@{process\+Packets}}
+\index{process\+Packets@{process\+Packets}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{process\+Packets}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Handler\+::process\+Packets (
+\begin{DoxyParamCaption}
+\item[{Q\+Byte\+Array}]{p\+\_\+packets, }
+\item[{Q\+Tcp\+Socket $\ast$}]{p\+\_\+socket = {\ttfamily nullptr}}
+\end{DoxyParamCaption}
+)}\label{class_packet_handler_a4d948da50131eeef0d977e0693ff9741}
+
+
+Teilt den Datenstrom in die einzelnen Pakete auf und verarbeitet diese dann. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+packets} & Datenstrom \\
+\hline
+{\em p\+\_\+socket} & Absender \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Siehe auch}
+process\+Packet 
+\end{DoxySeeAlso}
+\hypertarget{class_packet_handler_a8cb91da2e7e174f5b781d5338a54427e}{}\index{Packet\+Handler@{Packet\+Handler}!read\+Click@{read\+Click}}
+\index{read\+Click@{read\+Click}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{read\+Click}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Handler\+::read\+Click (
+\begin{DoxyParamCaption}
+\item[{Q\+Tcp\+Socket $\ast$}]{p\+\_\+socket, }
+\item[{Q\+Byte\+Array}]{p\+\_\+cards}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{class_packet_handler_a8cb91da2e7e174f5b781d5338a54427e}
+
+
+Signal das emittiert wird, wenn ein Klick-\/\+Paket verarbeitet wird. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+socket} & Absender \\
+\hline
+{\em p\+\_\+cards} & Ausgewählte Karten \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_packet_handler_abc467ba059a00877d8fae31672395ac4}{}\index{Packet\+Handler@{Packet\+Handler}!read\+Deck\+Length@{read\+Deck\+Length}}
+\index{read\+Deck\+Length@{read\+Deck\+Length}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{read\+Deck\+Length}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Handler\+::read\+Deck\+Length (
+\begin{DoxyParamCaption}
+\item[{short}]{p\+\_\+deck\+Length}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{class_packet_handler_abc467ba059a00877d8fae31672395ac4}
+
+
+Signal das emittiert wird, wenn das Deckgrößen-\/\+Paket verarbeitet wird. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+deck\+Length} & Deckgröße \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_packet_handler_a7434b94845f0389703fa4d85e8487372}{}\index{Packet\+Handler@{Packet\+Handler}!read\+Field@{read\+Field}}
+\index{read\+Field@{read\+Field}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{read\+Field}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Handler\+::read\+Field (
+\begin{DoxyParamCaption}
+\item[{Q\+Byte\+Array}]{p\+\_\+field}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{class_packet_handler_a7434b94845f0389703fa4d85e8487372}
+
+
+Signal das emittiert wird, wenn das Spielfeldsynchronisations-\/\+Paket verarbeitet wird. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+field} & Spielfeld \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_packet_handler_aa47688eb98584d262f5ba2f98f019105}{}\index{Packet\+Handler@{Packet\+Handler}!read\+Game\+Finished\+Packet@{read\+Game\+Finished\+Packet}}
+\index{read\+Game\+Finished\+Packet@{read\+Game\+Finished\+Packet}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{read\+Game\+Finished\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Handler\+::read\+Game\+Finished\+Packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{class_packet_handler_aa47688eb98584d262f5ba2f98f019105}
+
+
+Signal das emittiert wird, wenn das Spielbeenden-\/\+Paket verarbeitet wird. 
+
+\hypertarget{class_packet_handler_a84c59146583fc6ee254940cce4377b54}{}\index{Packet\+Handler@{Packet\+Handler}!read\+Game\+Started\+Packet@{read\+Game\+Started\+Packet}}
+\index{read\+Game\+Started\+Packet@{read\+Game\+Started\+Packet}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{read\+Game\+Started\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Handler\+::read\+Game\+Started\+Packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{class_packet_handler_a84c59146583fc6ee254940cce4377b54}
+
+
+Signal das emittiert wird, wenn das Spielstarten-\/\+Paket verarbeitet wird. 
+
+\hypertarget{class_packet_handler_acba72c3a586146653ad0b6c0851dbc0c}{}\index{Packet\+Handler@{Packet\+Handler}!read\+Locked\+Packet@{read\+Locked\+Packet}}
+\index{read\+Locked\+Packet@{read\+Locked\+Packet}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{read\+Locked\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Handler\+::read\+Locked\+Packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{class_packet_handler_acba72c3a586146653ad0b6c0851dbc0c}
+
+
+Signal das emittiert wird, wenn das Eingabensperr-\/\+Paket verarbeitet wird. 
+
+\hypertarget{class_packet_handler_a766789a5ff926bee167e308b620f8807}{}\index{Packet\+Handler@{Packet\+Handler}!read\+Scores@{read\+Scores}}
+\index{read\+Scores@{read\+Scores}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{read\+Scores}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Handler\+::read\+Scores (
+\begin{DoxyParamCaption}
+\item[{Q\+Byte\+Array}]{p\+\_\+scores}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{class_packet_handler_a766789a5ff926bee167e308b620f8807}
+
+
+Signal das emittiert wird, wenn das Punktestandsynchronisations-\/\+Paket verarbeitet wird. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+scores} & Punktestand \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_packet_handler_aceaa87f977376e769e840db3e0756bfe}{}\index{Packet\+Handler@{Packet\+Handler}!read\+Turn\+Packet@{read\+Turn\+Packet}}
+\index{read\+Turn\+Packet@{read\+Turn\+Packet}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{read\+Turn\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Handler\+::read\+Turn\+Packet (
+\begin{DoxyParamCaption}
+\item[{Q\+Tcp\+Socket $\ast$}]{p\+\_\+socket}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{class_packet_handler_aceaa87f977376e769e840db3e0756bfe}
+
+
+Signal das emittiert wird, wenn das Spieler-\/\+Am-\/\+Zug-\/\+Paket verarbeitet wird. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em p\+\_\+socket} & Spieler, der am Zug ist \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_packet_handler_a309f2c1cd016039c1fe8b38d75b3ef7c}{}\index{Packet\+Handler@{Packet\+Handler}!read\+Unlocked\+Packet@{read\+Unlocked\+Packet}}
+\index{read\+Unlocked\+Packet@{read\+Unlocked\+Packet}!Packet\+Handler@{Packet\+Handler}}
+\subsubsection[{read\+Unlocked\+Packet}]{\setlength{\rightskip}{0pt plus 5cm}void Packet\+Handler\+::read\+Unlocked\+Packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{class_packet_handler_a309f2c1cd016039c1fe8b38d75b3ef7c}
+
+
+Signal das emittiert wird, wenn das Eingabenentsperr-\/\+Paket verarbeitet wird. 
+
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{packethandler_8hpp}{packethandler.\+hpp}\item 
+src/\hyperlink{packethandler_8cpp}{packethandler.\+cpp}\end{DoxyCompactItemize}

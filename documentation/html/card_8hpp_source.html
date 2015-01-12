@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>EasySet: src/card.hpp Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="EasySet-Icon.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">EasySet
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="namespaces.html"><span>Namensbereiche</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('card_8hpp_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">card.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="card_8hpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="enums_8hpp.html">enums.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_card.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_card.html">Card</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="comment">//Legt die Klasse Window als Friendklasse fest</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_card.html#a553f958a25683445088050a69d3de8e9">   11</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_window.html">Window</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">//Legt die Klasse Controller als Friendklasse fest</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_card.html#ac3456fd331a58b288082abca310c7a99">   13</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_controller.html">Controller</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_card.html#af88f3ff917c623a87d6604d1ec57fe33">   20</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_card.html#af88f3ff917c623a87d6604d1ec57fe33">m_color</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_card.html#a4e8799ebd7f3faff5c3998c67c106461">   26</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_card.html#a4e8799ebd7f3faff5c3998c67c106461">m_shape</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_card.html#ac4dc3cf042c39c920dda9ea22b9ef751">   32</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_card.html#ac4dc3cf042c39c920dda9ea22b9ef751">m_number</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_card.html#a9ad7a67add760db09f496f16a8873ad8">   38</a></span>&#160;    <span class="keywordtype">short</span> <a class="code" href="class_card.html#a9ad7a67add760db09f496f16a8873ad8">m_opacity</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="class_card.html#ae26b7b28f4f50dab929144c6cb5cb20a">Card</a>(<span class="keywordtype">short</span> p_color, <span class="keywordtype">short</span> p_shape, <span class="keywordtype">short</span> p_number, <span class="keywordtype">short</span> p_opacity);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="class_card.html">Card</a> <a class="code" href="class_card.html#a4fb042401330d63b6f6695076da4f78f">operator+</a>(<a class="code" href="class_card.html">Card</a> &amp;p_card);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">char</span> <a class="code" href="class_card.html#a286395d265732984d23b851b905abb4f">attributesToByte</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">operator</span> char();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cardwidget_8hpp.html">cardwidget.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="window_8hpp.html">window.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="controller_8hpp.html">controller.hpp</a>&quot;</span></div>
+<div class="ttc" id="class_card_html_ae26b7b28f4f50dab929144c6cb5cb20a"><div class="ttname"><a href="class_card.html#ae26b7b28f4f50dab929144c6cb5cb20a">Card::Card</a></div><div class="ttdeci">Card(short p_color, short p_shape, short p_number, short p_opacity)</div><div class="ttdoc">Konstruktor zum Erzeugen einer Card-Instanz. </div><div class="ttdef"><b>Definition:</b> card.cpp:4</div></div>
+<div class="ttc" id="window_8hpp_html"><div class="ttname"><a href="window_8hpp.html">window.hpp</a></div></div>
+<div class="ttc" id="class_window_html"><div class="ttname"><a href="class_window.html">Window</a></div><div class="ttdoc">Die Singleton-Klasse Window ist die HauptGUI.  Dort findet das Spiel so wirklich für die Spieler stat...</div><div class="ttdef"><b>Definition:</b> window.hpp:26</div></div>
+<div class="ttc" id="class_card_html_a4e8799ebd7f3faff5c3998c67c106461"><div class="ttname"><a href="class_card.html#a4e8799ebd7f3faff5c3998c67c106461">Card::m_shape</a></div><div class="ttdeci">short m_shape</div><div class="ttdoc">Form der Karte (Wert im Intervall I = [0;2]) </div><div class="ttdef"><b>Definition:</b> card.hpp:26</div></div>
+<div class="ttc" id="cardwidget_8hpp_html"><div class="ttname"><a href="cardwidget_8hpp.html">cardwidget.hpp</a></div></div>
+<div class="ttc" id="class_controller_html"><div class="ttname"><a href="class_controller.html">Controller</a></div><div class="ttdoc">Die Klasse Controller ist für den kompletten Spielverlauf zuständig.  Sie regelt, wann welcher Client...</div><div class="ttdef"><b>Definition:</b> controller.hpp:18</div></div>
+<div class="ttc" id="class_card_html_a286395d265732984d23b851b905abb4f"><div class="ttname"><a href="class_card.html#a286395d265732984d23b851b905abb4f">Card::attributesToByte</a></div><div class="ttdeci">char attributesToByte()</div><div class="ttdoc">Konvertiert alle Attribute zu einem Byte. </div><div class="ttdef"><b>Definition:</b> card.cpp:17</div></div>
+<div class="ttc" id="class_card_html_a4fb042401330d63b6f6695076da4f78f"><div class="ttname"><a href="class_card.html#a4fb042401330d63b6f6695076da4f78f">Card::operator+</a></div><div class="ttdeci">Card operator+(Card &amp;p_card)</div><div class="ttdoc">Überladener Plus-Operator, um Karten wie Vektoren zu addieren. </div><div class="ttdef"><b>Definition:</b> card.cpp:12</div></div>
+<div class="ttc" id="class_card_html_af88f3ff917c623a87d6604d1ec57fe33"><div class="ttname"><a href="class_card.html#af88f3ff917c623a87d6604d1ec57fe33">Card::m_color</a></div><div class="ttdeci">short m_color</div><div class="ttdoc">Farbe der Karte (Wert im Intervall I = [0;2]) </div><div class="ttdef"><b>Definition:</b> card.hpp:20</div></div>
+<div class="ttc" id="class_card_html_a9ad7a67add760db09f496f16a8873ad8"><div class="ttname"><a href="class_card.html#a9ad7a67add760db09f496f16a8873ad8">Card::m_opacity</a></div><div class="ttdeci">short m_opacity</div><div class="ttdoc">Einfärbung der Karte (Wert im Intervall I = [0;2]) </div><div class="ttdef"><b>Definition:</b> card.hpp:38</div></div>
+<div class="ttc" id="class_card_html_ac4dc3cf042c39c920dda9ea22b9ef751"><div class="ttname"><a href="class_card.html#ac4dc3cf042c39c920dda9ea22b9ef751">Card::m_number</a></div><div class="ttdeci">short m_number</div><div class="ttdoc">Anzahl der Karte (Wert im Intervall I = [0;2]) </div><div class="ttdef"><b>Definition:</b> card.hpp:32</div></div>
+<div class="ttc" id="controller_8hpp_html"><div class="ttname"><a href="controller_8hpp.html">controller.hpp</a></div></div>
+<div class="ttc" id="class_card_html"><div class="ttname"><a href="class_card.html">Card</a></div><div class="ttdoc">Die Klasse Card stellt das digitale pendant zu den analogen Karten des Spiels Set dar...</div><div class="ttdef"><b>Definition:</b> card.hpp:8</div></div>
+<div class="ttc" id="enums_8hpp_html"><div class="ttname"><a href="enums_8hpp.html">enums.hpp</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="card_8hpp.html">card.hpp</a></li>
+    <li class="footer">Erzeugt am Mon Jan 12 2015 01:03:58 für EasySet von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

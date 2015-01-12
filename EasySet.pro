@@ -27,7 +27,8 @@ SOURCES +=\
     src/packethandler.cpp \
     src/server.cpp \
     src/informationwidget.cpp \
-    src/setupwindow.cpp
+    src/setupwindow.cpp \
+    src/ki.cpp
 
 HEADERS  += \
     src/window.hpp \
@@ -40,7 +41,8 @@ HEADERS  += \
     src/packethandler.hpp \
     src/server.hpp \
     src/informationwidget.hpp \
-    src/setupwindow.hpp
+    src/setupwindow.hpp \
+    src/ki.hpp
 
 FORMS    += \
     forms/window.ui \
